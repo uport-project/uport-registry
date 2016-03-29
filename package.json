@@ -1,0 +1,46 @@
+{
+  "name": "uport-registry",
+  "version": "1.0.0",
+  "description": "uPort Registry contracts and JS middleware",
+  "main": "lib/uportregistry.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ConsenSys/uport-registry.git"
+  },
+  "homepage": "https://github.com/ConsenSys/uport-registry",
+  "bugs": {
+    "url": "https://github.com/ConsenSys/uport-registry/issues"
+  },
+  "keywords": [
+    "uPort"
+  ],
+  "author": "ConsenSys",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "*",
+    "babelify": "*",
+    "buffer": "^3.6.0",
+    "brfs" : "*",
+    "chai" : "*",
+    "concat-stream": "^1.5.1",
+    "create-hash": "^1.1.2",
+    "eth-lightwallet": "^1.0.1",
+    "hooked-web3-provider" : "*",
+    "indexof": "*",
+    "vinyl": "^0.5.3"
+  },
+  "scripts": {
+    "build": "browserify -t babelify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
+    "test" : "mocha --reporter spec test/*.js"
+  },
+  "dependencies": {
+    "bluebird": "*",
+    "ether-pudding": "*",
+    "ipfs-api": "2.3.2",
+    "ipfs-js": "0.0.7",
+    "web3": "*"
+  },
+  "authors": [
+    "Christian Lundkvist"
+  ]
+}
