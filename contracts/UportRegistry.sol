@@ -1,4 +1,5 @@
 contract UportRegistry {
+  event AttributesSet(address indexed _sender, uint _timestamp);
 
   uint public version;
   address public previousPublishedVersion;
@@ -12,6 +13,7 @@ contract UportRegistry {
 
   function setAttributes(bytes ipfsHash) {
     ipfsAttributeLookup[msg.sender] = ipfsHash;
+    AttributesSet(msg.sender, now);
   }
 
   function getAttributes(address personaAddress) constant returns(bytes) {
