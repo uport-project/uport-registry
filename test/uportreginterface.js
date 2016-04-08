@@ -23,7 +23,7 @@ describe('Higher-level uportReg APIs', function () {
 
   it("Creates personas and reads info", function(done) {
     
-    this.timeout(10000);
+    this.timeout(20000);
     
     web3.eth.getAccounts(function(err, acct) {
       var personas = [];
