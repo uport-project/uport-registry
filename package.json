@@ -20,25 +20,32 @@
     "babel-preset-es2015": "*",
     "babelify": "*",
     "buffer": "^3.6.0",
-    "brfs" : "*",
-    "chai" : "*",
+    "brfs": "*",
+    "chai": "*",
     "concat-stream": "^1.5.1",
     "create-hash": "^1.1.2",
     "eth-lightwallet": "^1.0.1",
-    "hooked-web3-provider" : "*",
+    "hooked-web3-provider": "*",
     "indexof": "*",
+    "mocha": "^2.4.5",
     "vinyl": "^0.5.3"
   },
   "scripts": {
     "build": "browserify -t babelify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
-    "test" : "mocha --reporter spec test/*.js"
+    "test": "mocha --reporter spec test/*.js"
   },
   "dependencies": {
     "bluebird": "*",
+    "browser-ipfs": "0.0.5",
+    "bs58": "^3.0.0",
     "ether-pudding": "*",
     "ipfs-api": "2.3.2",
     "ipfs-js": "0.0.7",
     "web3": "*"
+  },
+  "browser": {
+    "ipfs-js": "browser-ipfs",
+    "ipfs-api": false
   },
   "authors": [
     "Christian Lundkvist"
