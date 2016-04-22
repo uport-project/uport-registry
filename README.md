@@ -1,5 +1,13 @@
 # uPort Registry
 
+## Deployed contract
+
+A contract is deployed on the ConsenSys testnet in the address
+
+```
+0xa9be82e93628abaac5ab557a9b3b02f711c0151c
+```
+
 ## About
 
 The uPort registry library lets you set the attributes of a uPort identity. The attributes needs to be in a JSON format. Right now we are focusing on

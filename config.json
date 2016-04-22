@@ -13,7 +13,7 @@
     "ipfsHost": "104.236.65.136",
     "ipfsPort": "5001",
     "ipfsWebPort": "8080",
-    "uportRegistry": "0x0"
+    "uportRegistry": "0xa9be82e93628abaac5ab557a9b3b02f711c0151c"
   },
   "local": {
     "web3Host": "localhost",
@@ -23,5 +23,5 @@
     "ipfsWebPort": "8080",
     "uportRegistry": "0x8f5c124e6d9c9095113408e5aac4bb45b13f9c6d"
   },
-  "selection": "local"
+  "selection": "consensys_testnet"
 }

@@ -23,9 +23,9 @@ var web3        = new Web3();
 
 // CLI Args
 var prevRegistryAddr = process.argv[2];
-var target = process.argv[2]; //local, consensys_testnet, mainnet
-var host     = config[config['selection']].serviceHost;
+var host     = config[config['selection']].web3Host;
 var web3port = 8545
+console.log(host)
 
 // Set Defaults
 if (host     === undefined) { host     = 'localhost'; }
@@ -49,7 +49,7 @@ web3.eth.getAccounts(function(err, acct) {
     prevRegistryAddr = '0x0000000000000000000000000000000000000000'
   }
 
-  UportRegistry.new(prevRegistryAddr, {from: acct[0], gas: 500000, gasPrice: 100000000000})
+  UportRegistry.new(prevRegistryAddr, {from: acct[0], gas: 500000, gasPrice: 100000000000000})
     .then(function(uportReg) {
                     
       config[config['selection']].uportRegistry = uportReg.address;
