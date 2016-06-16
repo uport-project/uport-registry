@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 1.2.1 - 2016-06-16 ##
+
+* Pinned `ether-pudding` to version 2.x to avoid incompatibility between `truffle` and `ether-pudding`.
+
 ## Version 1.2.0 - 2016-04-15 ##
 
 * Update to use `browser-ipfs` when running in the browser. Thanks to [pelle](https://github.com/pelle).
