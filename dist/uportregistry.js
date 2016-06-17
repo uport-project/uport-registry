@@ -181,7 +181,7 @@ module.exports.getAttributes = getAttributes;
  * 
  */
 /**
- * bluebird build version 3.3.5
+ * bluebird build version 3.4.0
  * Features enabled: core, race, call_get, generators, map, nodeify, promisify, props, reduce, settle, some, using, timers, filter, any, each
 */
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.Promise=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof _dereq_=="function"&&_dereq_;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof _dereq_=="function"&&_dereq_;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
@@ -2593,9 +2593,22 @@ function map(promises, fn, options, _filter) {
     if (typeof fn !== "function") {
         return apiRejection("expecting a function but got " + util.classString(fn));
     }
-    var limit = typeof options === "object" && options !== null
-        ? options.concurrency
-        : 0;
+
+    var limit = 0;
+    if (options !== undefined) {
+        if (typeof options === "object" && options !== null) {
+            if (typeof options.concurrency !== "number") {
+                return Promise.reject(
+                    new TypeError("'concurrency' must be a number but it is " +
+                                    util.classString(options.concurrency)));
+            }
+            limit = options.concurrency;
+        } else {
+            return Promise.reject(new TypeError(
+                            "options argument must be an object but it is " +
+                             util.classString(options)));
+        }
+    }
     limit = typeof limit === "number" &&
         isFinite(limit) && limit >= 1 ? limit : 0;
     return new MappingPromiseArray(promises, fn, limit, _filter).promise();
@@ -3508,6 +3521,7 @@ _dereq_("./synchronous_inspection")(Promise);
 _dereq_("./join")(
     Promise, PromiseArray, tryConvertToPromise, INTERNAL, debug);
 Promise.Promise = Promise;
+Promise.version = "3.4.0";
 _dereq_('./map.js')(Promise, PromiseArray, apiRejection, tryConvertToPromise, INTERNAL, debug);
 _dereq_('./call_get.js')(Promise);
 _dereq_('./using.js')(Promise, apiRejection, tryConvertToPromise, createContext, INTERNAL, debug);
@@ -4881,7 +4895,11 @@ function getThen(obj) {
 
 var hasProp = {}.hasOwnProperty;
 function isAnyBluebirdPromise(obj) {
-    return hasProp.call(obj, "_promise0");
+    try {
+        return hasProp.call(obj, "_promise0");
+    } catch (e) {
+        return false;
+    }
 }
 
 function doThenable(x, then, context) {
@@ -5019,6 +5037,7 @@ module.exports = function (Promise, apiRejection, tryConvertToPromise,
     var inherits = _dereq_("./util").inherits;
     var errorObj = util.errorObj;
     var tryCatch = util.tryCatch;
+    var NULL = {};
 
     function thrower(e) {
         setTimeout(function(){throw e;}, 0);
@@ -5079,14 +5098,14 @@ module.exports = function (Promise, apiRejection, tryConvertToPromise,
         if (this.promise().isFulfilled()) {
             return this.promise().value();
         }
-        return null;
+        return NULL;
     };
 
     Disposer.prototype.tryDispose = function(inspection) {
         var resource = this.resource();
         var context = this._context;
         if (context !== undefined) context._pushContext();
-        var ret = resource !== null
+        var ret = resource !== NULL
             ? this.doDispose(resource, inspection) : null;
         if (context !== undefined) context._popContext();
         this._promise._unsetDisposable();
@@ -6104,7 +6123,7 @@ Pudding.synchronizeFunction = function(fn) {
               return;
             }
 
-            if (tx_info.blockHash != null) {
+            if (tx_info.blockHash != null && tx_info.blockHash != 0x0) {
               clearInterval(interval);
               accept(tx);
             }
@@ -6136,7 +6155,7 @@ module.exports = Pudding;
 },{"./package.json":8,"bluebird":3}],8:[function(require,module,exports){
 module.exports={
   "name": "ether-pudding",
-  "version": "2.0.7",
+  "version": "2.0.9",
   "description": "Pudding - a (more) delightful Ethereum contract abstraction",
   "author": {
     "name": "Tim Coulter"
@@ -6165,14 +6184,14 @@ module.exports={
     "bluebird": "^3.1.5",
     "node-dir": "^0.1.11"
   },
-  "gitHead": "3f6b2b053bac33498b871a67d870ffcb2cc5e7fc",
+  "gitHead": "c51703ac3203206b6b16fff7ba224a6c94c7397e",
   "bugs": {
     "url": "https://github.com/consensys/ether-pudding/issues"
   },
   "homepage": "https://github.com/consensys/ether-pudding#readme",
-  "_id": "ether-pudding@2.0.7",
-  "_shasum": "7b97b037f5082534119cbac015261b2d1c9f7bd2",
-  "_from": "ether-pudding@*",
+  "_id": "ether-pudding@2.0.9",
+  "_shasum": "4fb388142113e5658b7e293472abeacc204fd701",
+  "_from": "ether-pudding@>=2.0.0 <3.0.0",
   "_npmVersion": "3.3.12",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -6186,15 +6205,16 @@ module.exports={
     }
   ],
   "dist": {
-    "shasum": "7b97b037f5082534119cbac015261b2d1c9f7bd2",
-    "tarball": "https://registry.npmjs.org/ether-pudding/-/ether-pudding-2.0.7.tgz"
+    "shasum": "4fb388142113e5658b7e293472abeacc204fd701",
+    "tarball": "https://registry.npmjs.org/ether-pudding/-/ether-pudding-2.0.9.tgz"
   },
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/ether-pudding-2.0.7.tgz_1460495922540_0.23199270921759307"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/ether-pudding-2.0.9.tgz_1462983436761_0.9193413893226534"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/ether-pudding/-/ether-pudding-2.0.7.tgz"
+  "_resolved": "https://registry.npmjs.org/ether-pudding/-/ether-pudding-2.0.9.tgz",
+  "readme": "ERROR: No README data found!"
 }
 
 },{}],9:[function(require,module,exports){
@@ -8680,7 +8700,7 @@ module.exports = {
 
 },{"./sha3.js":28,"bignumber.js":58,"utf8":93}],30:[function(require,module,exports){
 module.exports={
-    "version": "0.15.3"
+    "version": "0.16.0"
 }
 
 },{}],31:[function(require,module,exports){
@@ -8782,7 +8802,11 @@ Web3.prototype.isAddress = utils.isAddress;
 Web3.prototype.isChecksumAddress = utils.isChecksumAddress;
 Web3.prototype.toChecksumAddress = utils.toChecksumAddress;
 Web3.prototype.isIBAN = utils.isIBAN;
-Web3.prototype.sha3 = sha3;
+
+
+Web3.prototype.sha3 = function(string, options) {
+    return '0x' + sha3(string, options);
+};
 
 /**
  * Transforms direct icap to address
@@ -10088,7 +10112,7 @@ var inputAddressFormatter = function (address) {
     } else if (utils.isAddress(address)) {
         return '0x' + address;
     }
-    throw 'invalid address';
+    throw new Error('invalid address');
 };
 
 
@@ -11708,6 +11732,7 @@ module.exports = Net;
 
 var Method = require('../method');
 var Property = require('../property');
+var formatters = require('../formatters');
 
 function Personal(web3) {
     this._requestManager = web3._requestManager;
@@ -11737,12 +11762,20 @@ var methods = function () {
         name: 'unlockAccount',
         call: 'personal_unlockAccount',
         params: 3,
-        inputFormatter: [null, null, null]
+        inputFormatter: [formatters.inputAddressFormatter, null, null]
+    });
+
+    var lockAccount = new Method({
+        name: 'lockAccount',
+        call: 'personal_lockAccount',
+        params: 1,
+        inputFormatter: [formatters.inputAddressFormatter]
     });
 
     return [
         newAccount,
-        unlockAccount
+        unlockAccount,
+        lockAccount
     ];
 };
 
@@ -11758,7 +11791,7 @@ var properties = function () {
 
 module.exports = Personal;
 
-},{"../method":45,"../property":53}],50:[function(require,module,exports){
+},{"../formatters":39,"../method":45,"../property":53}],50:[function(require,module,exports){
 /*
     This file is part of web3.js.
 

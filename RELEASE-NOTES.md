@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 1.2.2 - 2016-06-17 ##
+
+* Built dist file.
+
 ## Version 1.2.1 - 2016-06-16 ##
 
 * Pinned `ether-pudding` to version 2.x to avoid incompatibility between `truffle` and `ether-pudding`.
