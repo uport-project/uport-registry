@@ -1,6 +1,6 @@
 {
   "name": "uport-registry",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "uPort Registry contracts and JS middleware",
   "main": "lib/uportregistry.js",
   "repository": {
@@ -17,8 +17,6 @@
   "author": "ConsenSys",
   "license": "ISC",
   "devDependencies": {
-    "babel-preset-es2015": "*",
-    "babelify": "*",
     "buffer": "^3.6.0",
     "brfs": "*",
     "chai": "*",
@@ -31,7 +29,7 @@
     "vinyl": "^0.5.3"
   },
   "scripts": {
-    "build": "browserify -t babelify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
+    "build": "browserify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
     "test": "mocha --reporter spec test/*.js"
   },
   "dependencies": {

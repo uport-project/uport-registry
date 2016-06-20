@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 1.2.3 - 2016-06-20 ##
+
+* Remove es6 syntax from source file & skip babelify.
+
 ## Version 1.2.2 - 2016-06-17 ##
 
 * Built dist file.
