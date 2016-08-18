@@ -1,12 +1,11 @@
 # uPort Registry
 
-## Deployed contract
+## Deployed Contracts
 
-A contract is deployed on the ConsenSys testnet in the address
+The registry has been deployed at the following locations:
 
-```
-0xa9be82e93628abaac5ab557a9b3b02f711c0151c
-```
+- ConsenSys Testnet: `0xa9be82e93628abaac5ab557a9b3b02f711c0151c`
+- Mainnet: `0x022f41a91cb30d6a20ffcfde3f84be6c1fa70d60`
 
 ## About
 
