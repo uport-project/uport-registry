@@ -17,14 +17,16 @@
   "author": "ConsenSys",
   "license": "ISC",
   "devDependencies": {
-    "buffer": "^3.6.0",
     "brfs": "*",
+    "buffer": "^3.6.0",
     "chai": "*",
     "concat-stream": "^1.5.1",
     "create-hash": "^1.1.2",
     "eth-lightwallet": "^1.0.1",
+    "ethereumjs-testrpc": "^2.1.0",
     "hooked-web3-provider": "*",
     "indexof": "*",
+    "ipfsd-ctl": "^0.14.0",
     "mocha": "^2.4.5",
     "vinyl": "^0.5.3"
   },
@@ -34,16 +36,9 @@
   },
   "dependencies": {
     "bluebird": "*",
-    "browser-ipfs": "0.0.5",
     "bs58": "^3.0.0",
     "ether-pudding": "^2.0.0",
-    "ipfs-api": "^6.0.3",
-    "ipfs-js": "0.0.7",
     "web3": "*"
-  },
-  "browser": {
-    "ipfs-js": "browser-ipfs",
-    "ipfs-api": false
   },
   "authors": [
     "Christian Lundkvist"
