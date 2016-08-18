@@ -37,7 +37,7 @@
     "browser-ipfs": "0.0.5",
     "bs58": "^3.0.0",
     "ether-pudding": "^2.0.0",
-    "ipfs-api": "^2.3.2",
+    "ipfs-api": "^6.0.3",
     "ipfs-js": "0.0.7",
     "web3": "*"
   },
