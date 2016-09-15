@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 1.2.5 - 2016-09-14 ##
+
+* Add `LICENSE.md`.
+
 ## Version 1.2.4 - 2016-09-14 ##
 
 * Fix Base58 utils.
