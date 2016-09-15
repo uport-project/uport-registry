@@ -1,5 +1,11 @@
 # Release Notes #
 
+## Version 1.2.4 - 2016-09-14 ##
+
+* Fix Base58 utils.
+* Add mainnet contract address to README.
+* Thanks to [niran](https://github.com/niran) for the above.
+
 ## Version 1.2.3 - 2016-06-20 ##
 
 * Remove es6 syntax from source file & skip babelify.
