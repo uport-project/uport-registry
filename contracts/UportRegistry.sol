@@ -1,3 +1,4 @@
+pragma solidity ^0.4.3;
 contract UportRegistry {
   event AttributesSet(address indexed _sender, uint _timestamp);
 

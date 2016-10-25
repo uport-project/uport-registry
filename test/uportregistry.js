@@ -1,40 +1,54 @@
-var assert          = require('chai').assert;
-var Web3            = require('web3');
-var web3            = new Web3();
-var web3prov        = new web3.providers.HttpProvider('http://localhost:8545');
-web3.setProvider(web3prov);
+const assert          = require('chai').assert;
+const Web3            = require('web3');
+const startProviders  = require('./providerUtil')
+const UportRegistry   = require('../build/contracts/UportRegistry.sol.js')
 
-var pudding         = require('ether-pudding')
-pudding.setWeb3(web3);
+const web3 = new Web3()
 
-var UportRegistry = require("../environments/development/contracts/UportRegistry.sol.js").load(pudding);
-UportRegistry = pudding.whisk({binary: UportRegistry.binary, abi: UportRegistry.abi})
+describe('UportRegistry contract', function () {
+  this.timeout(30000)
 
-describe('UportRegistry', function() {
+  let web3Prov
 
-  var ipfsHash = '0x1220aaabbbcccdddeeefff00011122233344';
-  var ipfsHash2 = '0x1220';
+  let ipfsHash = '0x1220aaabbbcccdddeeefff00011122233344';
+  let ipfsHash2 = '0x1220';
 
-  it("should create a new registry and set attributes correctly", function(done) {
-    this.timeout(10000);
 
-    web3.eth.getAccounts(function (err, acct) {
+  before((done) => {
+    startProviders((err, provs) => {
+      if (err) {
+        throw new Error(err)
+      }
+      web3Prov = provs.web3Provider
+      web3.setProvider(web3Prov)
 
-      var previousPublished = acct[2];
+      // Setup for deployment of a new uport registry
+      UportRegistry.setProvider(web3Prov)
 
-      UportRegistry.new(previousPublished, {from:acct[0]}).then(function (reg) {
-        reg.setAttributes(ipfsHash, {from:acct[0]}).then(function () {
-          return reg.getAttributes.call(acct[0]);
-        }).then(function(returnedBytes) {
-          assert.strictEqual(returnedBytes, ipfsHash);
-          reg.setAttributes(ipfsHash2, {from: acct[1]})
-        }).then(function() {
-          return reg.getAttributes.call(acct[1]);
-        }).then(function(returnedBytes2) {
-          assert.strictEqual(returnedBytes2, ipfsHash2);
-          done();
-        }).catch(done);
+      web3.eth.getAccounts((err, accs) => {
+        if (err) {
+          throw new Error(err)
+        }
+        accounts = accs
+        done()
       })
     })
   })
-});
+
+  it('Creates and uses registry', (done) => {
+    UportRegistry.new(accounts[0], {from: accounts[0], gas: 3141592}).then((reg) => {
+      reg.setAttributes(ipfsHash, {from: accounts[0]}).then(() => {
+        return reg.getAttributes.call(accounts[0]);
+      }).then((returnedBytes) => {
+        assert.strictEqual(returnedBytes, ipfsHash);
+        reg.setAttributes(ipfsHash2, {from: accounts[1]})
+      }).then(() => {
+        return reg.getAttributes.call(accounts[1]);
+      }).then((returnedBytes2) => {
+        assert.strictEqual(returnedBytes2, ipfsHash2);
+      done()
+      })
+    }).catch(done)
+  })
+})
+
