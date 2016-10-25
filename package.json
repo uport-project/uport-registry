@@ -17,14 +17,16 @@
   "author": "ConsenSys",
   "license": "Apache-2",
   "devDependencies": {
-    "buffer": "^3.6.0",
     "brfs": "*",
+    "buffer": "^3.6.0",
     "chai": "*",
     "concat-stream": "^1.5.1",
     "create-hash": "^1.1.2",
     "eth-lightwallet": "^1.0.1",
+    "ethereumjs-testrpc": "^3.0.0",
     "hooked-web3-provider": "*",
     "indexof": "*",
+    "ipfsd-ctl": "^0.14.0",
     "mocha": "^2.4.5",
     "vinyl": "^0.5.3"
   },
@@ -36,9 +38,9 @@
     "bluebird": "*",
     "browser-ipfs": "0.0.5",
     "bs58": "^3.0.0",
-    "ether-pudding": "^2.0.0",
+    "ether-pudding": "^3.2.0",
     "ipfs-api": "2.3.2",
-    "ipfs-js": "0.0.7",
+    "ipfs-js": "0.0.11",
     "web3": "*"
   },
   "browser": {
