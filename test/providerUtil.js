@@ -1,9 +1,9 @@
-var TestRPC     = require('ethereumjs-testrpc')
-var ipfsd       = require('ipfsd-ctl')
+const TestRPC     = require('ethereumjs-testrpc')
+const ipfsd       = require('ipfsd-ctl')
 
 let web3Provider, ipfsProvider
 
-module.exports = function (cb) {
+module.exports = (cb) => {
   if (!web3Provider && !ipfsProvider) {
     web3Provider = TestRPC.provider()
     ipfsd.disposableApi((err, ipfsDaemon) => {

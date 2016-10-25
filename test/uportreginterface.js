@@ -50,14 +50,14 @@ describe('Higher-level uportReg APIs', function () {
                     uportReg.setAttributes(regAddr, personaInfo.lebron, {from: accounts[1]}),
                     uportReg.setAttributes(regAddr, personaInfo.shaq, {from: accounts[2]})];
 
-    Promise.all(promises).then(function() {
+    Promise.all(promises).then(() => {
       // Check that we can recover the Persona info
       var promises = [uportReg.getAttributes(regAddr, accounts[0]),
                       uportReg.getAttributes(regAddr, accounts[1]),
                       uportReg.getAttributes(regAddr, accounts[2])];
 
       return Promise.all(promises);
-    }).then(function(returnedPersonaInfo) {
+    }).then((returnedPersonaInfo) => {
       assert.strictEqual(returnedPersonaInfo[0].name, 'Kobe Bryant');
       assert.strictEqual(returnedPersonaInfo[1].name, 'Lebron James');
       assert.strictEqual(returnedPersonaInfo[2].name, "Shaquille O'Neal");

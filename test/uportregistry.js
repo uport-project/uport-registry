@@ -37,14 +37,14 @@ describe('UportRegistry contract', function () {
 
   it('Creates and uses registry', (done) => {
     UportRegistry.new(accounts[0], {from: accounts[0], gas: 3141592}).then((reg) => {
-      reg.setAttributes(ipfsHash, {from: accounts[0]}).then(function () {
+      reg.setAttributes(ipfsHash, {from: accounts[0]}).then(() => {
         return reg.getAttributes.call(accounts[0]);
-      }).then(function(returnedBytes) {
+      }).then((returnedBytes) => {
         assert.strictEqual(returnedBytes, ipfsHash);
         reg.setAttributes(ipfsHash2, {from: accounts[1]})
-      }).then(function() {
+      }).then(() => {
         return reg.getAttributes.call(accounts[1]);
-      }).then(function(returnedBytes2) {
+      }).then((returnedBytes2) => {
         assert.strictEqual(returnedBytes2, ipfsHash2);
       done()
       })
