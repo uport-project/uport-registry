@@ -44,7 +44,11 @@ function setAttributes(registryAddress, personaInfo, txData) {
       if (err !== null) { reject(err); return; }
       var ipfsHashHex = base58ToHex(ipfsHash);
       var reg = UportRegistry.at(registryAddress);
-      reg.setAttributes('0x' + ipfsHashHex, txData, function(tx) {
+      reg.setAttributes('0x' + ipfsHashHex, txData, function(err, tx) {
+        if (err) {
+          reject(err);
+          return;
+        }
         accept(tx);
       });
     });
