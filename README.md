@@ -4,7 +4,7 @@
 
 The registry has been deployed at the following locations:
 
-- ConsenSys Testnet: `0xa9be82e93628abaac5ab557a9b3b02f711c0151c`
+- Ropsten Testnet: `0xb9C1598e24650437a3055F7f66AC1820c419a679`
 - Mainnet: `0x022f41a91cb30d6a20ffcfde3f84be6c1fa70d60`
 
 ## About
