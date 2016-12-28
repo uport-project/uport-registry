@@ -6,6 +6,7 @@ The registry has been deployed at the following locations:
 
 - Ropsten Testnet: `0xb9C1598e24650437a3055F7f66AC1820c419a679`
 - Mainnet: `0x022f41a91cb30d6a20ffcfde3f84be6c1fa70d60`
+- ConsenSys Testnet: `0xa9be82e93628abaac5ab557a9b3b02f711c0151c`
 
 ## About
 
@@ -45,9 +46,6 @@ npm run test
 
 To use the library, first include it in your project:
 
-**Node** 
-
-
 ```javascript
 var uportRegistry = require("uport-registry");
 ```
@@ -58,25 +56,13 @@ should configure you `uportRegistry` object differently (see code
 below for Browser).
 
 ```javascript
-var ipfsApi = require('ipfs-api');
+const IPFS = require('ipfs-mini');
+const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 var web3    = require('web3');
 
-uportRegistry.setIpfsProvider(ipfsApi(<hostname>, <port>));
-uportRegistry.setWeb3Provider(new web3.providers.HttpProvider('http://localhost:8545'));
-```
+// Defaults to above infura ipfs provider
+uportRegistry.setIpfsProvider(ipfs);
 
-**Browser**
-
-```html
-<!-- uportRegistry library. -->
-<script type="text/javascript" src="./dist/uportregistry.js"></script>
-```
-
-Configure your uportRegistry object using the code below. IMPORTANT:
-This code is only valid if you will use it on Browsers (see above).
-
-```javascript
-uportRegistry.setIpfsProvider({host: <hostname>, port: <port>});
 uportRegistry.setWeb3Provider(new web3.providers.HttpProvider('http://localhost:8545'));
 ```
 
