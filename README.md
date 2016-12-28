@@ -45,46 +45,41 @@ npm run test
 
 To use the library, first include it in your project:
 
-**Node** 
-
-
 ```javascript
 var uportRegistry = require("uport-registry");
 ```
 
-Then, setup your `uportRegistry` object using the code
-below. IMPORTANT: if you are using this module for the browser, you
-should configure you `uportRegistry` object differently (see code
-below for Browser).
+#### IPFS Setup
+
+It defaults to the Infura IPFS server but you can easily set it to a local server or use another client library using setIpfsProvider
+
+You can change the ipfs connection details by passing a configuration object containing a 
 
 ```javascript
-var ipfsApi = require('ipfs-api');
-var web3    = require('web3');
-
-uportRegistry.setIpfsProvider(ipfsApi(<hostname>, <port>));
-uportRegistry.setWeb3Provider(new web3.providers.HttpProvider('http://localhost:8545'));
+uportRegistry.setIpfsProvider({ host: '127.0.0.1', port: 5001 });
 ```
 
-**Browser**
-
-```html
-<!-- uportRegistry library. -->
-<script type="text/javascript" src="./dist/uportregistry.js"></script>
-```
-
-Configure your uportRegistry object using the code below. IMPORTANT:
-This code is only valid if you will use it on Browsers (see above).
+We also support a full [ipfs-js-api](https://github.com/ipfs/js-ipfs-api) compliant client:
 
 ```javascript
-uportRegistry.setIpfsProvider({host: <hostname>, port: <port>});
-uportRegistry.setWeb3Provider(new web3.providers.HttpProvider('http://localhost:8545'));
+const ipfsApi = require('ipfs-api');
+uportRegistry.setIpfsProvider(ipfsAPI('localhost', '5001', {protocol: 'http'}));
+```
+
+#### Web3 Provider
+
+You need to pass in a web3 provider to connect to the Ethereum blockchain
+
+```javascript
+var Web3    = require('web3');
+uportRegistry.setWeb3Provider(new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry'));
 ```
 
 ### Setting uportRegistry Attributes
 
 ```javascript
 
-var registryAddress = '0xbf014c4d7697cd83c9451a93648773cf510dc766'
+var registryAddress = '0xb9C1598e24650437a3055F7f66AC1820c419a679'
 var attributes =
 {
    "@context": "http://schema.org",
@@ -107,7 +102,7 @@ uPortRegistry.setAttributes(registryAddress,
 If you have an address of the current uPort identity, you can get their associated attributes using the command `uPortRegistry.getAttributes()`. This command looks up the attributes and returns a JSON structure.
 
 ```javascript
-var registryAddress = '0xbf014c4d7697cd83c9451a93648773cf510dc766'
+var registryAddress = '0xb9C1598e24650437a3055F7f66AC1820c419a679'
 var uportId = '0xdb24b49d8f7e47d30498ee2a846375c3ba771d3e'
 
 uPortRegistry.getAttributes(registryAddress,

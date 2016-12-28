@@ -1,5 +1,11 @@
 # Release Notes #
 
+## Version 1.3.0 - 2016-12-28
+
+* Use ipfs-mini as default
+* Ropsten support
+* Clean up dependencies
+
 ## Version 1.2.5 - 2016-09-14 ##
 
 * Add `LICENSE.md`.
