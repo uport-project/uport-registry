@@ -17,6 +17,7 @@
   "author": "ConsenSys",
   "license": "Apache-2",
   "devDependencies": {
+    "browserify": "^13.1.1",
     "chai": "*",
     "ethereumjs-testrpc": "^3.0.0",
     "ipfsd-ctl": "^0.14.0",
