@@ -24,13 +24,13 @@
     "truffle": "^2.0.8"
   },
   "scripts": {
-    "build": "browserify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
+    "build": "node_modules/.bin/browserify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
     "build-contract": "./node_modules/truffle/cli.js build",
-    "test": "./node_modules/mocha/bin/mocha --reporter spec test/*.js"
+    "test": "node_modules/.bin/mocha --reporter spec test/*.js"
   },
   "dependencies": {
     "bluebird": "*",
-    "bs58": "^3.0.0",
+    "bs58": "^4.0.0",
     "ether-pudding": "^3.2.0",
     "ipfs-mini": "^1.0.1",
     "web3": "*"
