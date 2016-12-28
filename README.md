@@ -6,7 +6,6 @@ The registry has been deployed at the following locations:
 
 - Ropsten Testnet: `0xb9C1598e24650437a3055F7f66AC1820c419a679`
 - Mainnet: `0x022f41a91cb30d6a20ffcfde3f84be6c1fa70d60`
-- ConsenSys Testnet: `0xa9be82e93628abaac5ab557a9b3b02f711c0151c`
 
 ## About
 
@@ -50,17 +49,30 @@ To use the library, first include it in your project:
 var uportRegistry = require("uport-registry");
 ```
 
-It now defaults to the Infura IPFS server but you can easily set it to a local server or use another client library using setProvider
+#### IPFS Setup
+
+It defaults to the Infura IPFS server but you can easily set it to a local server or use another client library using setIpfsProvider
+
+You can change the ipfs connection details by passing a configuration object containing a 
 
 ```javascript
-const IPFS = require('ipfs-mini');
-const ipfs = new IPFS({ host: '127.0.0.1', port: 5001 });
-uportRegistry.setIpfsProvider(ipfs);
+uportRegistry.setIpfsProvider({ host: '127.0.0.1', port: 5001 });
+```
 
-var web3    = require('web3');
+We also support a full [ipfs-js-api](https://github.com/ipfs/js-ipfs-api) compliant client:
 
+```javascript
+const ipfsApi = require('ipfs-api');
+uportRegistry.setIpfsProvider(ipfsAPI('localhost', '5001', {protocol: 'http'}));
+```
 
-uportRegistry.setWeb3Provider(new web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry'));
+#### Web3 Provider
+
+You need to pass in a web3 provider to connect to the Ethereum blockchain
+
+```javascript
+var Web3    = require('web3');
+uportRegistry.setWeb3Provider(new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry'));
 ```
 
 ### Setting uportRegistry Attributes
@@ -90,7 +102,7 @@ uPortRegistry.setAttributes(registryAddress,
 If you have an address of the current uPort identity, you can get their associated attributes using the command `uPortRegistry.getAttributes()`. This command looks up the attributes and returns a JSON structure.
 
 ```javascript
-var registryAddress = '0xbf014c4d7697cd83c9451a93648773cf510dc766'
+var registryAddress = '0xb9C1598e24650437a3055F7f66AC1820c419a679'
 var uportId = '0xdb24b49d8f7e47d30498ee2a846375c3ba771d3e'
 
 uPortRegistry.getAttributes(registryAddress,
