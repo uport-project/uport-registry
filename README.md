@@ -50,27 +50,24 @@ To use the library, first include it in your project:
 var uportRegistry = require("uport-registry");
 ```
 
-Then, setup your `uportRegistry` object using the code
-below. IMPORTANT: if you are using this module for the browser, you
-should configure you `uportRegistry` object differently (see code
-below for Browser).
+It now defaults to the Infura IPFS server but you can easily set it to a local server or use another client library using setProvider
 
 ```javascript
 const IPFS = require('ipfs-mini');
-const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
-var web3    = require('web3');
-
-// Defaults to above infura ipfs provider
+const ipfs = new IPFS({ host: '127.0.0.1', port: 5001 });
 uportRegistry.setIpfsProvider(ipfs);
 
-uportRegistry.setWeb3Provider(new web3.providers.HttpProvider('http://localhost:8545'));
+var web3    = require('web3');
+
+
+uportRegistry.setWeb3Provider(new web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry'));
 ```
 
 ### Setting uportRegistry Attributes
 
 ```javascript
 
-var registryAddress = '0xbf014c4d7697cd83c9451a93648773cf510dc766'
+var registryAddress = '0xb9C1598e24650437a3055F7f66AC1820c419a679'
 var attributes =
 {
    "@context": "http://schema.org",
