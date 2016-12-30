@@ -603,63 +603,140 @@ var SolidityEvent = require("web3/lib/web3/event.js");
 
 },{"web3":187,"web3/lib/web3/event.js":214}],2:[function(require,module,exports){
 (function (Buffer){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 // Required Modules
-// NOTE: The package.json tells webpack (and similar browser tools) to replace
-// ipfs-js with browser-ipfs. The packages are not identical, and we should
-// probably pick one and make it work everywhere.
-var IPFS       = require('ipfs-mini');
+var IPFS = require('ipfs-mini');
 var bs58 = require('bs58');
 var Promise = require('bluebird');
 var Web3 = require('web3');
-var web3 = new Web3();
-var ipfs;
 
-function wrapLowLevelAPI (provider) {
+var RegistryContract = require("../build/contracts/UportRegistry.sol.js");
+var DEFAULT_REGISTRY_ADDRESS = '0xb9C1598e24650437a3055F7f66AC1820c419a679';
+
+function wrapLowLevelAPI(provider) {
   // People using one of the low level api's are likely going to be node users
-  const concat = require('concat-stream')
+  var concat = require('concat-stream');
   return {
-    addJSON: function (object, cb) {
-      return provider.add(new Buffer(JSON.stringify(object)), cb)
+    addJSON: function addJSON(object, cb) {
+      return provider.add(new Buffer(JSON.stringify(object)), cb);
     },
-    catJSON: function (hash, cb) {
-      return provider.cat(hash, {buffer: true}, function(error, stream) {
+    catJSON: function catJSON(hash, cb) {
+      return provider.cat(hash, { buffer: true }, function (error, stream) {
         try {
           stream.pipe(concat(function (data) {
             cb(null, JSON.parse(data.toString()));
-          }))
+          }));
         } catch (parseError) {
           cb(parseError);
         }
-      })
+      });
     }
-  }
+  };
 }
 
-function setIpfsProvider(ipfsProv) {
-  if (typeof ipfsProv === 'object') {
-    if (typeof ipfsProv.addJSON === 'function' && typeof ipfsProv.catJSON === 'function' ) {
-      ipfs = ipfsProv;
-      return;    
-    } else if (typeof ipfsProv.add === 'function' && typeof ipfsProv.cat === 'function' ) {
-      ipfs = wrapLowLevelAPI(ipfsProv);
-      return;
+function configureIpfs(ipfsProv) {
+  if ((typeof ipfsProv === 'undefined' ? 'undefined' : _typeof(ipfsProv)) === 'object') {
+    if (typeof ipfsProv.addJSON === 'function' && typeof ipfsProv.catJSON === 'function') {
+      return ipfsProv;
+    } else if (typeof ipfsProv.add === 'function' && typeof ipfsProv.cat === 'function') {
+      return wrapLowLevelAPI(ipfsProv);
     } else if (ipfsProv.host) {
-      ipfs = new IPFS(ipfs);
-      return;
+      return new IPFS(ipfs);
     }
   }
-  throw new Error('IPFS provider must be either an ipfs-api compliant provider or a configuration hash')
+  throw new Error('IPFS provider must be either an ipfs-api compliant provider or a configuration hash');
 };
 
-// Default to infura ipfs
-setIpfsProvider(new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }));
+var UportRegistry = function () {
 
-var UportRegistry = require("../build/contracts/UportRegistry.sol.js");
+  /**
+  *  Class constructor.
+  *  Creates a new UportRegistry object. The registryAddress is an optional argument and if not specified will be at the moment set to the default ropsten network uport-registry.
+  *
+  *  @memberof        UportRegistry#
+  *  @method          constructor
+  *  @param           {Object}         settings                                                            optional settings containing web3, ipfs and registry settings
+  *  @return          {Object}         self
+  */
+  function UportRegistry() {
+    var settings = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-function setWeb3Provider(web3Prov) {
-  web3.setProvider(web3Prov);
-  UportRegistry.setProvider(web3Prov);
-};
+    _classCallCheck(this, UportRegistry);
+
+    this.ipfs = configureIpfs(settings.ipfs || new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }));
+    RegistryContract.setProvider(settings.web3Prov || new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry-lib'));
+    this.registryContract = RegistryContract.at(settings.registryAddress || DEFAULT_REGISTRY_ADDRESS);
+  }
+
+  /**
+   *  Sets the public profile JSON object stored in IPFS for the given address.
+   *
+   *  @memberof         UportRegistry#
+   *  @method           setAttributes
+   *  @param            {Object}                          Profile object
+   *  @param            {Object}                          Ethereum transaction settings
+   *  @return           {Promise<TX, Error>}            A promise that returns the Ethereum Transaction
+   */
+
+
+  _createClass(UportRegistry, [{
+    key: 'setAttributes',
+    value: function setAttributes(personaInfo, txData) {
+      var self = this;
+      return new Promise(function (accept, reject) {
+        self.ipfs.addJSON(personaInfo, function (err, result) {
+          if (err !== null) {
+            reject(err);return;
+          }
+          var ipfsHash;
+          if (typeof result === 'string') {
+            ipfsHash = result;
+          } else {
+            ipfsHash = result[0] ? result[0].Hash : result.Hash;
+          }
+          var ipfsHashHex = base58ToHex(ipfsHash);
+          self.registryContract.setAttributes('0x' + ipfsHashHex, txData).then(function (tx) {
+            accept(tx);
+          }).catch(reject);
+        });
+      });
+    }
+
+    /**
+     *  Gets the public profile JSON object stored in IPFS for the given address.
+     *
+     *  @memberof         UportRegistry#
+     *  @method           getAttributes
+     *  @return           {Promise<JSON, Error>}            A promise that returns the JSON object stored in IPFS for the given address
+     */
+
+  }, {
+    key: 'getAttributes',
+    value: function getAttributes(personaAddress) {
+      var self = this;
+      return new Promise(function (accept, reject) {
+        self.registryContract.getAttributes.call(personaAddress).then(function (ipfsHashHex) {
+          var ipfsHash = hexToBase58(ipfsHashHex.slice(2));
+          self.ipfs.catJSON(ipfsHash, function (err, personaObj) {
+            if (err !== null) {
+              reject(err);return;
+            }
+            accept(personaObj);
+          });
+        }).catch(reject);
+      });
+    }
+  }]);
+
+  return UportRegistry;
+}();
 
 // These conversion functions are derived from ipfs-js, but use bs58 instead
 // of similar functions in bitcore since bitcore's dependencies can cause
@@ -675,50 +752,7 @@ function hexToBase58(hexStr) {
   return bs58.encode(buf);
 };
 
-function setAttributes(registryAddress, personaInfo, txData) {
-
-  return new Promise( function(accept, reject) {
-    ipfs.addJSON(personaInfo, function(err, result) {
-      if (err !== null) { reject(err); return; }
-      var ipfsHash;
-      if (typeof result === 'string') {
-        ipfsHash = result
-      } else {
-        ipfsHash = result[0] ? result[0].Hash : result.Hash
-      }
-      var ipfsHashHex = base58ToHex(ipfsHash);
-      var reg = UportRegistry.at(registryAddress);
-      reg.setAttributes('0x' + ipfsHashHex, txData).then(function (tx) {
-        accept(tx);
-      }).catch(reject);
-    });
-
-  });
-
-}
-
-function getAttributes(registryAddress, personaAddress) {
-
-  return new Promise( function(accept, reject) {
-
-    var reg = UportRegistry.at(registryAddress);
-    reg.getAttributes.call(personaAddress).then( function(ipfsHashHex) {
-      var ipfsHash = hexToBase58(ipfsHashHex.slice(2));
-      ipfs.catJSON(ipfsHash, function(err, personaObj) {
-        if (err !== null) { reject(err); return; }
-        accept(personaObj);
-      });
-    }).catch(reject);
-
-  });
-
-}
-
-module.exports.setIpfsProvider = setIpfsProvider;
-module.exports.setWeb3Provider = setWeb3Provider;
-module.exports.setAttributes = setAttributes;
-module.exports.getAttributes = getAttributes;
-module.exports.ipfsProvider = ipfs
+module.exports = UportRegistry;
 }).call(this,require("buffer").Buffer)
 },{"../build/contracts/UportRegistry.sol.js":1,"bluebird":20,"bs58":48,"buffer":51,"concat-stream":53,"ipfs-mini":139,"web3":187}],3:[function(require,module,exports){
 var asn1 = exports;
