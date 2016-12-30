@@ -1,5 +1,11 @@
 # Release Notes #
 
+## Version 2.0.0 - 2016-12-30
+
+*BREAKING CHANGE*
+
+* You now need to instantiate a registry with it's settings.
+
 ## Version 1.3.0 - 2016-12-28
 
 * Use ipfs-mini as default
