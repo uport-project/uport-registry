@@ -31,11 +31,9 @@ and an IPFS hash of this structure is stored in the contract as a `bytes` struct
 
 ## uPort Registry Library
 
-The uPort Registry Library allows you to set attributes of and/or view attributes of uPort identities in your Dapp. You need to set a web3 provider using `uPortRegistry.setWeb3Provider` in order to access the Ethereum contracts, and you need to set an Ipfs provider using `uPortRegistry.setIpfsProvider` to access data stored in IPFS.
+The uPort Registry Library allows you to set attributes of and/or view attributes of uPort identities in your Dapp. 
 
 ### Running tests
-
-Remember to have a local IPFS node and Ethereum node running.
 
 ```
 npm run test
@@ -46,7 +44,8 @@ npm run test
 To use the library, first include it in your project:
 
 ```javascript
-var uportRegistry = require("uport-registry");
+var UportRegistry = require("uport-registry");
+var registry = new UportRegistry()
 ```
 
 #### IPFS Setup
@@ -56,30 +55,47 @@ It defaults to the Infura IPFS server but you can easily set it to a local serve
 You can change the ipfs connection details by passing a configuration object containing a 
 
 ```javascript
-uportRegistry.setIpfsProvider({ host: '127.0.0.1', port: 5001 });
+var registry = new UportRegistry({
+  ipfs: { host: '127.0.0.1', port: 5001 }
+});
 ```
 
 We also support a full [ipfs-js-api](https://github.com/ipfs/js-ipfs-api) compliant client:
 
 ```javascript
 const ipfsApi = require('ipfs-api');
-uportRegistry.setIpfsProvider(ipfsAPI('localhost', '5001', {protocol: 'http'}));
+var registry = new UportRegistry({
+  ipfs: ipfsAPI('localhost', '5001', {protocol: 'http'})
+});
 ```
 
-#### Web3 Provider
+#### Customize Web3 Provider
 
-You need to pass in a web3 provider to connect to the Ethereum blockchain
+By default it connects to Infura's ropsten network. But you can change it by passing in your own web3 provider.
 
 ```javascript
 var Web3    = require('web3');
-uportRegistry.setWeb3Provider(new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry'));
+var registry = new UportRegistry({
+  web3prov: new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry')
+});
+```
+
+### Change uport registry address
+
+By default it uses the ropsten uport registry at `0xb9C1598e24650437a3055F7f66AC1820c419a679`. You can change this using the registryAddress setting.
+
+```javascript
+var Web3    = require('web3');
+var registry = new UportRegistry({
+  web3prov: new Web3.providers.HttpProvider('https://mainnet.infura.io/uport-registry'),
+  registryAddress: '0x022f41a91cb30d6a20ffcfde3f84be6c1fa70d60'
+});
 ```
 
 ### Setting uportRegistry Attributes
 
 ```javascript
 
-var registryAddress = '0xb9C1598e24650437a3055F7f66AC1820c419a679'
 var attributes =
 {
    "@context": "http://schema.org",
@@ -90,10 +106,9 @@ var attributes =
              "contentUrl" : "/ipfs/QmUSBKeGYPmeHmLDAEHknAm5mFEvPhy2ekJc6sJwtrQ6nk"}]
 }
 
-uPortRegistry.setAttributes(registryAddress,
-                            attributes,
-                            {from: myAddr}
-                            ).then(function ()
+registry.setAttributes( attributes,
+                        {from: myAddr}
+                      ).then(function ()
                             {console.log('Attributes set.')})
 ```
 
@@ -105,8 +120,6 @@ If you have an address of the current uPort identity, you can get their associat
 var registryAddress = '0xb9C1598e24650437a3055F7f66AC1820c419a679'
 var uportId = '0xdb24b49d8f7e47d30498ee2a846375c3ba771d3e'
 
-uPortRegistry.getAttributes(registryAddress,
-                            uportId
-                            ).then(function (attributes)
+registry.getAttributes(uportId).then(function (attributes)
                             {console.log(attributes)})
 ```
