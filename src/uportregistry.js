@@ -35,7 +35,7 @@ function configureIpfs(ipfsProv) {
     } else if (typeof ipfsProv.add === 'function' && typeof ipfsProv.cat === 'function' ) {
       return wrapLowLevelAPI(ipfsProv);
     } else if (ipfsProv.host) {
-      return new IPFS(ipfs);
+      return new IPFS(ipfsProv);
     }
   }
   throw new Error('IPFS provider must be either an ipfs-api compliant provider or a configuration hash')
