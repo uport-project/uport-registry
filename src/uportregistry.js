@@ -101,10 +101,10 @@ class UportRegistry {
       self.registryContract.getAttributes.call(personaAddress).then( function(ipfsHashHex) {
         var ipfsHash = hexToBase58(ipfsHashHex.slice(2));
         self.ipfs.catJSON(ipfsHash, function(err, personaObj) {
-          if (err !== null) { reject(err); return; }
+          if (err !== null) { reject(new Error('Failed to get object from IPFS')); return; }
           accept(personaObj);
         });
-      }).catch(reject);
+      }).catch(new Error('Failed to get value from registry'));
 
     });
 
