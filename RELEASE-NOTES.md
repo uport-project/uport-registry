@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 2.0.6 - 2017-01-09
+
+* Fixed a bug which caused the `getAttributes()` function to return the IPFS hash rather than the JSON object.
+
 ## Version 2.0.0 - 2016-12-30
 
 *BREAKING CHANGE*
