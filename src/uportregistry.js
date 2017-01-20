@@ -1,7 +1,6 @@
 // Required Modules
 import IPFS from 'ipfs-mini'
 import bs58 from 'bs58'
-var Promise = require('bluebird');
 import Web3 from 'web3'
 
 const RegistryContract = require("../build/contracts/UportRegistry.sol.js");
