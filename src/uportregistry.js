@@ -1,11 +1,11 @@
 // Required Modules
-var IPFS       = require('ipfs-mini');
-var bs58 = require('bs58');
+import IPFS from 'ipfs-mini'
+import bs58 from 'bs58'
 var Promise = require('bluebird');
-var Web3 = require('web3');
+import Web3 from 'web3'
 
-var RegistryContract = require("../build/contracts/UportRegistry.sol.js");
-var DEFAULT_REGISTRY_ADDRESS = '0xb9C1598e24650437a3055F7f66AC1820c419a679';
+const RegistryContract = require("../build/contracts/UportRegistry.sol.js");
+const DEFAULT_REGISTRY_ADDRESS = '0xb9C1598e24650437a3055F7f66AC1820c419a679';
 
 function wrapLowLevelAPI (provider) {
   // People using one of the low level api's are likely going to be node users
@@ -72,13 +72,13 @@ class UportRegistry {
     return new Promise( function(accept, reject) {
       self.ipfs.addJSON(personaInfo, function(err, result) {
         if (err !== null) { reject(err); return; }
-        var ipfsHash;
+        let ipfsHash;
         if (typeof result === 'string') {
           ipfsHash = result
         } else {
           ipfsHash = result[0] ? result[0].Hash : result.Hash
         }
-        var ipfsHashHex = base58ToHex(ipfsHash);
+        const ipfsHashHex = base58ToHex(ipfsHash);
         self.registryContract.setAttributes('0x' + ipfsHashHex, txData).then(function (tx) {
           accept(tx);
         }).catch(reject);
@@ -100,7 +100,7 @@ class UportRegistry {
     return new Promise( function(accept, reject) {
       self.registryContract.getAttributes.call(personaAddress).then( function(ipfsHashHex) {
         if (ipfsHashHex === '0x') reject(new Error('No registry value for given address'))
-        var ipfsHash = hexToBase58(ipfsHashHex.slice(2));
+        const ipfsHash = hexToBase58(ipfsHashHex.slice(2));
         self.ipfs.catJSON(ipfsHash, function(err, personaObj) {
           if (err !== null) { reject(new Error('Failed to get object from IPFS')); return; }
           accept(personaObj);
@@ -118,12 +118,12 @@ class UportRegistry {
 // problems in browsers.
 
 function base58ToHex(b58) {
-  var hexBuf = new Buffer(bs58.decode(b58));
+  const hexBuf = new Buffer(bs58.decode(b58));
   return hexBuf.toString('hex');
 };
 
 function hexToBase58(hexStr) {
-  var buf = new Buffer(hexStr, 'hex');
+  const buf = new Buffer(hexStr, 'hex');
   return bs58.encode(buf);
 };
 
