@@ -33,7 +33,6 @@
     "test": "node_modules/.bin/mocha --reporter spec test/*.js"
   },
   "dependencies": {
-    "bluebird": "*",
     "bs58": "^4.0.0",
     "ether-pudding": "^3.2.0",
     "ipfs-mini": "^1.0.1",

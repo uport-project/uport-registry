@@ -2,21 +2,21 @@
 import IPFS from 'ipfs-mini'
 import bs58 from 'bs58'
 import Web3 from 'web3'
+import RegistryContract from "../build/contracts/UportRegistry.sol.js"
+// People using one of the low level api's are likely going to be node users
+import concat from 'concat-stream'
 
-const RegistryContract = require("../build/contracts/UportRegistry.sol.js");
 const DEFAULT_REGISTRY_ADDRESS = '0xb9C1598e24650437a3055F7f66AC1820c419a679';
 
-function wrapLowLevelAPI (provider) {
-  // People using one of the low level api's are likely going to be node users
-  const concat = require('concat-stream')
+const wrapLowLevelAPI = (provider) => {
   return {
-    addJSON: function (object, cb) {
+    addJSON: (object, cb) => {
       return provider.add(new Buffer(JSON.stringify(object)), cb)
     },
-    catJSON: function (hash, cb) {
-      return provider.cat(hash, {buffer: true}, function(error, stream) {
+    catJSON: (hash, cb) => {
+      return provider.cat(hash, {buffer: true}, (error, stream) => {
         try {
-          stream.pipe(concat(function (data) {
+          stream.pipe(concat((data) => {
             cb(null, JSON.parse(data.toString()));
           }))
         } catch (parseError) {
@@ -27,7 +27,7 @@ function wrapLowLevelAPI (provider) {
   }
 }
 
-function configureIpfs(ipfsProv) {
+const configureIpfs = (ipfsProv) => {
   if (typeof ipfsProv === 'object') {
     if (typeof ipfsProv.addJSON === 'function' && typeof ipfsProv.catJSON === 'function' ) {
       return ipfsProv;
@@ -67,8 +67,8 @@ class UportRegistry {
    *  @return           {Promise<TX, Error>}            A promise that returns the Ethereum Transaction
    */
   setAttributes (personaInfo, txData) {
-    return new Promise( function(accept, reject) {
-      this.ipfs.addJSON(personaInfo, function(err, result) {
+    return new Promise( (accept, reject) => {
+      this.ipfs.addJSON(personaInfo, (err, result) => {
         if (err !== null) { reject(err); return; }
         let ipfsHash;
         if (typeof result === 'string') {
@@ -77,9 +77,10 @@ class UportRegistry {
           ipfsHash = result[0] ? result[0].Hash : result.Hash
         }
         const ipfsHashHex = base58ToHex(ipfsHash);
-        this.registryContract.setAttributes('0x' + ipfsHashHex, txData).then(function (tx) {
-          accept(tx);
-        }).catch(reject);
+        this.registryContract.setAttributes('0x' + ipfsHashHex, txData)
+          .then((tx) => {
+            accept(tx);
+          }).catch(reject);
       });
 
     });
@@ -94,32 +95,35 @@ class UportRegistry {
    *  @return           {Promise<JSON, Error>}            A promise that returns the JSON object stored in IPFS for the given address
    */
   getAttributes (personaAddress) {
-    return new Promise( function(accept, reject) {
-      this.registryContract.getAttributes.call(personaAddress).then( function(ipfsHashHex) {
-        if (ipfsHashHex === '0x') reject(new Error('No registry value for given address'))
-        const ipfsHash = hexToBase58(ipfsHashHex.slice(2));
-        this.ipfs.catJSON(ipfsHash, function(err, personaObj) {
-          if (err !== null) { reject(new Error('Failed to get object from IPFS')); return; }
-          accept(personaObj);
+    return new Promise((accept, reject) => {
+      this.registryContract.getAttributes.call(personaAddress)
+        .then((ipfsHashHex) => {
+          if (ipfsHashHex === '0x') reject(new Error('No registry value for given address'))
+          const ipfsHash = hexToBase58(ipfsHashHex.slice(2));
+          this.ipfs.catJSON(ipfsHash, (err, personaObj) => {
+            if (err !== null) {
+              reject(new Error('Failed to get object from IPFS'));
+              return;
+            }
+            accept(personaObj);
+          });
+        }).catch(() => {
+          reject(new Error('Failed to get value from registry'))
         });
-      }).catch(() => {reject(new Error('Failed to get value from registry'))});
-
     });
-
   }
-
 }
 
 // These conversion functions are derived from ipfs-js, but use bs58 instead
 // of similar functions in bitcore since bitcore's dependencies can cause
 // problems in browsers.
 
-function base58ToHex(b58) {
+const base58ToHex = (b58) => {
   const hexBuf = new Buffer(bs58.decode(b58));
   return hexBuf.toString('hex');
 };
 
-function hexToBase58(hexStr) {
+const hexToBase58 = (hexStr) => {
   const buf = new Buffer(hexStr, 'hex');
   return bs58.encode(buf);
 };
