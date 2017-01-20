@@ -68,9 +68,8 @@ class UportRegistry {
    *  @return           {Promise<TX, Error>}            A promise that returns the Ethereum Transaction
    */
   setAttributes (personaInfo, txData) {
-    var self = this
     return new Promise( function(accept, reject) {
-      self.ipfs.addJSON(personaInfo, function(err, result) {
+      this.ipfs.addJSON(personaInfo, function(err, result) {
         if (err !== null) { reject(err); return; }
         let ipfsHash;
         if (typeof result === 'string') {
@@ -79,7 +78,7 @@ class UportRegistry {
           ipfsHash = result[0] ? result[0].Hash : result.Hash
         }
         const ipfsHashHex = base58ToHex(ipfsHash);
-        self.registryContract.setAttributes('0x' + ipfsHashHex, txData).then(function (tx) {
+        this.registryContract.setAttributes('0x' + ipfsHashHex, txData).then(function (tx) {
           accept(tx);
         }).catch(reject);
       });
@@ -96,12 +95,11 @@ class UportRegistry {
    *  @return           {Promise<JSON, Error>}            A promise that returns the JSON object stored in IPFS for the given address
    */
   getAttributes (personaAddress) {
-    var self = this
     return new Promise( function(accept, reject) {
-      self.registryContract.getAttributes.call(personaAddress).then( function(ipfsHashHex) {
+      this.registryContract.getAttributes.call(personaAddress).then( function(ipfsHashHex) {
         if (ipfsHashHex === '0x') reject(new Error('No registry value for given address'))
         const ipfsHash = hexToBase58(ipfsHashHex.slice(2));
-        self.ipfs.catJSON(ipfsHash, function(err, personaObj) {
+        this.ipfs.catJSON(ipfsHash, function(err, personaObj) {
           if (err !== null) { reject(new Error('Failed to get object from IPFS')); return; }
           accept(personaObj);
         });
