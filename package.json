@@ -36,7 +36,7 @@
     "bs58": "^4.0.0",
     "ether-pudding": "^3.2.0",
     "ipfs-mini": "^1.0.1",
-    "web3": "*"
+    "web3": "^0.18.2"
   },
   "contributors": [
     {
