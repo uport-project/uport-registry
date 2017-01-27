@@ -64,3 +64,7 @@ describe('Higher-level uportReg APIs', function () {
   })
 })
 
+
+
+
+[{"constant":false,"inputs":[{"name":"registrationIdentifier","type":"bytes32"},{"name":"attestor","type":"address"},{"name":"attestee","type":"address"}],"name":"get","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"previousPublishedVersion","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"address"},{"name":"","type":"address"}],"name":"registry","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"registrationIdentifier","type":"bytes32"},{"name":"attestee","type":"address"},{"name":"value","type":"bytes32"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_previousPublishedVersion","type":"address"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"registrationIdentifier","type":"bytes32"},{"indexed":true,"name":"attestor","type":"address"},{"indexed":true,"name":"attestee","type":"address"}],"name":"Set","type":"event"}]
