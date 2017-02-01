@@ -38,6 +38,15 @@ The uPort Registry Library allows you to set attributes of and/or view attribute
 ```
 npm run test
 ```
+Note: The tests currently timeout instead of throwing exceptions
+
+### Development of this code base
+
+After making changes to `contracts/` use `truffle build` to create `.sol.js` js abstraction objects
+
+After making changes to `src/`, build with `npm run build:es5` (this puts them in `lib/`) and *then* run tests.
+
+Finally use `npm run build` to create the `dist/uportregistry.js` file
 
 ### Usage
 

@@ -56,6 +56,10 @@ describe('Higher-level uportReg APIs', function () {
 
       return Promise.all(promises);
     }).then((returnedPersonaInfo) => {
+      // console.log(returnedPersonaInfo[0].name, 'Kobe Bryant');
+      // console.log(returnedPersonaInfo[1].name, 'Lebron James');
+      // console.log(returnedPersonaInfo[2].name, "Shaquille O'Neal");
+
       assert.strictEqual(returnedPersonaInfo[0].name, 'Kobe Bryant');
       assert.strictEqual(returnedPersonaInfo[1].name, 'Lebron James');
       assert.strictEqual(returnedPersonaInfo[2].name, "Shaquille O'Neal");
