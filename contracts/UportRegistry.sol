@@ -1,4 +1,4 @@
-pragma solidity ^0.4.8;
+pragma solidity 0.4.8;
 
 contract UportRegistry{
   uint public version;
@@ -21,7 +21,7 @@ contract UportRegistry{
       registry[registrationIdentifier][msg.sender][attestee] = value;
   }
 
-  function get(bytes32 registrationIdentifier, address attestor, address attestee) returns(bytes32){
+  function get(bytes32 registrationIdentifier, address attestor, address attestee) constant returns(bytes32){
       return registry[registrationIdentifier][attestor][attestee];
   }
 }

@@ -6,7 +6,7 @@ import RegistryContract from "../build/contracts/UportRegistry.sol.js"
 // People using one of the low level api's are likely going to be node users
 import concat from 'concat-stream'
 
-const DEFAULT_REGISTRY_ADDRESS = '0xb9C1598e24650437a3055F7f66AC1820c419a679';
+const DEFAULT_REGISTRY_ADDRESS = '0x42b5b3ef3f021d3ef91070abf176978cb0fee676';
 
 const wrapLowLevelAPI = (provider) => {
   return {
