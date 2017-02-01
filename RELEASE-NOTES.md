@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 3.0.0 - 2017-02-01
+
+* Deployed the new registry contract which has support for badges. Same interface for the setAttributes right now.
+
 ## Version 2.0.6 - 2017-01-09
 
 * Fixed a bug which caused the `getAttributes()` function to return the IPFS hash rather than the JSON object.

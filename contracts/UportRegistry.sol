@@ -1,23 +1,27 @@
-pragma solidity ^0.4.3;
-contract UportRegistry {
-  event AttributesSet(address indexed _sender, uint _timestamp);
+pragma solidity 0.4.8;
 
+contract UportRegistry{
   uint public version;
   address public previousPublishedVersion;
-
-  mapping(address => bytes) public ipfsAttributeLookup;
+  mapping(bytes32 => mapping(address => mapping(address => bytes32))) public registry;
 
   function UportRegistry(address _previousPublishedVersion) {
-    version = 1;
+    version = 2;
     previousPublishedVersion = _previousPublishedVersion;
   }
 
-  function setAttributes(bytes ipfsHash) {
-    ipfsAttributeLookup[msg.sender] = ipfsHash;
-    AttributesSet(msg.sender, now);
+  event Set(
+    bytes32 indexed registrationIdentifier,
+    address indexed attestor,
+    address indexed attestee);
+
+  //create or update
+  function set(bytes32 registrationIdentifier, address attestee, bytes32 value){
+      Set(registrationIdentifier, msg.sender, attestee);
+      registry[registrationIdentifier][msg.sender][attestee] = value;
   }
 
-  function getAttributes(address personaAddress) constant returns(bytes) {
-    return ipfsAttributeLookup[personaAddress];
+  function get(bytes32 registrationIdentifier, address attestor, address attestee) constant returns(bytes32){
+      return registry[registrationIdentifier][attestor][attestee];
   }
 }

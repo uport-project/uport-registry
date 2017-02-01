@@ -6,7 +6,7 @@ import RegistryContract from "../build/contracts/UportRegistry.sol.js"
 // People using one of the low level api's are likely going to be node users
 import concat from 'concat-stream'
 
-const DEFAULT_REGISTRY_ADDRESS = '0xb9C1598e24650437a3055F7f66AC1820c419a679';
+const DEFAULT_REGISTRY_ADDRESS = '0x42b5b3ef3f021d3ef91070abf176978cb0fee676';
 
 const wrapLowLevelAPI = (provider) => {
   return {
@@ -77,7 +77,8 @@ class UportRegistry {
           ipfsHash = result[0] ? result[0].Hash : result.Hash
         }
         const ipfsHashHex = base58ToHex(ipfsHash);
-        this.registryContract.setAttributes('0x' + ipfsHashHex, txData)
+        const RegSafeIpfs = "0x" + ipfsHashHex.slice(4);
+        this.registryContract.set('uPortProfileIPFS1220', txData.from, RegSafeIpfs, txData)
           .then((tx) => {
             accept(tx);
           }).catch(reject);
@@ -96,10 +97,10 @@ class UportRegistry {
    */
   getAttributes (personaAddress) {
     return new Promise((accept, reject) => {
-      this.registryContract.getAttributes.call(personaAddress)
+      this.registryContract.get.call('uPortProfileIPFS1220', personaAddress, personaAddress)
         .then((ipfsHashHex) => {
           if (ipfsHashHex === '0x') reject(new Error('No registry value for given address'))
-          const ipfsHash = hexToBase58(ipfsHashHex.slice(2));
+          const ipfsHash = hexToBase58("1220" + ipfsHashHex.slice(2));
           this.ipfs.catJSON(ipfsHash, (err, personaObj) => {
             if (err !== null) {
               reject(new Error('Failed to get object from IPFS'));

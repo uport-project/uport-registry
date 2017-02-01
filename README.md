@@ -4,8 +4,8 @@
 
 The registry has been deployed at the following locations:
 
-- Ropsten Testnet: `0xb9C1598e24650437a3055F7f66AC1820c419a679`
-- Mainnet: `0x022f41a91cb30d6a20ffcfde3f84be6c1fa70d60`
+- Ropsten Testnet: `0x42b5b3ef3f021d3ef91070abf176978cb0fee676`
+- Mainnet: `0x9cbbd4956ad07b88f7daad1ac0bb83f6a58af308`
 
 ## About
 
@@ -38,6 +38,15 @@ The uPort Registry Library allows you to set attributes of and/or view attribute
 ```
 npm run test
 ```
+Note: The tests currently timeout instead of throwing exceptions
+
+### Development of this code base
+
+After making changes to `contracts/` use `npm run build-contract` to create `.sol.js` js abstraction objects. After making changes to `src/`, build with `npm run build:es5` (this puts them in `lib/`)
+
+Only *then* run tests.
+
+Finally use `npm run build` to create the `dist/uportregistry.js` file
 
 ### Usage
 
@@ -82,13 +91,13 @@ var registry = new UportRegistry({
 
 ### Change uport registry address
 
-By default it uses the ropsten uport registry at `0xb9C1598e24650437a3055F7f66AC1820c419a679`. You can change this using the registryAddress setting.
+By default it uses the ropsten uport registry at `0x42b5b3ef3f021d3ef91070abf176978cb0fee676`. You can change this using the registryAddress setting.
 
 ```javascript
 var Web3    = require('web3');
 var registry = new UportRegistry({
   web3prov: new Web3.providers.HttpProvider('https://mainnet.infura.io/uport-registry'),
-  registryAddress: '0x022f41a91cb30d6a20ffcfde3f84be6c1fa70d60'
+  registryAddress: '0x9cbbd4956ad07b88f7daad1ac0bb83f6a58af308'
 });
 ```
 
@@ -117,7 +126,7 @@ registry.setAttributes( attributes,
 If you have an address of the current uPort identity, you can get their associated attributes using the command `uPortRegistry.getAttributes()`. This command looks up the attributes and returns a JSON structure.
 
 ```javascript
-var registryAddress = '0xb9C1598e24650437a3055F7f66AC1820c419a679'
+var registryAddress = '0x42b5b3ef3f021d3ef91070abf176978cb0fee676'
 var uportId = '0xdb24b49d8f7e47d30498ee2a846375c3ba771d3e'
 
 registry.getAttributes(uportId).then(function (attributes)
