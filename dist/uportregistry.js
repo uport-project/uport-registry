@@ -556,7 +556,7 @@ var SolidityEvent = require("web3/lib/web3/event.js");
         "type": "event"
       }
     },
-    "updated_at": 1486137630274
+    "updated_at": 1486152151141
   }
 };
 
@@ -760,6 +760,7 @@ var UportRegistry = function () {
 
     _classCallCheck(this, UportRegistry);
 
+    console.log("Uport Warning: This library interfaces with a new registry (which supports badges). Our mobile app and supporting infrastructure do not yet reference this contract. Lock your package to version 2 if you need to use the old registry");
     this.ipfs = configureIpfs(settings.ipfs || new _ipfsMini2.default({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }));
     _UportRegistrySol2.default.setProvider(settings.web3Prov || new _web2.default.providers.HttpProvider('https://ropsten.infura.io/uport-registry-lib'));
     this.registryContract = _UportRegistrySol2.default.at(settings.registryAddress || DEFAULT_REGISTRY_ADDRESS);
