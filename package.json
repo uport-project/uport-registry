@@ -1,6 +1,6 @@
 {
   "name": "uport-registry",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "uPort Registry contracts and JS middleware",
   "main": "lib/uportregistry.js",
   "repository": {
@@ -24,13 +24,14 @@
     "ethereumjs-testrpc": "^3.0.3",
     "ipfsd-ctl": "^0.14.0",
     "mocha": "^2.4.5",
-    "truffle": "^2.0.8"
+    "truffle": "^2.1.1"
   },
   "scripts": {
     "build:es5": "./node_modules/.bin/babel src -d lib",
     "build": "node_modules/.bin/browserify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
     "build-contract": "./node_modules/truffle/cli.js build",
-    "test": "node_modules/.bin/mocha --reporter spec test/*.js"
+    "test": "node_modules/.bin/mocha --reporter spec test/*.js",
+    "allofthethings": "npm run build-contract ; npm run build:es5 ; npm run test ; npm run build"
   },
   "dependencies": {
     "bs58": "^4.0.0",
