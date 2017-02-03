@@ -1,6 +1,6 @@
 {
   "name": "uport-registry",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "uPort Registry contracts and JS middleware",
   "main": "lib/uportregistry.js",
   "repository": {
