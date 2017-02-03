@@ -6,7 +6,7 @@ import RegistryContract from "../build/contracts/UportRegistry.sol.js"
 // People using one of the low level api's are likely going to be node users
 import concat from 'concat-stream'
 
-const DEFAULT_REGISTRY_ADDRESS = '0x42b5b3ef3f021d3ef91070abf176978cb0fee676';
+const DEFAULT_REGISTRY_ADDRESS = '0x41566e3a081f5032bdcad470adb797635ddfe1f0';
 
 const wrapLowLevelAPI = (provider) => {
   return {
@@ -41,32 +41,35 @@ const configureIpfs = (ipfsProv) => {
 };
 
 class UportRegistry {
-
-  /**
-  *  Class constructor.
-  *  Creates a new UportRegistry object. The registryAddress is an optional argument and if not specified will be at the moment set to the default ropsten network uport-registry.
-  *
-  *  @memberof        UportRegistry#
-  *  @method          constructor
-  *  @param           {Object}         settings                                                            optional settings containing web3, ipfs and registry settings
-  *  @return          {Object}         self
-  */
   constructor (settings = {}) {
     this.ipfs = configureIpfs(settings.ipfs || new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }))
     RegistryContract.setProvider(settings.web3Prov || new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry-lib'))
     this.registryContract = RegistryContract.at(settings.registryAddress || DEFAULT_REGISTRY_ADDRESS)
   }
 
-  /**
-   *  Sets the public profile JSON object stored in IPFS for the given address.
-   *
-   *  @memberof         UportRegistry#
-   *  @method           setAttributes
-   *  @param            {Object}                          Profile object
-   *  @param            {Object}                          Ethereum transaction settings
-   *  @return           {Promise<TX, Error>}            A promise that returns the Ethereum Transaction
-   */
-  setAttributes (personaInfo, txData) {
+  //Direct access to registry
+  set(registrationIdentifier, subject, value, txData) {
+    return new Promise( (accept, reject) => {
+      this.registryContract.set(registrationIdentifier, subject, value, txData)
+      .then((tx) => {
+        accept(tx);
+      }).catch(reject);
+    });
+  }
+  get(registrationIdentifier, issuer, subject) {
+    return new Promise((accept, reject) => {
+      this.registryContract.get.call(registrationIdentifier, issuer, subject)
+      .then((hexStringFromBlockChain) => {
+        accept(hexStringFromBlockChain);
+      }).catch(() => {
+        reject(new Error('Failed to get value from registry'))
+      });
+    });
+  }
+
+
+  //deprecated API v2
+  setAttributes (personaInfo, txData) {//needs ipfs
     return new Promise( (accept, reject) => {
       this.ipfs.addJSON(personaInfo, (err, result) => {
         if (err !== null) { reject(err); return; }
@@ -77,41 +80,50 @@ class UportRegistry {
           ipfsHash = result[0] ? result[0].Hash : result.Hash
         }
         const ipfsHashHex = base58ToHex(ipfsHash);
-        const RegSafeIpfs = "0x" + ipfsHashHex.slice(4);
-        this.registryContract.set('uPortProfileIPFS1220', txData.from, RegSafeIpfs, txData)
-          .then((tx) => {
-            accept(tx);
-          }).catch(reject);
+        const regSafeIpfs = "0x" + ipfsHashHex.slice(4);
+        this.set('uPortProfileIPFS1220', txData.from, regSafeIpfs, txData)
+        .then((tx) => {
+          accept(tx);
+        }).catch(reject);
       });
-
     });
-
+  }
+  getAttributes (subject) {
+    return new Promise((accept, reject) => {
+      this.get('uPortProfileIPFS1220', subject, subject)
+      .then((ipfsHashHex) => {
+        if (ipfsHashHex === '0x') reject(new Error('No registry value for given address'))
+        const ipfsHash = hexToBase58("1220" + ipfsHashHex.slice(2));
+        this.ipfs.catJSON(ipfsHash, (err, personaInfo) => {
+          if (err !== null) {
+            reject(new Error('Failed to get object from IPFS'));
+            return;
+          }
+          accept(personaInfo);
+        });
+      }).catch(() => {
+        reject(new Error('Failed to get value from registry'))
+      });
+    });
   }
 
-  /**
-   *  Gets the public profile JSON object stored in IPFS for the given address.
-   *
-   *  @memberof         UportRegistry#
-   *  @method           getAttributes
-   *  @return           {Promise<JSON, Error>}            A promise that returns the JSON object stored in IPFS for the given address
-   */
-  getAttributes (personaAddress) {
-    return new Promise((accept, reject) => {
-      this.registryContract.get.call('uPortProfileIPFS1220', personaAddress, personaAddress)
-        .then((ipfsHashHex) => {
-          if (ipfsHashHex === '0x') reject(new Error('No registry value for given address'))
-          const ipfsHash = hexToBase58("1220" + ipfsHashHex.slice(2));
-          this.ipfs.catJSON(ipfsHash, (err, personaObj) => {
-            if (err !== null) {
-              reject(new Error('Failed to get object from IPFS'));
-              return;
-            }
-            accept(personaObj);
-          });
-        }).catch(() => {
-          reject(new Error('Failed to get value from registry'))
-        });
-    });
+  //helper functions
+  hex2a(hexString) {
+    var hex = hexString.slice(2);//remove '0x'
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2){
+      var byte = parseInt(hex.substr(i, 2), 16);
+      if(byte){ str += String.fromCharCode(byte); }
+    }
+    return str;
+  }
+  a2hex(str) {
+    var arr = [];
+    for (var i = 0, l = str.length; i < l; i ++) {
+      var hex = Number(str.charCodeAt(i)).toString(16);
+      arr.push(hex);
+    }
+    return "0x" + arr.join('');
   }
 }
 

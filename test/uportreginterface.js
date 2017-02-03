@@ -4,6 +4,7 @@ const UportRegistry        = require('../lib/uportregistry.js')
 const startProviders  = require('./providerUtil')
 const RegistryContract   = require('../build/contracts/UportRegistry.sol.js')
 const personaInfo     = require('./persona_example.json')
+const appData     = require('./app_data.json')
 
 const web3 = new Web3()
 
@@ -42,7 +43,7 @@ describe('Higher-level uportReg APIs', function () {
     })
   })
 
-  it('Creates personas and reads info', (done) => {
+  it('Creates personas and reads selfSignedAttributes', (done) => {
     var personas = [];
     var promises = [registry.setAttributes(personaInfo.kobe, {from: accounts[0]}),
                     registry.setAttributes(personaInfo.lebron, {from: accounts[1]}),
@@ -66,9 +67,38 @@ describe('Higher-level uportReg APIs', function () {
       done();
     }).catch(done);
   })
+
+  it('Creates and reads arbitrary badges', (done) => {
+    var personas = [];
+    var addressToBadgeDoc1 = "0x000000000000000000000000000000001111111111111111aaaaaaaaaaaaaaaa";
+    var addressToBadgeDoc2 = "0x000000000000000000000000000000002222222222222222bbbbbbbbbbbbbbbb";
+    var badgeNameString = "Is Awesome";
+    var boolFalse = "0x0000000000000000000000000000000000000000000000000000000000000000";
+    var boolTrue =  "0x0000000000000000000000000000000000000000000000000000000000000001";
+
+    var promises = [registry.set(addressToBadgeDoc1, accounts[5], boolTrue, {from: accounts[0]}),
+                    registry.set(addressToBadgeDoc2, accounts[6], boolFalse, {from: accounts[1]}),
+                    registry.set(badgeNameString,    accounts[7], "stringVal", {from: accounts[2]})];
+
+    Promise.all(promises).then(() => {
+      var promises = [registry.get(addressToBadgeDoc1, accounts[0], accounts[5]),
+                      registry.get(addressToBadgeDoc1, accounts[1], accounts[6]),
+                      registry.get(badgeNameString,    accounts[2], accounts[7])];
+
+      return Promise.all(promises);
+    }).then((returnedFromBlockChain) => {
+      // console.log(returnedFromBlockChain[0]);
+      // console.log(returnedFromBlockChain[1]);
+      // console.log(registry.stringify(returnedFromBlockChain[2]));
+
+      assert.strictEqual(returnedFromBlockChain[0], boolTrue);
+      assert.strictEqual(returnedFromBlockChain[1], boolFalse);
+      assert.strictEqual(registry.hex2a(returnedFromBlockChain[2]), "stringVal");
+      done();
+    }).catch(done);
+  })
 })
 
 
 
 
-[{"constant":false,"inputs":[{"name":"registrationIdentifier","type":"bytes32"},{"name":"attestor","type":"address"},{"name":"attestee","type":"address"}],"name":"get","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"previousPublishedVersion","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"address"},{"name":"","type":"address"}],"name":"registry","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"registrationIdentifier","type":"bytes32"},{"name":"attestee","type":"address"},{"name":"value","type":"bytes32"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_previousPublishedVersion","type":"address"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"registrationIdentifier","type":"bytes32"},{"indexed":true,"name":"attestor","type":"address"},{"indexed":true,"name":"attestee","type":"address"}],"name":"Set","type":"event"}]

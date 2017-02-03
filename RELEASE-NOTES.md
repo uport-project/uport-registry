@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 4.0.0 - 2017-02-03
+
+* API/interface for the full mapping structure. This supports badges and arbitrary attestations. Changed the name of attestor/attestee to issuer/subject. Added a updatedAt field to the ethereum event. Redeployed 'version 3' to ropsten and mainnet.
+
 ## Version 3.0.0 - 2017-02-01
 
 * Deployed the new registry contract which has support for badges. Same interface for the setAttributes right now.
