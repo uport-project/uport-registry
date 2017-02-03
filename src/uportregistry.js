@@ -42,6 +42,7 @@ const configureIpfs = (ipfsProv) => {
 
 class UportRegistry {
   constructor (settings = {}) {
+    console.log("Uport Warning: This library interfaces with a new registry (which supports badges). Our mobile app and supporting infrastructure do not yet reference this contract. Lock your package to version 2 if you need to use the old registry")
     this.ipfs = configureIpfs(settings.ipfs || new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }))
     RegistryContract.setProvider(settings.web3Prov || new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry-lib'))
     this.registryContract = RegistryContract.at(settings.registryAddress || DEFAULT_REGISTRY_ADDRESS)

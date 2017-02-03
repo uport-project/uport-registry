@@ -1,5 +1,10 @@
 # uPort Registry
 
+##Warning:
+
+Our mobile uport app and supporting infrastructure does not use this registry yet. If you need to integrate with the mobile app or our servers, lock your package.json to [version 2.0.6](https://github.com/ConsenSys/uport-registry/tree/v2.0.6) for the time being: `"uport-registry": "2.0.6"`.
+
+
 ## Deployed Contracts
 
 The registry has been deployed at the following locations:

@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 4.0.1 - 2017-02-03
+
+* Added warnings in the readme that our mobile uport app and infrastructure will not support this registry yet. added a tag to the commit that does work with out mobile app. console log from the constructor of the same. we will depricate the npm package so npm installers using it get a message.
+
 ## Version 4.0.0 - 2017-02-03
 
 * API/interface for the full mapping structure. This supports badges and arbitrary attestations. Changed the name of attestor/attestee to issuer/subject. Added a updatedAt field to the ethereum event. Redeployed 'version 3' to ropsten and mainnet.
