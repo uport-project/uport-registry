@@ -24,6 +24,7 @@
     "ethereumjs-testrpc": "^3.0.3",
     "ipfsd-ctl": "^0.14.0",
     "mocha": "^2.4.5",
+    "bs58": "^4.0.0",
     "truffle": "^2.1.1"
   },
   "scripts": {
@@ -34,8 +35,6 @@
     "allofthethings": "npm run build-contract ; npm run build:es5 ; npm run test ; npm run build"
   },
   "dependencies": {
-    "bs58": "^4.0.0",
-    "ether-pudding": "^3.2.0",
     "ipfs-mini": "^1.0.1",
     "web3": "^0.16.0"
   },
@@ -54,6 +53,11 @@
       "name": "Pelle Braendgaard",
       "email": "pelle.braendgaard@consensys.net",
       "url": "http://consensys.net/"
+    },
+    {
+      "name": "Zac Mitton",
+      "email": "zac.mitton@consensys.net",
+      "url": "http://zacmitton.com/"
     }
   ]
 }
