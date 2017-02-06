@@ -685,7 +685,7 @@ var SolidityEvent = require("web3/lib/web3/event.js");
   }
 })();
 
-},{"web3":179,"web3/lib/web3/event.js":206}],2:[function(require,module,exports){
+},{"web3":184,"web3/lib/web3/event.js":211}],2:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 
@@ -889,7 +889,7 @@ var hexToBase58 = function hexToBase58(hexStr) {
 
 module.exports = UportRegistry;
 }).call(this,require("buffer").Buffer)
-},{"../build/contracts/UportRegistry.sol.js":1,"bs58":47,"buffer":50,"concat-stream":52,"ipfs-mini":132,"web3":179}],3:[function(require,module,exports){
+},{"../build/contracts/UportRegistry.sol.js":1,"bs58":47,"buffer":50,"concat-stream":52,"ipfs-mini":138,"web3":184}],3:[function(require,module,exports){
 var asn1 = exports;
 
 asn1.bignum = require('bn.js');
@@ -963,7 +963,7 @@ Entity.prototype.encode = function encode(data, enc, /* internal */ reporter) {
   return this._getEncoder(enc).encode(data, reporter);
 };
 
-},{"../asn1":3,"inherits":131,"vm":177}],5:[function(require,module,exports){
+},{"../asn1":3,"inherits":137,"vm":183}],5:[function(require,module,exports){
 var inherits = require('inherits');
 var Reporter = require('../base').Reporter;
 var Buffer = require('buffer').Buffer;
@@ -1081,7 +1081,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
   return out;
 };
 
-},{"../base":6,"buffer":50,"inherits":131}],6:[function(require,module,exports){
+},{"../base":6,"buffer":50,"inherits":137}],6:[function(require,module,exports){
 var base = exports;
 
 base.Reporter = require('./reporter').Reporter;
@@ -1725,7 +1725,7 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
   return /^[A-Za-z0-9 '\(\)\+,\-\.\/:=\?]*$/.test(str);
 };
 
-},{"../base":6,"minimalistic-assert":137}],8:[function(require,module,exports){
+},{"../base":6,"minimalistic-assert":143}],8:[function(require,module,exports){
 var inherits = require('inherits');
 
 function Reporter(options) {
@@ -1848,7 +1848,7 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
   return this;
 };
 
-},{"inherits":131}],9:[function(require,module,exports){
+},{"inherits":137}],9:[function(require,module,exports){
 var constants = require('../constants');
 
 exports.tagClass = {
@@ -2239,7 +2239,7 @@ function derDecodeLen(buf, primitive, fail) {
   return len;
 }
 
-},{"../../asn1":3,"inherits":131}],12:[function(require,module,exports){
+},{"../../asn1":3,"inherits":137}],12:[function(require,module,exports){
 var decoders = exports;
 
 decoders.der = require('./der');
@@ -2296,7 +2296,7 @@ PEMDecoder.prototype.decode = function decode(data, options) {
   return DERDecoder.prototype.decode.call(this, input, options);
 };
 
-},{"./der":11,"buffer":50,"inherits":131}],14:[function(require,module,exports){
+},{"./der":11,"buffer":50,"inherits":137}],14:[function(require,module,exports){
 var inherits = require('inherits');
 var Buffer = require('buffer').Buffer;
 
@@ -2593,7 +2593,7 @@ function encodeTag(tag, primitive, cls, reporter) {
   return res;
 }
 
-},{"../../asn1":3,"buffer":50,"inherits":131}],15:[function(require,module,exports){
+},{"../../asn1":3,"buffer":50,"inherits":137}],15:[function(require,module,exports){
 var encoders = exports;
 
 encoders.der = require('./der');
@@ -2622,7 +2622,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
   return out.join('\n');
 };
 
-},{"./der":14,"inherits":131}],17:[function(require,module,exports){
+},{"./der":14,"inherits":137}],17:[function(require,module,exports){
 (function (Buffer){
 // base-x encoding
 // Forked from https://github.com/cryptocoinjs/bs58
@@ -6603,7 +6603,7 @@ function xorTest (a, b) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./aes":22,"./ghash":27,"buffer":50,"buffer-xor":49,"cipher-base":51,"inherits":131}],24:[function(require,module,exports){
+},{"./aes":22,"./ghash":27,"buffer":50,"buffer-xor":49,"cipher-base":51,"inherits":137}],24:[function(require,module,exports){
 var ciphers = require('./encrypter')
 exports.createCipher = exports.Cipher = ciphers.createCipher
 exports.createCipheriv = exports.Cipheriv = ciphers.createCipheriv
@@ -6757,7 +6757,7 @@ exports.createDecipher = createDecipher
 exports.createDecipheriv = createDecipheriv
 
 }).call(this,require("buffer").Buffer)
-},{"./aes":22,"./authCipher":23,"./modes":28,"./modes/cbc":29,"./modes/cfb":30,"./modes/cfb1":31,"./modes/cfb8":32,"./modes/ctr":33,"./modes/ecb":34,"./modes/ofb":35,"./streamCipher":36,"buffer":50,"cipher-base":51,"evp_bytestokey":122,"inherits":131}],26:[function(require,module,exports){
+},{"./aes":22,"./authCipher":23,"./modes":28,"./modes/cbc":29,"./modes/cfb":30,"./modes/cfb1":31,"./modes/cfb8":32,"./modes/ctr":33,"./modes/ecb":34,"./modes/ofb":35,"./streamCipher":36,"buffer":50,"cipher-base":51,"evp_bytestokey":128,"inherits":137}],26:[function(require,module,exports){
 (function (Buffer){
 var aes = require('./aes')
 var Transform = require('cipher-base')
@@ -6883,7 +6883,7 @@ exports.createCipheriv = createCipheriv
 exports.createCipher = createCipher
 
 }).call(this,require("buffer").Buffer)
-},{"./aes":22,"./authCipher":23,"./modes":28,"./modes/cbc":29,"./modes/cfb":30,"./modes/cfb1":31,"./modes/cfb8":32,"./modes/ctr":33,"./modes/ecb":34,"./modes/ofb":35,"./streamCipher":36,"buffer":50,"cipher-base":51,"evp_bytestokey":122,"inherits":131}],27:[function(require,module,exports){
+},{"./aes":22,"./authCipher":23,"./modes":28,"./modes/cbc":29,"./modes/cfb":30,"./modes/cfb1":31,"./modes/cfb8":32,"./modes/ctr":33,"./modes/ecb":34,"./modes/ofb":35,"./streamCipher":36,"buffer":50,"cipher-base":51,"evp_bytestokey":128,"inherits":137}],27:[function(require,module,exports){
 (function (Buffer){
 var zeros = new Buffer(16)
 zeros.fill(0)
@@ -7361,7 +7361,7 @@ StreamCipher.prototype._final = function () {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./aes":22,"buffer":50,"cipher-base":51,"inherits":131}],37:[function(require,module,exports){
+},{"./aes":22,"buffer":50,"cipher-base":51,"inherits":137}],37:[function(require,module,exports){
 var ebtk = require('evp_bytestokey')
 var aes = require('browserify-aes/browser')
 var DES = require('browserify-des')
@@ -7436,7 +7436,7 @@ function getCiphers () {
 }
 exports.listCiphers = exports.getCiphers = getCiphers
 
-},{"browserify-aes/browser":24,"browserify-aes/modes":28,"browserify-des":38,"browserify-des/modes":39,"evp_bytestokey":122}],38:[function(require,module,exports){
+},{"browserify-aes/browser":24,"browserify-aes/modes":28,"browserify-des":38,"browserify-des/modes":39,"evp_bytestokey":128}],38:[function(require,module,exports){
 (function (Buffer){
 var CipherBase = require('cipher-base')
 var des = require('des.js')
@@ -7483,7 +7483,7 @@ DES.prototype._final = function () {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":50,"cipher-base":51,"des.js":94,"inherits":131}],39:[function(require,module,exports){
+},{"buffer":50,"cipher-base":51,"des.js":100,"inherits":137}],39:[function(require,module,exports){
 exports['des-ecb'] = {
   key: 8,
   iv: 0
@@ -7553,7 +7553,7 @@ function getr(priv) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":19,"buffer":50,"randombytes":151}],41:[function(require,module,exports){
+},{"bn.js":19,"buffer":50,"randombytes":157}],41:[function(require,module,exports){
 (function (Buffer){
 'use strict'
 exports['RSA-SHA224'] = exports.sha224WithRSAEncryption = {
@@ -7736,7 +7736,7 @@ module.exports = {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./algos":41,"./sign":44,"./verify":45,"buffer":50,"create-hash":55,"inherits":131,"stream":172}],43:[function(require,module,exports){
+},{"./algos":41,"./sign":44,"./verify":45,"buffer":50,"create-hash":61,"inherits":137,"stream":178}],43:[function(require,module,exports){
 'use strict'
 exports['1.3.132.0.10'] = 'secp256k1'
 
@@ -7939,7 +7939,7 @@ module.exports.getKey = getKey
 module.exports.makeKey = makeKey
 
 }).call(this,require("buffer").Buffer)
-},{"./curves":43,"bn.js":19,"browserify-rsa":40,"buffer":50,"create-hmac":58,"elliptic":104,"parse-asn1":141}],45:[function(require,module,exports){
+},{"./curves":43,"bn.js":19,"browserify-rsa":40,"buffer":50,"create-hmac":64,"elliptic":110,"parse-asn1":147}],45:[function(require,module,exports){
 (function (Buffer){
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var curves = require('./curves')
@@ -8046,7 +8046,7 @@ function checkValue (b, q) {
 module.exports = verify
 
 }).call(this,require("buffer").Buffer)
-},{"./curves":43,"bn.js":19,"buffer":50,"elliptic":104,"parse-asn1":141}],46:[function(require,module,exports){
+},{"./curves":43,"bn.js":19,"buffer":50,"elliptic":110,"parse-asn1":147}],46:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -10153,7 +10153,7 @@ function isnan (val) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"base64-js":18,"ieee754":129,"isarray":135}],51:[function(require,module,exports){
+},{"base64-js":18,"ieee754":135,"isarray":141}],51:[function(require,module,exports){
 (function (Buffer){
 var Transform = require('stream').Transform
 var inherits = require('inherits')
@@ -10247,7 +10247,7 @@ CipherBase.prototype._toString = function (value, enc, fin) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":50,"inherits":131,"stream":172,"string_decoder":173}],52:[function(require,module,exports){
+},{"buffer":50,"inherits":137,"stream":178,"string_decoder":179}],52:[function(require,module,exports){
 (function (Buffer){
 var Writable = require('readable-stream').Writable
 var inherits = require('inherits')
@@ -10394,7 +10394,1707 @@ function u8Concat (parts) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":50,"inherits":131,"readable-stream":160,"typedarray":174}],53:[function(require,module,exports){
+},{"buffer":50,"inherits":137,"readable-stream":58,"typedarray":180}],53:[function(require,module,exports){
+// a duplex stream is just a stream that is both readable and writable.
+// Since JS doesn't have multiple prototypal inheritance, this class
+// prototypally inherits from Readable, and then parasitically from
+// Writable.
+
+'use strict';
+
+/*<replacement>*/
+
+var objectKeys = Object.keys || function (obj) {
+  var keys = [];
+  for (var key in obj) {
+    keys.push(key);
+  }return keys;
+};
+/*</replacement>*/
+
+module.exports = Duplex;
+
+/*<replacement>*/
+var processNextTick = require('process-nextick-args');
+/*</replacement>*/
+
+/*<replacement>*/
+var util = require('core-util-is');
+util.inherits = require('inherits');
+/*</replacement>*/
+
+var Readable = require('./_stream_readable');
+var Writable = require('./_stream_writable');
+
+util.inherits(Duplex, Readable);
+
+var keys = objectKeys(Writable.prototype);
+for (var v = 0; v < keys.length; v++) {
+  var method = keys[v];
+  if (!Duplex.prototype[method]) Duplex.prototype[method] = Writable.prototype[method];
+}
+
+function Duplex(options) {
+  if (!(this instanceof Duplex)) return new Duplex(options);
+
+  Readable.call(this, options);
+  Writable.call(this, options);
+
+  if (options && options.readable === false) this.readable = false;
+
+  if (options && options.writable === false) this.writable = false;
+
+  this.allowHalfOpen = true;
+  if (options && options.allowHalfOpen === false) this.allowHalfOpen = false;
+
+  this.once('end', onend);
+}
+
+// the no-half-open enforcer
+function onend() {
+  // if we allow half-open state, or if the writable side ended,
+  // then we're ok.
+  if (this.allowHalfOpen || this._writableState.ended) return;
+
+  // no more data can be written.
+  // But allow more writes to happen in this tick.
+  processNextTick(onEndNT, this);
+}
+
+function onEndNT(self) {
+  self.end();
+}
+
+function forEach(xs, f) {
+  for (var i = 0, l = xs.length; i < l; i++) {
+    f(xs[i], i);
+  }
+}
+},{"./_stream_readable":55,"./_stream_writable":57,"core-util-is":59,"inherits":137,"process-nextick-args":150}],54:[function(require,module,exports){
+// a passthrough stream.
+// basically just the most minimal sort of Transform stream.
+// Every written chunk gets output as-is.
+
+'use strict';
+
+module.exports = PassThrough;
+
+var Transform = require('./_stream_transform');
+
+/*<replacement>*/
+var util = require('core-util-is');
+util.inherits = require('inherits');
+/*</replacement>*/
+
+util.inherits(PassThrough, Transform);
+
+function PassThrough(options) {
+  if (!(this instanceof PassThrough)) return new PassThrough(options);
+
+  Transform.call(this, options);
+}
+
+PassThrough.prototype._transform = function (chunk, encoding, cb) {
+  cb(null, chunk);
+};
+},{"./_stream_transform":56,"core-util-is":59,"inherits":137}],55:[function(require,module,exports){
+(function (process){
+'use strict';
+
+module.exports = Readable;
+
+/*<replacement>*/
+var processNextTick = require('process-nextick-args');
+/*</replacement>*/
+
+/*<replacement>*/
+var isArray = require('isarray');
+/*</replacement>*/
+
+/*<replacement>*/
+var Buffer = require('buffer').Buffer;
+/*</replacement>*/
+
+Readable.ReadableState = ReadableState;
+
+var EE = require('events');
+
+/*<replacement>*/
+var EElistenerCount = function (emitter, type) {
+  return emitter.listeners(type).length;
+};
+/*</replacement>*/
+
+/*<replacement>*/
+var Stream;
+(function () {
+  try {
+    Stream = require('st' + 'ream');
+  } catch (_) {} finally {
+    if (!Stream) Stream = require('events').EventEmitter;
+  }
+})();
+/*</replacement>*/
+
+var Buffer = require('buffer').Buffer;
+
+/*<replacement>*/
+var util = require('core-util-is');
+util.inherits = require('inherits');
+/*</replacement>*/
+
+/*<replacement>*/
+var debugUtil = require('util');
+var debug = undefined;
+if (debugUtil && debugUtil.debuglog) {
+  debug = debugUtil.debuglog('stream');
+} else {
+  debug = function () {};
+}
+/*</replacement>*/
+
+var StringDecoder;
+
+util.inherits(Readable, Stream);
+
+var Duplex;
+function ReadableState(options, stream) {
+  Duplex = Duplex || require('./_stream_duplex');
+
+  options = options || {};
+
+  // object stream flag. Used to make read(n) ignore n and to
+  // make all the buffer merging and length checks go away
+  this.objectMode = !!options.objectMode;
+
+  if (stream instanceof Duplex) this.objectMode = this.objectMode || !!options.readableObjectMode;
+
+  // the point at which it stops calling _read() to fill the buffer
+  // Note: 0 is a valid value, means "don't call _read preemptively ever"
+  var hwm = options.highWaterMark;
+  var defaultHwm = this.objectMode ? 16 : 16 * 1024;
+  this.highWaterMark = hwm || hwm === 0 ? hwm : defaultHwm;
+
+  // cast to ints.
+  this.highWaterMark = ~ ~this.highWaterMark;
+
+  this.buffer = [];
+  this.length = 0;
+  this.pipes = null;
+  this.pipesCount = 0;
+  this.flowing = null;
+  this.ended = false;
+  this.endEmitted = false;
+  this.reading = false;
+
+  // a flag to be able to tell if the onwrite cb is called immediately,
+  // or on a later tick.  We set this to true at first, because any
+  // actions that shouldn't happen until "later" should generally also
+  // not happen before the first write call.
+  this.sync = true;
+
+  // whenever we return null, then we set a flag to say
+  // that we're awaiting a 'readable' event emission.
+  this.needReadable = false;
+  this.emittedReadable = false;
+  this.readableListening = false;
+  this.resumeScheduled = false;
+
+  // Crypto is kind of old and crusty.  Historically, its default string
+  // encoding is 'binary' so we have to make this configurable.
+  // Everything else in the universe uses 'utf8', though.
+  this.defaultEncoding = options.defaultEncoding || 'utf8';
+
+  // when piping, we only care about 'readable' events that happen
+  // after read()ing all the bytes and not getting any pushback.
+  this.ranOut = false;
+
+  // the number of writers that are awaiting a drain event in .pipe()s
+  this.awaitDrain = 0;
+
+  // if true, a maybeReadMore has been scheduled
+  this.readingMore = false;
+
+  this.decoder = null;
+  this.encoding = null;
+  if (options.encoding) {
+    if (!StringDecoder) StringDecoder = require('string_decoder/').StringDecoder;
+    this.decoder = new StringDecoder(options.encoding);
+    this.encoding = options.encoding;
+  }
+}
+
+var Duplex;
+function Readable(options) {
+  Duplex = Duplex || require('./_stream_duplex');
+
+  if (!(this instanceof Readable)) return new Readable(options);
+
+  this._readableState = new ReadableState(options, this);
+
+  // legacy
+  this.readable = true;
+
+  if (options && typeof options.read === 'function') this._read = options.read;
+
+  Stream.call(this);
+}
+
+// Manually shove something into the read() buffer.
+// This returns true if the highWaterMark has not been hit yet,
+// similar to how Writable.write() returns true if you should
+// write() some more.
+Readable.prototype.push = function (chunk, encoding) {
+  var state = this._readableState;
+
+  if (!state.objectMode && typeof chunk === 'string') {
+    encoding = encoding || state.defaultEncoding;
+    if (encoding !== state.encoding) {
+      chunk = new Buffer(chunk, encoding);
+      encoding = '';
+    }
+  }
+
+  return readableAddChunk(this, state, chunk, encoding, false);
+};
+
+// Unshift should *always* be something directly out of read()
+Readable.prototype.unshift = function (chunk) {
+  var state = this._readableState;
+  return readableAddChunk(this, state, chunk, '', true);
+};
+
+Readable.prototype.isPaused = function () {
+  return this._readableState.flowing === false;
+};
+
+function readableAddChunk(stream, state, chunk, encoding, addToFront) {
+  var er = chunkInvalid(state, chunk);
+  if (er) {
+    stream.emit('error', er);
+  } else if (chunk === null) {
+    state.reading = false;
+    onEofChunk(stream, state);
+  } else if (state.objectMode || chunk && chunk.length > 0) {
+    if (state.ended && !addToFront) {
+      var e = new Error('stream.push() after EOF');
+      stream.emit('error', e);
+    } else if (state.endEmitted && addToFront) {
+      var e = new Error('stream.unshift() after end event');
+      stream.emit('error', e);
+    } else {
+      var skipAdd;
+      if (state.decoder && !addToFront && !encoding) {
+        chunk = state.decoder.write(chunk);
+        skipAdd = !state.objectMode && chunk.length === 0;
+      }
+
+      if (!addToFront) state.reading = false;
+
+      // Don't add to the buffer if we've decoded to an empty string chunk and
+      // we're not in object mode
+      if (!skipAdd) {
+        // if we want the data now, just emit it.
+        if (state.flowing && state.length === 0 && !state.sync) {
+          stream.emit('data', chunk);
+          stream.read(0);
+        } else {
+          // update the buffer info.
+          state.length += state.objectMode ? 1 : chunk.length;
+          if (addToFront) state.buffer.unshift(chunk);else state.buffer.push(chunk);
+
+          if (state.needReadable) emitReadable(stream);
+        }
+      }
+
+      maybeReadMore(stream, state);
+    }
+  } else if (!addToFront) {
+    state.reading = false;
+  }
+
+  return needMoreData(state);
+}
+
+// if it's past the high water mark, we can push in some more.
+// Also, if we have no data yet, we can stand some
+// more bytes.  This is to work around cases where hwm=0,
+// such as the repl.  Also, if the push() triggered a
+// readable event, and the user called read(largeNumber) such that
+// needReadable was set, then we ought to push more, so that another
+// 'readable' event will be triggered.
+function needMoreData(state) {
+  return !state.ended && (state.needReadable || state.length < state.highWaterMark || state.length === 0);
+}
+
+// backwards compatibility.
+Readable.prototype.setEncoding = function (enc) {
+  if (!StringDecoder) StringDecoder = require('string_decoder/').StringDecoder;
+  this._readableState.decoder = new StringDecoder(enc);
+  this._readableState.encoding = enc;
+  return this;
+};
+
+// Don't raise the hwm > 8MB
+var MAX_HWM = 0x800000;
+function computeNewHighWaterMark(n) {
+  if (n >= MAX_HWM) {
+    n = MAX_HWM;
+  } else {
+    // Get the next highest power of 2
+    n--;
+    n |= n >>> 1;
+    n |= n >>> 2;
+    n |= n >>> 4;
+    n |= n >>> 8;
+    n |= n >>> 16;
+    n++;
+  }
+  return n;
+}
+
+function howMuchToRead(n, state) {
+  if (state.length === 0 && state.ended) return 0;
+
+  if (state.objectMode) return n === 0 ? 0 : 1;
+
+  if (n === null || isNaN(n)) {
+    // only flow one buffer at a time
+    if (state.flowing && state.buffer.length) return state.buffer[0].length;else return state.length;
+  }
+
+  if (n <= 0) return 0;
+
+  // If we're asking for more than the target buffer level,
+  // then raise the water mark.  Bump up to the next highest
+  // power of 2, to prevent increasing it excessively in tiny
+  // amounts.
+  if (n > state.highWaterMark) state.highWaterMark = computeNewHighWaterMark(n);
+
+  // don't have that much.  return null, unless we've ended.
+  if (n > state.length) {
+    if (!state.ended) {
+      state.needReadable = true;
+      return 0;
+    } else {
+      return state.length;
+    }
+  }
+
+  return n;
+}
+
+// you can override either this method, or the async _read(n) below.
+Readable.prototype.read = function (n) {
+  debug('read', n);
+  var state = this._readableState;
+  var nOrig = n;
+
+  if (typeof n !== 'number' || n > 0) state.emittedReadable = false;
+
+  // if we're doing read(0) to trigger a readable event, but we
+  // already have a bunch of data in the buffer, then just trigger
+  // the 'readable' event and move on.
+  if (n === 0 && state.needReadable && (state.length >= state.highWaterMark || state.ended)) {
+    debug('read: emitReadable', state.length, state.ended);
+    if (state.length === 0 && state.ended) endReadable(this);else emitReadable(this);
+    return null;
+  }
+
+  n = howMuchToRead(n, state);
+
+  // if we've ended, and we're now clear, then finish it up.
+  if (n === 0 && state.ended) {
+    if (state.length === 0) endReadable(this);
+    return null;
+  }
+
+  // All the actual chunk generation logic needs to be
+  // *below* the call to _read.  The reason is that in certain
+  // synthetic stream cases, such as passthrough streams, _read
+  // may be a completely synchronous operation which may change
+  // the state of the read buffer, providing enough data when
+  // before there was *not* enough.
+  //
+  // So, the steps are:
+  // 1. Figure out what the state of things will be after we do
+  // a read from the buffer.
+  //
+  // 2. If that resulting state will trigger a _read, then call _read.
+  // Note that this may be asynchronous, or synchronous.  Yes, it is
+  // deeply ugly to write APIs this way, but that still doesn't mean
+  // that the Readable class should behave improperly, as streams are
+  // designed to be sync/async agnostic.
+  // Take note if the _read call is sync or async (ie, if the read call
+  // has returned yet), so that we know whether or not it's safe to emit
+  // 'readable' etc.
+  //
+  // 3. Actually pull the requested chunks out of the buffer and return.
+
+  // if we need a readable event, then we need to do some reading.
+  var doRead = state.needReadable;
+  debug('need readable', doRead);
+
+  // if we currently have less than the highWaterMark, then also read some
+  if (state.length === 0 || state.length - n < state.highWaterMark) {
+    doRead = true;
+    debug('length less than watermark', doRead);
+  }
+
+  // however, if we've ended, then there's no point, and if we're already
+  // reading, then it's unnecessary.
+  if (state.ended || state.reading) {
+    doRead = false;
+    debug('reading or ended', doRead);
+  }
+
+  if (doRead) {
+    debug('do read');
+    state.reading = true;
+    state.sync = true;
+    // if the length is currently zero, then we *need* a readable event.
+    if (state.length === 0) state.needReadable = true;
+    // call internal read method
+    this._read(state.highWaterMark);
+    state.sync = false;
+  }
+
+  // If _read pushed data synchronously, then `reading` will be false,
+  // and we need to re-evaluate how much data we can return to the user.
+  if (doRead && !state.reading) n = howMuchToRead(nOrig, state);
+
+  var ret;
+  if (n > 0) ret = fromList(n, state);else ret = null;
+
+  if (ret === null) {
+    state.needReadable = true;
+    n = 0;
+  }
+
+  state.length -= n;
+
+  // If we have nothing in the buffer, then we want to know
+  // as soon as we *do* get something into the buffer.
+  if (state.length === 0 && !state.ended) state.needReadable = true;
+
+  // If we tried to read() past the EOF, then emit end on the next tick.
+  if (nOrig !== n && state.ended && state.length === 0) endReadable(this);
+
+  if (ret !== null) this.emit('data', ret);
+
+  return ret;
+};
+
+function chunkInvalid(state, chunk) {
+  var er = null;
+  if (!Buffer.isBuffer(chunk) && typeof chunk !== 'string' && chunk !== null && chunk !== undefined && !state.objectMode) {
+    er = new TypeError('Invalid non-string/buffer chunk');
+  }
+  return er;
+}
+
+function onEofChunk(stream, state) {
+  if (state.ended) return;
+  if (state.decoder) {
+    var chunk = state.decoder.end();
+    if (chunk && chunk.length) {
+      state.buffer.push(chunk);
+      state.length += state.objectMode ? 1 : chunk.length;
+    }
+  }
+  state.ended = true;
+
+  // emit 'readable' now to make sure it gets picked up.
+  emitReadable(stream);
+}
+
+// Don't emit readable right away in sync mode, because this can trigger
+// another read() call => stack overflow.  This way, it might trigger
+// a nextTick recursion warning, but that's not so bad.
+function emitReadable(stream) {
+  var state = stream._readableState;
+  state.needReadable = false;
+  if (!state.emittedReadable) {
+    debug('emitReadable', state.flowing);
+    state.emittedReadable = true;
+    if (state.sync) processNextTick(emitReadable_, stream);else emitReadable_(stream);
+  }
+}
+
+function emitReadable_(stream) {
+  debug('emit readable');
+  stream.emit('readable');
+  flow(stream);
+}
+
+// at this point, the user has presumably seen the 'readable' event,
+// and called read() to consume some data.  that may have triggered
+// in turn another _read(n) call, in which case reading = true if
+// it's in progress.
+// However, if we're not ended, or reading, and the length < hwm,
+// then go ahead and try to read some more preemptively.
+function maybeReadMore(stream, state) {
+  if (!state.readingMore) {
+    state.readingMore = true;
+    processNextTick(maybeReadMore_, stream, state);
+  }
+}
+
+function maybeReadMore_(stream, state) {
+  var len = state.length;
+  while (!state.reading && !state.flowing && !state.ended && state.length < state.highWaterMark) {
+    debug('maybeReadMore read 0');
+    stream.read(0);
+    if (len === state.length)
+      // didn't get any data, stop spinning.
+      break;else len = state.length;
+  }
+  state.readingMore = false;
+}
+
+// abstract method.  to be overridden in specific implementation classes.
+// call cb(er, data) where data is <= n in length.
+// for virtual (non-string, non-buffer) streams, "length" is somewhat
+// arbitrary, and perhaps not very meaningful.
+Readable.prototype._read = function (n) {
+  this.emit('error', new Error('not implemented'));
+};
+
+Readable.prototype.pipe = function (dest, pipeOpts) {
+  var src = this;
+  var state = this._readableState;
+
+  switch (state.pipesCount) {
+    case 0:
+      state.pipes = dest;
+      break;
+    case 1:
+      state.pipes = [state.pipes, dest];
+      break;
+    default:
+      state.pipes.push(dest);
+      break;
+  }
+  state.pipesCount += 1;
+  debug('pipe count=%d opts=%j', state.pipesCount, pipeOpts);
+
+  var doEnd = (!pipeOpts || pipeOpts.end !== false) && dest !== process.stdout && dest !== process.stderr;
+
+  var endFn = doEnd ? onend : cleanup;
+  if (state.endEmitted) processNextTick(endFn);else src.once('end', endFn);
+
+  dest.on('unpipe', onunpipe);
+  function onunpipe(readable) {
+    debug('onunpipe');
+    if (readable === src) {
+      cleanup();
+    }
+  }
+
+  function onend() {
+    debug('onend');
+    dest.end();
+  }
+
+  // when the dest drains, it reduces the awaitDrain counter
+  // on the source.  This would be more elegant with a .once()
+  // handler in flow(), but adding and removing repeatedly is
+  // too slow.
+  var ondrain = pipeOnDrain(src);
+  dest.on('drain', ondrain);
+
+  var cleanedUp = false;
+  function cleanup() {
+    debug('cleanup');
+    // cleanup event handlers once the pipe is broken
+    dest.removeListener('close', onclose);
+    dest.removeListener('finish', onfinish);
+    dest.removeListener('drain', ondrain);
+    dest.removeListener('error', onerror);
+    dest.removeListener('unpipe', onunpipe);
+    src.removeListener('end', onend);
+    src.removeListener('end', cleanup);
+    src.removeListener('data', ondata);
+
+    cleanedUp = true;
+
+    // if the reader is waiting for a drain event from this
+    // specific writer, then it would cause it to never start
+    // flowing again.
+    // So, if this is awaiting a drain, then we just call it now.
+    // If we don't know, then assume that we are waiting for one.
+    if (state.awaitDrain && (!dest._writableState || dest._writableState.needDrain)) ondrain();
+  }
+
+  src.on('data', ondata);
+  function ondata(chunk) {
+    debug('ondata');
+    var ret = dest.write(chunk);
+    if (false === ret) {
+      // If the user unpiped during `dest.write()`, it is possible
+      // to get stuck in a permanently paused state if that write
+      // also returned false.
+      if (state.pipesCount === 1 && state.pipes[0] === dest && src.listenerCount('data') === 1 && !cleanedUp) {
+        debug('false write response, pause', src._readableState.awaitDrain);
+        src._readableState.awaitDrain++;
+      }
+      src.pause();
+    }
+  }
+
+  // if the dest has an error, then stop piping into it.
+  // however, don't suppress the throwing behavior for this.
+  function onerror(er) {
+    debug('onerror', er);
+    unpipe();
+    dest.removeListener('error', onerror);
+    if (EElistenerCount(dest, 'error') === 0) dest.emit('error', er);
+  }
+  // This is a brutally ugly hack to make sure that our error handler
+  // is attached before any userland ones.  NEVER DO THIS.
+  if (!dest._events || !dest._events.error) dest.on('error', onerror);else if (isArray(dest._events.error)) dest._events.error.unshift(onerror);else dest._events.error = [onerror, dest._events.error];
+
+  // Both close and finish should trigger unpipe, but only once.
+  function onclose() {
+    dest.removeListener('finish', onfinish);
+    unpipe();
+  }
+  dest.once('close', onclose);
+  function onfinish() {
+    debug('onfinish');
+    dest.removeListener('close', onclose);
+    unpipe();
+  }
+  dest.once('finish', onfinish);
+
+  function unpipe() {
+    debug('unpipe');
+    src.unpipe(dest);
+  }
+
+  // tell the dest that it's being piped to
+  dest.emit('pipe', src);
+
+  // start the flow if it hasn't been started already.
+  if (!state.flowing) {
+    debug('pipe resume');
+    src.resume();
+  }
+
+  return dest;
+};
+
+function pipeOnDrain(src) {
+  return function () {
+    var state = src._readableState;
+    debug('pipeOnDrain', state.awaitDrain);
+    if (state.awaitDrain) state.awaitDrain--;
+    if (state.awaitDrain === 0 && EElistenerCount(src, 'data')) {
+      state.flowing = true;
+      flow(src);
+    }
+  };
+}
+
+Readable.prototype.unpipe = function (dest) {
+  var state = this._readableState;
+
+  // if we're not piping anywhere, then do nothing.
+  if (state.pipesCount === 0) return this;
+
+  // just one destination.  most common case.
+  if (state.pipesCount === 1) {
+    // passed in one, but it's not the right one.
+    if (dest && dest !== state.pipes) return this;
+
+    if (!dest) dest = state.pipes;
+
+    // got a match.
+    state.pipes = null;
+    state.pipesCount = 0;
+    state.flowing = false;
+    if (dest) dest.emit('unpipe', this);
+    return this;
+  }
+
+  // slow case. multiple pipe destinations.
+
+  if (!dest) {
+    // remove all.
+    var dests = state.pipes;
+    var len = state.pipesCount;
+    state.pipes = null;
+    state.pipesCount = 0;
+    state.flowing = false;
+
+    for (var _i = 0; _i < len; _i++) {
+      dests[_i].emit('unpipe', this);
+    }return this;
+  }
+
+  // try to find the right one.
+  var i = indexOf(state.pipes, dest);
+  if (i === -1) return this;
+
+  state.pipes.splice(i, 1);
+  state.pipesCount -= 1;
+  if (state.pipesCount === 1) state.pipes = state.pipes[0];
+
+  dest.emit('unpipe', this);
+
+  return this;
+};
+
+// set up data events if they are asked for
+// Ensure readable listeners eventually get something
+Readable.prototype.on = function (ev, fn) {
+  var res = Stream.prototype.on.call(this, ev, fn);
+
+  // If listening to data, and it has not explicitly been paused,
+  // then call resume to start the flow of data on the next tick.
+  if (ev === 'data' && false !== this._readableState.flowing) {
+    this.resume();
+  }
+
+  if (ev === 'readable' && !this._readableState.endEmitted) {
+    var state = this._readableState;
+    if (!state.readableListening) {
+      state.readableListening = true;
+      state.emittedReadable = false;
+      state.needReadable = true;
+      if (!state.reading) {
+        processNextTick(nReadingNextTick, this);
+      } else if (state.length) {
+        emitReadable(this, state);
+      }
+    }
+  }
+
+  return res;
+};
+Readable.prototype.addListener = Readable.prototype.on;
+
+function nReadingNextTick(self) {
+  debug('readable nexttick read 0');
+  self.read(0);
+}
+
+// pause() and resume() are remnants of the legacy readable stream API
+// If the user uses them, then switch into old mode.
+Readable.prototype.resume = function () {
+  var state = this._readableState;
+  if (!state.flowing) {
+    debug('resume');
+    state.flowing = true;
+    resume(this, state);
+  }
+  return this;
+};
+
+function resume(stream, state) {
+  if (!state.resumeScheduled) {
+    state.resumeScheduled = true;
+    processNextTick(resume_, stream, state);
+  }
+}
+
+function resume_(stream, state) {
+  if (!state.reading) {
+    debug('resume read 0');
+    stream.read(0);
+  }
+
+  state.resumeScheduled = false;
+  stream.emit('resume');
+  flow(stream);
+  if (state.flowing && !state.reading) stream.read(0);
+}
+
+Readable.prototype.pause = function () {
+  debug('call pause flowing=%j', this._readableState.flowing);
+  if (false !== this._readableState.flowing) {
+    debug('pause');
+    this._readableState.flowing = false;
+    this.emit('pause');
+  }
+  return this;
+};
+
+function flow(stream) {
+  var state = stream._readableState;
+  debug('flow', state.flowing);
+  if (state.flowing) {
+    do {
+      var chunk = stream.read();
+    } while (null !== chunk && state.flowing);
+  }
+}
+
+// wrap an old-style stream as the async data source.
+// This is *not* part of the readable stream interface.
+// It is an ugly unfortunate mess of history.
+Readable.prototype.wrap = function (stream) {
+  var state = this._readableState;
+  var paused = false;
+
+  var self = this;
+  stream.on('end', function () {
+    debug('wrapped end');
+    if (state.decoder && !state.ended) {
+      var chunk = state.decoder.end();
+      if (chunk && chunk.length) self.push(chunk);
+    }
+
+    self.push(null);
+  });
+
+  stream.on('data', function (chunk) {
+    debug('wrapped data');
+    if (state.decoder) chunk = state.decoder.write(chunk);
+
+    // don't skip over falsy values in objectMode
+    if (state.objectMode && (chunk === null || chunk === undefined)) return;else if (!state.objectMode && (!chunk || !chunk.length)) return;
+
+    var ret = self.push(chunk);
+    if (!ret) {
+      paused = true;
+      stream.pause();
+    }
+  });
+
+  // proxy all the other methods.
+  // important when wrapping filters and duplexes.
+  for (var i in stream) {
+    if (this[i] === undefined && typeof stream[i] === 'function') {
+      this[i] = function (method) {
+        return function () {
+          return stream[method].apply(stream, arguments);
+        };
+      }(i);
+    }
+  }
+
+  // proxy certain important events.
+  var events = ['error', 'close', 'destroy', 'pause', 'resume'];
+  forEach(events, function (ev) {
+    stream.on(ev, self.emit.bind(self, ev));
+  });
+
+  // when we try to consume some more bytes, simply unpause the
+  // underlying stream.
+  self._read = function (n) {
+    debug('wrapped _read', n);
+    if (paused) {
+      paused = false;
+      stream.resume();
+    }
+  };
+
+  return self;
+};
+
+// exposed for testing purposes only.
+Readable._fromList = fromList;
+
+// Pluck off n bytes from an array of buffers.
+// Length is the combined lengths of all the buffers in the list.
+function fromList(n, state) {
+  var list = state.buffer;
+  var length = state.length;
+  var stringMode = !!state.decoder;
+  var objectMode = !!state.objectMode;
+  var ret;
+
+  // nothing in the list, definitely empty.
+  if (list.length === 0) return null;
+
+  if (length === 0) ret = null;else if (objectMode) ret = list.shift();else if (!n || n >= length) {
+    // read it all, truncate the array.
+    if (stringMode) ret = list.join('');else if (list.length === 1) ret = list[0];else ret = Buffer.concat(list, length);
+    list.length = 0;
+  } else {
+    // read just some of it.
+    if (n < list[0].length) {
+      // just take a part of the first list item.
+      // slice is the same for buffers and strings.
+      var buf = list[0];
+      ret = buf.slice(0, n);
+      list[0] = buf.slice(n);
+    } else if (n === list[0].length) {
+      // first list is a perfect match
+      ret = list.shift();
+    } else {
+      // complex case.
+      // we have enough to cover it, but it spans past the first buffer.
+      if (stringMode) ret = '';else ret = new Buffer(n);
+
+      var c = 0;
+      for (var i = 0, l = list.length; i < l && c < n; i++) {
+        var buf = list[0];
+        var cpy = Math.min(n - c, buf.length);
+
+        if (stringMode) ret += buf.slice(0, cpy);else buf.copy(ret, c, 0, cpy);
+
+        if (cpy < buf.length) list[0] = buf.slice(cpy);else list.shift();
+
+        c += cpy;
+      }
+    }
+  }
+
+  return ret;
+}
+
+function endReadable(stream) {
+  var state = stream._readableState;
+
+  // If we get here before consuming all the bytes, then that is a
+  // bug in node.  Should never happen.
+  if (state.length > 0) throw new Error('endReadable called on non-empty stream');
+
+  if (!state.endEmitted) {
+    state.ended = true;
+    processNextTick(endReadableNT, state, stream);
+  }
+}
+
+function endReadableNT(state, stream) {
+  // Check that we didn't get one last unshift.
+  if (!state.endEmitted && state.length === 0) {
+    state.endEmitted = true;
+    stream.readable = false;
+    stream.emit('end');
+  }
+}
+
+function forEach(xs, f) {
+  for (var i = 0, l = xs.length; i < l; i++) {
+    f(xs[i], i);
+  }
+}
+
+function indexOf(xs, x) {
+  for (var i = 0, l = xs.length; i < l; i++) {
+    if (xs[i] === x) return i;
+  }
+  return -1;
+}
+}).call(this,require('_process'))
+},{"./_stream_duplex":53,"_process":46,"buffer":50,"core-util-is":59,"events":127,"inherits":137,"isarray":141,"process-nextick-args":150,"string_decoder/":179,"util":21}],56:[function(require,module,exports){
+// a transform stream is a readable/writable stream where you do
+// something with the data.  Sometimes it's called a "filter",
+// but that's not a great name for it, since that implies a thing where
+// some bits pass through, and others are simply ignored.  (That would
+// be a valid example of a transform, of course.)
+//
+// While the output is causally related to the input, it's not a
+// necessarily symmetric or synchronous transformation.  For example,
+// a zlib stream might take multiple plain-text writes(), and then
+// emit a single compressed chunk some time in the future.
+//
+// Here's how this works:
+//
+// The Transform stream has all the aspects of the readable and writable
+// stream classes.  When you write(chunk), that calls _write(chunk,cb)
+// internally, and returns false if there's a lot of pending writes
+// buffered up.  When you call read(), that calls _read(n) until
+// there's enough pending readable data buffered up.
+//
+// In a transform stream, the written data is placed in a buffer.  When
+// _read(n) is called, it transforms the queued up data, calling the
+// buffered _write cb's as it consumes chunks.  If consuming a single
+// written chunk would result in multiple output chunks, then the first
+// outputted bit calls the readcb, and subsequent chunks just go into
+// the read buffer, and will cause it to emit 'readable' if necessary.
+//
+// This way, back-pressure is actually determined by the reading side,
+// since _read has to be called to start processing a new chunk.  However,
+// a pathological inflate type of transform can cause excessive buffering
+// here.  For example, imagine a stream where every byte of input is
+// interpreted as an integer from 0-255, and then results in that many
+// bytes of output.  Writing the 4 bytes {ff,ff,ff,ff} would result in
+// 1kb of data being output.  In this case, you could write a very small
+// amount of input, and end up with a very large amount of output.  In
+// such a pathological inflating mechanism, there'd be no way to tell
+// the system to stop doing the transform.  A single 4MB write could
+// cause the system to run out of memory.
+//
+// However, even in such a pathological case, only a single written chunk
+// would be consumed, and then the rest would wait (un-transformed) until
+// the results of the previous transformed chunk were consumed.
+
+'use strict';
+
+module.exports = Transform;
+
+var Duplex = require('./_stream_duplex');
+
+/*<replacement>*/
+var util = require('core-util-is');
+util.inherits = require('inherits');
+/*</replacement>*/
+
+util.inherits(Transform, Duplex);
+
+function TransformState(stream) {
+  this.afterTransform = function (er, data) {
+    return afterTransform(stream, er, data);
+  };
+
+  this.needTransform = false;
+  this.transforming = false;
+  this.writecb = null;
+  this.writechunk = null;
+  this.writeencoding = null;
+}
+
+function afterTransform(stream, er, data) {
+  var ts = stream._transformState;
+  ts.transforming = false;
+
+  var cb = ts.writecb;
+
+  if (!cb) return stream.emit('error', new Error('no writecb in Transform class'));
+
+  ts.writechunk = null;
+  ts.writecb = null;
+
+  if (data !== null && data !== undefined) stream.push(data);
+
+  cb(er);
+
+  var rs = stream._readableState;
+  rs.reading = false;
+  if (rs.needReadable || rs.length < rs.highWaterMark) {
+    stream._read(rs.highWaterMark);
+  }
+}
+
+function Transform(options) {
+  if (!(this instanceof Transform)) return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  // when the writable side finishes, then flush out anything remaining.
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === 'function') this._transform = options.transform;
+
+    if (typeof options.flush === 'function') this._flush = options.flush;
+  }
+
+  this.once('prefinish', function () {
+    if (typeof this._flush === 'function') this._flush(function (er) {
+      done(stream, er);
+    });else done(stream);
+  });
+}
+
+Transform.prototype.push = function (chunk, encoding) {
+  this._transformState.needTransform = false;
+  return Duplex.prototype.push.call(this, chunk, encoding);
+};
+
+// This is the part where you do stuff!
+// override this function in implementation classes.
+// 'chunk' is an input chunk.
+//
+// Call `push(newChunk)` to pass along transformed output
+// to the readable side.  You may call 'push' zero or more times.
+//
+// Call `cb(err)` when you are done with this chunk.  If you pass
+// an error, then that'll put the hurt on the whole operation.  If you
+// never call cb(), then you'll never get another chunk.
+Transform.prototype._transform = function (chunk, encoding, cb) {
+  throw new Error('not implemented');
+};
+
+Transform.prototype._write = function (chunk, encoding, cb) {
+  var ts = this._transformState;
+  ts.writecb = cb;
+  ts.writechunk = chunk;
+  ts.writeencoding = encoding;
+  if (!ts.transforming) {
+    var rs = this._readableState;
+    if (ts.needTransform || rs.needReadable || rs.length < rs.highWaterMark) this._read(rs.highWaterMark);
+  }
+};
+
+// Doesn't matter what the args are here.
+// _transform does all the work.
+// That we got here means that the readable side wants more data.
+Transform.prototype._read = function (n) {
+  var ts = this._transformState;
+
+  if (ts.writechunk !== null && ts.writecb && !ts.transforming) {
+    ts.transforming = true;
+    this._transform(ts.writechunk, ts.writeencoding, ts.afterTransform);
+  } else {
+    // mark that we need a transform, so that any data that comes in
+    // will get processed, now that we've asked for it.
+    ts.needTransform = true;
+  }
+};
+
+function done(stream, er) {
+  if (er) return stream.emit('error', er);
+
+  // if there's nothing in the write buffer, then that means
+  // that nothing more will ever be provided
+  var ws = stream._writableState;
+  var ts = stream._transformState;
+
+  if (ws.length) throw new Error('calling transform done when ws.length != 0');
+
+  if (ts.transforming) throw new Error('calling transform done when still transforming');
+
+  return stream.push(null);
+}
+},{"./_stream_duplex":53,"core-util-is":59,"inherits":137}],57:[function(require,module,exports){
+(function (process){
+// A bit simpler than readable streams.
+// Implement an async ._write(chunk, encoding, cb), and it'll handle all
+// the drain event emission and buffering.
+
+'use strict';
+
+module.exports = Writable;
+
+/*<replacement>*/
+var processNextTick = require('process-nextick-args');
+/*</replacement>*/
+
+/*<replacement>*/
+var asyncWrite = !process.browser && ['v0.10', 'v0.9.'].indexOf(process.version.slice(0, 5)) > -1 ? setImmediate : processNextTick;
+/*</replacement>*/
+
+/*<replacement>*/
+var Buffer = require('buffer').Buffer;
+/*</replacement>*/
+
+Writable.WritableState = WritableState;
+
+/*<replacement>*/
+var util = require('core-util-is');
+util.inherits = require('inherits');
+/*</replacement>*/
+
+/*<replacement>*/
+var internalUtil = {
+  deprecate: require('util-deprecate')
+};
+/*</replacement>*/
+
+/*<replacement>*/
+var Stream;
+(function () {
+  try {
+    Stream = require('st' + 'ream');
+  } catch (_) {} finally {
+    if (!Stream) Stream = require('events').EventEmitter;
+  }
+})();
+/*</replacement>*/
+
+var Buffer = require('buffer').Buffer;
+
+util.inherits(Writable, Stream);
+
+function nop() {}
+
+function WriteReq(chunk, encoding, cb) {
+  this.chunk = chunk;
+  this.encoding = encoding;
+  this.callback = cb;
+  this.next = null;
+}
+
+var Duplex;
+function WritableState(options, stream) {
+  Duplex = Duplex || require('./_stream_duplex');
+
+  options = options || {};
+
+  // object stream flag to indicate whether or not this stream
+  // contains buffers or objects.
+  this.objectMode = !!options.objectMode;
+
+  if (stream instanceof Duplex) this.objectMode = this.objectMode || !!options.writableObjectMode;
+
+  // the point at which write() starts returning false
+  // Note: 0 is a valid value, means that we always return false if
+  // the entire buffer is not flushed immediately on write()
+  var hwm = options.highWaterMark;
+  var defaultHwm = this.objectMode ? 16 : 16 * 1024;
+  this.highWaterMark = hwm || hwm === 0 ? hwm : defaultHwm;
+
+  // cast to ints.
+  this.highWaterMark = ~ ~this.highWaterMark;
+
+  this.needDrain = false;
+  // at the start of calling end()
+  this.ending = false;
+  // when end() has been called, and returned
+  this.ended = false;
+  // when 'finish' is emitted
+  this.finished = false;
+
+  // should we decode strings into buffers before passing to _write?
+  // this is here so that some node-core streams can optimize string
+  // handling at a lower level.
+  var noDecode = options.decodeStrings === false;
+  this.decodeStrings = !noDecode;
+
+  // Crypto is kind of old and crusty.  Historically, its default string
+  // encoding is 'binary' so we have to make this configurable.
+  // Everything else in the universe uses 'utf8', though.
+  this.defaultEncoding = options.defaultEncoding || 'utf8';
+
+  // not an actual buffer we keep track of, but a measurement
+  // of how much we're waiting to get pushed to some underlying
+  // socket or file.
+  this.length = 0;
+
+  // a flag to see when we're in the middle of a write.
+  this.writing = false;
+
+  // when true all writes will be buffered until .uncork() call
+  this.corked = 0;
+
+  // a flag to be able to tell if the onwrite cb is called immediately,
+  // or on a later tick.  We set this to true at first, because any
+  // actions that shouldn't happen until "later" should generally also
+  // not happen before the first write call.
+  this.sync = true;
+
+  // a flag to know if we're processing previously buffered items, which
+  // may call the _write() callback in the same tick, so that we don't
+  // end up in an overlapped onwrite situation.
+  this.bufferProcessing = false;
+
+  // the callback that's passed to _write(chunk,cb)
+  this.onwrite = function (er) {
+    onwrite(stream, er);
+  };
+
+  // the callback that the user supplies to write(chunk,encoding,cb)
+  this.writecb = null;
+
+  // the amount that is being written when _write is called.
+  this.writelen = 0;
+
+  this.bufferedRequest = null;
+  this.lastBufferedRequest = null;
+
+  // number of pending user-supplied write callbacks
+  // this must be 0 before 'finish' can be emitted
+  this.pendingcb = 0;
+
+  // emit prefinish if the only thing we're waiting for is _write cbs
+  // This is relevant for synchronous Transform streams
+  this.prefinished = false;
+
+  // True if the error was already emitted and should not be thrown again
+  this.errorEmitted = false;
+
+  // count buffered requests
+  this.bufferedRequestCount = 0;
+
+  // create the two objects needed to store the corked requests
+  // they are not a linked list, as no new elements are inserted in there
+  this.corkedRequestsFree = new CorkedRequest(this);
+  this.corkedRequestsFree.next = new CorkedRequest(this);
+}
+
+WritableState.prototype.getBuffer = function writableStateGetBuffer() {
+  var current = this.bufferedRequest;
+  var out = [];
+  while (current) {
+    out.push(current);
+    current = current.next;
+  }
+  return out;
+};
+
+(function () {
+  try {
+    Object.defineProperty(WritableState.prototype, 'buffer', {
+      get: internalUtil.deprecate(function () {
+        return this.getBuffer();
+      }, '_writableState.buffer is deprecated. Use _writableState.getBuffer ' + 'instead.')
+    });
+  } catch (_) {}
+})();
+
+var Duplex;
+function Writable(options) {
+  Duplex = Duplex || require('./_stream_duplex');
+
+  // Writable ctor is applied to Duplexes, though they're not
+  // instanceof Writable, they're instanceof Readable.
+  if (!(this instanceof Writable) && !(this instanceof Duplex)) return new Writable(options);
+
+  this._writableState = new WritableState(options, this);
+
+  // legacy.
+  this.writable = true;
+
+  if (options) {
+    if (typeof options.write === 'function') this._write = options.write;
+
+    if (typeof options.writev === 'function') this._writev = options.writev;
+  }
+
+  Stream.call(this);
+}
+
+// Otherwise people can pipe Writable streams, which is just wrong.
+Writable.prototype.pipe = function () {
+  this.emit('error', new Error('Cannot pipe. Not readable.'));
+};
+
+function writeAfterEnd(stream, cb) {
+  var er = new Error('write after end');
+  // TODO: defer error events consistently everywhere, not just the cb
+  stream.emit('error', er);
+  processNextTick(cb, er);
+}
+
+// If we get something that is not a buffer, string, null, or undefined,
+// and we're not in objectMode, then that's an error.
+// Otherwise stream chunks are all considered to be of length=1, and the
+// watermarks determine how many objects to keep in the buffer, rather than
+// how many bytes or characters.
+function validChunk(stream, state, chunk, cb) {
+  var valid = true;
+
+  if (!Buffer.isBuffer(chunk) && typeof chunk !== 'string' && chunk !== null && chunk !== undefined && !state.objectMode) {
+    var er = new TypeError('Invalid non-string/buffer chunk');
+    stream.emit('error', er);
+    processNextTick(cb, er);
+    valid = false;
+  }
+  return valid;
+}
+
+Writable.prototype.write = function (chunk, encoding, cb) {
+  var state = this._writableState;
+  var ret = false;
+
+  if (typeof encoding === 'function') {
+    cb = encoding;
+    encoding = null;
+  }
+
+  if (Buffer.isBuffer(chunk)) encoding = 'buffer';else if (!encoding) encoding = state.defaultEncoding;
+
+  if (typeof cb !== 'function') cb = nop;
+
+  if (state.ended) writeAfterEnd(this, cb);else if (validChunk(this, state, chunk, cb)) {
+    state.pendingcb++;
+    ret = writeOrBuffer(this, state, chunk, encoding, cb);
+  }
+
+  return ret;
+};
+
+Writable.prototype.cork = function () {
+  var state = this._writableState;
+
+  state.corked++;
+};
+
+Writable.prototype.uncork = function () {
+  var state = this._writableState;
+
+  if (state.corked) {
+    state.corked--;
+
+    if (!state.writing && !state.corked && !state.finished && !state.bufferProcessing && state.bufferedRequest) clearBuffer(this, state);
+  }
+};
+
+Writable.prototype.setDefaultEncoding = function setDefaultEncoding(encoding) {
+  // node::ParseEncoding() requires lower case.
+  if (typeof encoding === 'string') encoding = encoding.toLowerCase();
+  if (!(['hex', 'utf8', 'utf-8', 'ascii', 'binary', 'base64', 'ucs2', 'ucs-2', 'utf16le', 'utf-16le', 'raw'].indexOf((encoding + '').toLowerCase()) > -1)) throw new TypeError('Unknown encoding: ' + encoding);
+  this._writableState.defaultEncoding = encoding;
+};
+
+function decodeChunk(state, chunk, encoding) {
+  if (!state.objectMode && state.decodeStrings !== false && typeof chunk === 'string') {
+    chunk = new Buffer(chunk, encoding);
+  }
+  return chunk;
+}
+
+// if we're already writing something, then just put this
+// in the queue, and wait our turn.  Otherwise, call _write
+// If we return false, then we need a drain event, so set that flag.
+function writeOrBuffer(stream, state, chunk, encoding, cb) {
+  chunk = decodeChunk(state, chunk, encoding);
+
+  if (Buffer.isBuffer(chunk)) encoding = 'buffer';
+  var len = state.objectMode ? 1 : chunk.length;
+
+  state.length += len;
+
+  var ret = state.length < state.highWaterMark;
+  // we must ensure that previous needDrain will not be reset to false.
+  if (!ret) state.needDrain = true;
+
+  if (state.writing || state.corked) {
+    var last = state.lastBufferedRequest;
+    state.lastBufferedRequest = new WriteReq(chunk, encoding, cb);
+    if (last) {
+      last.next = state.lastBufferedRequest;
+    } else {
+      state.bufferedRequest = state.lastBufferedRequest;
+    }
+    state.bufferedRequestCount += 1;
+  } else {
+    doWrite(stream, state, false, len, chunk, encoding, cb);
+  }
+
+  return ret;
+}
+
+function doWrite(stream, state, writev, len, chunk, encoding, cb) {
+  state.writelen = len;
+  state.writecb = cb;
+  state.writing = true;
+  state.sync = true;
+  if (writev) stream._writev(chunk, state.onwrite);else stream._write(chunk, encoding, state.onwrite);
+  state.sync = false;
+}
+
+function onwriteError(stream, state, sync, er, cb) {
+  --state.pendingcb;
+  if (sync) processNextTick(cb, er);else cb(er);
+
+  stream._writableState.errorEmitted = true;
+  stream.emit('error', er);
+}
+
+function onwriteStateUpdate(state) {
+  state.writing = false;
+  state.writecb = null;
+  state.length -= state.writelen;
+  state.writelen = 0;
+}
+
+function onwrite(stream, er) {
+  var state = stream._writableState;
+  var sync = state.sync;
+  var cb = state.writecb;
+
+  onwriteStateUpdate(state);
+
+  if (er) onwriteError(stream, state, sync, er, cb);else {
+    // Check if we're actually ready to finish, but don't emit yet
+    var finished = needFinish(state);
+
+    if (!finished && !state.corked && !state.bufferProcessing && state.bufferedRequest) {
+      clearBuffer(stream, state);
+    }
+
+    if (sync) {
+      /*<replacement>*/
+      asyncWrite(afterWrite, stream, state, finished, cb);
+      /*</replacement>*/
+    } else {
+        afterWrite(stream, state, finished, cb);
+      }
+  }
+}
+
+function afterWrite(stream, state, finished, cb) {
+  if (!finished) onwriteDrain(stream, state);
+  state.pendingcb--;
+  cb();
+  finishMaybe(stream, state);
+}
+
+// Must force callback to be called on nextTick, so that we don't
+// emit 'drain' before the write() consumer gets the 'false' return
+// value, and has a chance to attach a 'drain' listener.
+function onwriteDrain(stream, state) {
+  if (state.length === 0 && state.needDrain) {
+    state.needDrain = false;
+    stream.emit('drain');
+  }
+}
+
+// if there's something in the buffer waiting, then process it
+function clearBuffer(stream, state) {
+  state.bufferProcessing = true;
+  var entry = state.bufferedRequest;
+
+  if (stream._writev && entry && entry.next) {
+    // Fast case, write everything using _writev()
+    var l = state.bufferedRequestCount;
+    var buffer = new Array(l);
+    var holder = state.corkedRequestsFree;
+    holder.entry = entry;
+
+    var count = 0;
+    while (entry) {
+      buffer[count] = entry;
+      entry = entry.next;
+      count += 1;
+    }
+
+    doWrite(stream, state, true, state.length, buffer, '', holder.finish);
+
+    // doWrite is always async, defer these to save a bit of time
+    // as the hot path ends with doWrite
+    state.pendingcb++;
+    state.lastBufferedRequest = null;
+    state.corkedRequestsFree = holder.next;
+    holder.next = null;
+  } else {
+    // Slow case, write chunks one-by-one
+    while (entry) {
+      var chunk = entry.chunk;
+      var encoding = entry.encoding;
+      var cb = entry.callback;
+      var len = state.objectMode ? 1 : chunk.length;
+
+      doWrite(stream, state, false, len, chunk, encoding, cb);
+      entry = entry.next;
+      // if we didn't call the onwrite immediately, then
+      // it means that we need to wait until it does.
+      // also, that means that the chunk and cb are currently
+      // being processed, so move the buffer counter past them.
+      if (state.writing) {
+        break;
+      }
+    }
+
+    if (entry === null) state.lastBufferedRequest = null;
+  }
+
+  state.bufferedRequestCount = 0;
+  state.bufferedRequest = entry;
+  state.bufferProcessing = false;
+}
+
+Writable.prototype._write = function (chunk, encoding, cb) {
+  cb(new Error('not implemented'));
+};
+
+Writable.prototype._writev = null;
+
+Writable.prototype.end = function (chunk, encoding, cb) {
+  var state = this._writableState;
+
+  if (typeof chunk === 'function') {
+    cb = chunk;
+    chunk = null;
+    encoding = null;
+  } else if (typeof encoding === 'function') {
+    cb = encoding;
+    encoding = null;
+  }
+
+  if (chunk !== null && chunk !== undefined) this.write(chunk, encoding);
+
+  // .end() fully uncorks
+  if (state.corked) {
+    state.corked = 1;
+    this.uncork();
+  }
+
+  // ignore unnecessary end() calls.
+  if (!state.ending && !state.finished) endWritable(this, state, cb);
+};
+
+function needFinish(state) {
+  return state.ending && state.length === 0 && state.bufferedRequest === null && !state.finished && !state.writing;
+}
+
+function prefinish(stream, state) {
+  if (!state.prefinished) {
+    state.prefinished = true;
+    stream.emit('prefinish');
+  }
+}
+
+function finishMaybe(stream, state) {
+  var need = needFinish(state);
+  if (need) {
+    if (state.pendingcb === 0) {
+      prefinish(stream, state);
+      state.finished = true;
+      stream.emit('finish');
+    } else {
+      prefinish(stream, state);
+    }
+  }
+  return need;
+}
+
+function endWritable(stream, state, cb) {
+  state.ending = true;
+  finishMaybe(stream, state);
+  if (cb) {
+    if (state.finished) processNextTick(cb);else stream.once('finish', cb);
+  }
+  state.ended = true;
+  stream.writable = false;
+}
+
+// It seems a linked list but it is not
+// there will be only 2 of these for each stream
+function CorkedRequest(state) {
+  var _this = this;
+
+  this.next = null;
+  this.entry = null;
+
+  this.finish = function (err) {
+    var entry = _this.entry;
+    _this.entry = null;
+    while (entry) {
+      var cb = entry.callback;
+      state.pendingcb--;
+      cb(err);
+      entry = entry.next;
+    }
+    if (state.corkedRequestsFree) {
+      state.corkedRequestsFree.next = _this;
+    } else {
+      state.corkedRequestsFree = _this;
+    }
+  };
+}
+}).call(this,require('_process'))
+},{"./_stream_duplex":53,"_process":46,"buffer":50,"core-util-is":59,"events":127,"inherits":137,"process-nextick-args":150,"util-deprecate":182}],58:[function(require,module,exports){
+var Stream = (function (){
+  try {
+    return require('st' + 'ream'); // hack to fix a circular dependency issue when used with browserify
+  } catch(_){}
+}());
+exports = module.exports = require('./lib/_stream_readable.js');
+exports.Stream = Stream || exports;
+exports.Readable = exports;
+exports.Writable = require('./lib/_stream_writable.js');
+exports.Duplex = require('./lib/_stream_duplex.js');
+exports.Transform = require('./lib/_stream_transform.js');
+exports.PassThrough = require('./lib/_stream_passthrough.js');
+
+},{"./lib/_stream_duplex.js":53,"./lib/_stream_passthrough.js":54,"./lib/_stream_readable.js":55,"./lib/_stream_transform.js":56,"./lib/_stream_writable.js":57}],59:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -10505,7 +12205,7 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../is-buffer/index.js")})
-},{"../../is-buffer/index.js":134}],54:[function(require,module,exports){
+},{"../../is-buffer/index.js":140}],60:[function(require,module,exports){
 (function (Buffer){
 var elliptic = require('elliptic');
 var BN = require('bn.js');
@@ -10631,7 +12331,7 @@ function formatReturnValue(bn, enc, len) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":19,"buffer":50,"elliptic":104}],55:[function(require,module,exports){
+},{"bn.js":19,"buffer":50,"elliptic":110}],61:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 var inherits = require('inherits')
@@ -10687,7 +12387,7 @@ module.exports = function createHash (alg) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./md5":57,"buffer":50,"cipher-base":51,"inherits":131,"ripemd160":163,"sha.js":165}],56:[function(require,module,exports){
+},{"./md5":63,"buffer":50,"cipher-base":51,"inherits":137,"ripemd160":169,"sha.js":171}],62:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 var intSize = 4;
@@ -10724,7 +12424,7 @@ function hash(buf, fn, hashSize, bigEndian) {
 }
 exports.hash = hash;
 }).call(this,require("buffer").Buffer)
-},{"buffer":50}],57:[function(require,module,exports){
+},{"buffer":50}],63:[function(require,module,exports){
 'use strict';
 /*
  * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
@@ -10881,7 +12581,7 @@ function bit_rol(num, cnt)
 module.exports = function md5(buf) {
   return helpers.hash(buf, core_md5, 16);
 };
-},{"./helpers":56}],58:[function(require,module,exports){
+},{"./helpers":62}],64:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 var createHash = require('create-hash/browser');
@@ -10953,7 +12653,7 @@ module.exports = function createHmac(alg, key) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":50,"create-hash/browser":55,"inherits":131,"stream":172}],59:[function(require,module,exports){
+},{"buffer":50,"create-hash/browser":61,"inherits":137,"stream":178}],65:[function(require,module,exports){
 'use strict'
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = require('randombytes')
@@ -11032,7 +12732,7 @@ var publicEncrypt = require('public-encrypt')
   }
 })
 
-},{"browserify-cipher":37,"browserify-sign":42,"browserify-sign/algos":41,"create-ecdh":54,"create-hash":55,"create-hmac":58,"diffie-hellman":100,"pbkdf2":142,"public-encrypt":145,"randombytes":151}],60:[function(require,module,exports){
+},{"browserify-cipher":37,"browserify-sign":42,"browserify-sign/algos":41,"create-ecdh":60,"create-hash":61,"create-hmac":64,"diffie-hellman":106,"pbkdf2":148,"public-encrypt":151,"randombytes":157}],66:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -11265,7 +12965,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.AES;
 
 }));
-},{"./cipher-core":61,"./core":62,"./enc-base64":63,"./evpkdf":65,"./md5":70}],61:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68,"./enc-base64":69,"./evpkdf":71,"./md5":76}],67:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -12141,7 +13841,7 @@ var publicEncrypt = require('public-encrypt')
 
 
 }));
-},{"./core":62}],62:[function(require,module,exports){
+},{"./core":68}],68:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -12902,7 +14602,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS;
 
 }));
-},{}],63:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13038,7 +14738,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.enc.Base64;
 
 }));
-},{"./core":62}],64:[function(require,module,exports){
+},{"./core":68}],70:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13188,7 +14888,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.enc.Utf16;
 
 }));
-},{"./core":62}],65:[function(require,module,exports){
+},{"./core":68}],71:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13321,7 +15021,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.EvpKDF;
 
 }));
-},{"./core":62,"./hmac":67,"./sha1":86}],66:[function(require,module,exports){
+},{"./core":68,"./hmac":73,"./sha1":92}],72:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13388,7 +15088,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.format.Hex;
 
 }));
-},{"./cipher-core":61,"./core":62}],67:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],73:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13532,7 +15232,7 @@ var publicEncrypt = require('public-encrypt')
 
 
 }));
-},{"./core":62}],68:[function(require,module,exports){
+},{"./core":68}],74:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13551,7 +15251,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS;
 
 }));
-},{"./aes":60,"./cipher-core":61,"./core":62,"./enc-base64":63,"./enc-utf16":64,"./evpkdf":65,"./format-hex":66,"./hmac":67,"./lib-typedarrays":69,"./md5":70,"./mode-cfb":71,"./mode-ctr":73,"./mode-ctr-gladman":72,"./mode-ecb":74,"./mode-ofb":75,"./pad-ansix923":76,"./pad-iso10126":77,"./pad-iso97971":78,"./pad-nopadding":79,"./pad-zeropadding":80,"./pbkdf2":81,"./rabbit":83,"./rabbit-legacy":82,"./rc4":84,"./ripemd160":85,"./sha1":86,"./sha224":87,"./sha256":88,"./sha3":89,"./sha384":90,"./sha512":91,"./tripledes":92,"./x64-core":93}],69:[function(require,module,exports){
+},{"./aes":66,"./cipher-core":67,"./core":68,"./enc-base64":69,"./enc-utf16":70,"./evpkdf":71,"./format-hex":72,"./hmac":73,"./lib-typedarrays":75,"./md5":76,"./mode-cfb":77,"./mode-ctr":79,"./mode-ctr-gladman":78,"./mode-ecb":80,"./mode-ofb":81,"./pad-ansix923":82,"./pad-iso10126":83,"./pad-iso97971":84,"./pad-nopadding":85,"./pad-zeropadding":86,"./pbkdf2":87,"./rabbit":89,"./rabbit-legacy":88,"./rc4":90,"./ripemd160":91,"./sha1":92,"./sha224":93,"./sha256":94,"./sha3":95,"./sha384":96,"./sha512":97,"./tripledes":98,"./x64-core":99}],75:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13628,7 +15328,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.lib.WordArray;
 
 }));
-},{"./core":62}],70:[function(require,module,exports){
+},{"./core":68}],76:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13897,7 +15597,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.MD5;
 
 }));
-},{"./core":62}],71:[function(require,module,exports){
+},{"./core":68}],77:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -13976,7 +15676,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.mode.CFB;
 
 }));
-},{"./cipher-core":61,"./core":62}],72:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],78:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14093,7 +15793,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.mode.CTRGladman;
 
 }));
-},{"./cipher-core":61,"./core":62}],73:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],79:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14152,7 +15852,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.mode.CTR;
 
 }));
-},{"./cipher-core":61,"./core":62}],74:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],80:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14193,7 +15893,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.mode.ECB;
 
 }));
-},{"./cipher-core":61,"./core":62}],75:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],81:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14248,7 +15948,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.mode.OFB;
 
 }));
-},{"./cipher-core":61,"./core":62}],76:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],82:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14298,7 +15998,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.pad.Ansix923;
 
 }));
-},{"./cipher-core":61,"./core":62}],77:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],83:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14343,7 +16043,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.pad.Iso10126;
 
 }));
-},{"./cipher-core":61,"./core":62}],78:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],84:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14384,7 +16084,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.pad.Iso97971;
 
 }));
-},{"./cipher-core":61,"./core":62}],79:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],85:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14415,7 +16115,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.pad.NoPadding;
 
 }));
-},{"./cipher-core":61,"./core":62}],80:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],86:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14461,7 +16161,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.pad.ZeroPadding;
 
 }));
-},{"./cipher-core":61,"./core":62}],81:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68}],87:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14607,7 +16307,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.PBKDF2;
 
 }));
-},{"./core":62,"./hmac":67,"./sha1":86}],82:[function(require,module,exports){
+},{"./core":68,"./hmac":73,"./sha1":92}],88:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14798,7 +16498,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.RabbitLegacy;
 
 }));
-},{"./cipher-core":61,"./core":62,"./enc-base64":63,"./evpkdf":65,"./md5":70}],83:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68,"./enc-base64":69,"./evpkdf":71,"./md5":76}],89:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -14991,7 +16691,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.Rabbit;
 
 }));
-},{"./cipher-core":61,"./core":62,"./enc-base64":63,"./evpkdf":65,"./md5":70}],84:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68,"./enc-base64":69,"./evpkdf":71,"./md5":76}],90:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -15131,7 +16831,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.RC4;
 
 }));
-},{"./cipher-core":61,"./core":62,"./enc-base64":63,"./evpkdf":65,"./md5":70}],85:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68,"./enc-base64":69,"./evpkdf":71,"./md5":76}],91:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -15399,7 +17099,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.RIPEMD160;
 
 }));
-},{"./core":62}],86:[function(require,module,exports){
+},{"./core":68}],92:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -15550,7 +17250,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.SHA1;
 
 }));
-},{"./core":62}],87:[function(require,module,exports){
+},{"./core":68}],93:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -15631,7 +17331,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.SHA224;
 
 }));
-},{"./core":62,"./sha256":88}],88:[function(require,module,exports){
+},{"./core":68,"./sha256":94}],94:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -15831,7 +17531,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.SHA256;
 
 }));
-},{"./core":62}],89:[function(require,module,exports){
+},{"./core":68}],95:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -16155,7 +17855,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.SHA3;
 
 }));
-},{"./core":62,"./x64-core":93}],90:[function(require,module,exports){
+},{"./core":68,"./x64-core":99}],96:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -16239,7 +17939,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.SHA384;
 
 }));
-},{"./core":62,"./sha512":91,"./x64-core":93}],91:[function(require,module,exports){
+},{"./core":68,"./sha512":97,"./x64-core":99}],97:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -16563,7 +18263,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.SHA512;
 
 }));
-},{"./core":62,"./x64-core":93}],92:[function(require,module,exports){
+},{"./core":68,"./x64-core":99}],98:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -17334,7 +19034,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS.TripleDES;
 
 }));
-},{"./cipher-core":61,"./core":62,"./enc-base64":63,"./evpkdf":65,"./md5":70}],93:[function(require,module,exports){
+},{"./cipher-core":67,"./core":68,"./enc-base64":69,"./evpkdf":71,"./md5":76}],99:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -17639,7 +19339,7 @@ var publicEncrypt = require('public-encrypt')
 	return CryptoJS;
 
 }));
-},{"./core":62}],94:[function(require,module,exports){
+},{"./core":68}],100:[function(require,module,exports){
 'use strict';
 
 exports.utils = require('./des/utils');
@@ -17648,7 +19348,7 @@ exports.DES = require('./des/des');
 exports.CBC = require('./des/cbc');
 exports.EDE = require('./des/ede');
 
-},{"./des/cbc":95,"./des/cipher":96,"./des/des":97,"./des/ede":98,"./des/utils":99}],95:[function(require,module,exports){
+},{"./des/cbc":101,"./des/cipher":102,"./des/des":103,"./des/ede":104,"./des/utils":105}],101:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -17715,7 +19415,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
   }
 };
 
-},{"inherits":131,"minimalistic-assert":137}],96:[function(require,module,exports){
+},{"inherits":137,"minimalistic-assert":143}],102:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -17858,7 +19558,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
   return this._unpad(out);
 };
 
-},{"minimalistic-assert":137}],97:[function(require,module,exports){
+},{"minimalistic-assert":143}],103:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -18003,7 +19703,7 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
   utils.rip(l, r, out, off);
 };
 
-},{"../des":94,"inherits":131,"minimalistic-assert":137}],98:[function(require,module,exports){
+},{"../des":100,"inherits":137,"minimalistic-assert":143}],104:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -18060,7 +19760,7 @@ EDE.prototype._update = function _update(inp, inOff, out, outOff) {
 EDE.prototype._pad = DES.prototype._pad;
 EDE.prototype._unpad = DES.prototype._unpad;
 
-},{"../des":94,"inherits":131,"minimalistic-assert":137}],99:[function(require,module,exports){
+},{"../des":100,"inherits":137,"minimalistic-assert":143}],105:[function(require,module,exports){
 'use strict';
 
 exports.readUInt32BE = function readUInt32BE(bytes, off) {
@@ -18318,7 +20018,7 @@ exports.padSplit = function padSplit(num, size, group) {
   return out.join(' ');
 };
 
-},{}],100:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 (function (Buffer){
 var generatePrime = require('./lib/generatePrime')
 var primes = require('./lib/primes.json')
@@ -18364,7 +20064,7 @@ exports.DiffieHellmanGroup = exports.createDiffieHellmanGroup = exports.getDiffi
 exports.createDiffieHellman = exports.DiffieHellman = createDiffieHellman
 
 }).call(this,require("buffer").Buffer)
-},{"./lib/dh":101,"./lib/generatePrime":102,"./lib/primes.json":103,"buffer":50}],101:[function(require,module,exports){
+},{"./lib/dh":107,"./lib/generatePrime":108,"./lib/primes.json":109,"buffer":50}],107:[function(require,module,exports){
 (function (Buffer){
 var BN = require('bn.js');
 var MillerRabin = require('miller-rabin');
@@ -18532,7 +20232,7 @@ function formatReturnValue(bn, enc) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./generatePrime":102,"bn.js":19,"buffer":50,"miller-rabin":136,"randombytes":151}],102:[function(require,module,exports){
+},{"./generatePrime":108,"bn.js":19,"buffer":50,"miller-rabin":142,"randombytes":157}],108:[function(require,module,exports){
 var randomBytes = require('randombytes');
 module.exports = findPrime;
 findPrime.simpleSieve = simpleSieve;
@@ -18639,7 +20339,7 @@ function findPrime(bits, gen) {
 
 }
 
-},{"bn.js":19,"miller-rabin":136,"randombytes":151}],103:[function(require,module,exports){
+},{"bn.js":19,"miller-rabin":142,"randombytes":157}],109:[function(require,module,exports){
 module.exports={
     "modp1": {
         "gen": "02",
@@ -18674,7 +20374,7 @@ module.exports={
         "prime": "ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c93402849236c3fab4d27c7026c1d4dcb2602646dec9751e763dba37bdf8ff9406ad9e530ee5db382f413001aeb06a53ed9027d831179727b0865a8918da3edbebcf9b14ed44ce6cbaced4bb1bdb7f1447e6cc254b332051512bd7af426fb8f401378cd2bf5983ca01c64b92ecf032ea15d1721d03f482d7ce6e74fef6d55e702f46980c82b5a84031900b1c9e59e7c97fbec7e8f323a97a7e36cc88be0f1d45b7ff585ac54bd407b22b4154aacc8f6d7ebf48e1d814cc5ed20f8037e0a79715eef29be32806a1d58bb7c5da76f550aa3d8a1fbff0eb19ccb1a313d55cda56c9ec2ef29632387fe8d76e3c0468043e8f663f4860ee12bf2d5b0b7474d6e694f91e6dbe115974a3926f12fee5e438777cb6a932df8cd8bec4d073b931ba3bc832b68d9dd300741fa7bf8afc47ed2576f6936ba424663aab639c5ae4f5683423b4742bf1c978238f16cbe39d652de3fdb8befc848ad922222e04a4037c0713eb57a81a23f0c73473fc646cea306b4bcbc8862f8385ddfa9d4b7fa2c087e879683303ed5bdd3a062b3cf5b3a278a66d2a13f83f44f82ddf310ee074ab6a364597e899a0255dc164f31cc50846851df9ab48195ded7ea1b1d510bd7ee74d73faf36bc31ecfa268359046f4eb879f924009438b481c6cd7889a002ed5ee382bc9190da6fc026e479558e4475677e9aa9e3050e2765694dfc81f56e880b96e7160c980dd98edd3dfffffffffffffffff"
     }
 }
-},{}],104:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 'use strict';
 
 var elliptic = exports;
@@ -18690,7 +20390,7 @@ elliptic.curves = require('./elliptic/curves');
 elliptic.ec = require('./elliptic/ec');
 elliptic.eddsa = require('./elliptic/eddsa');
 
-},{"../package.json":120,"./elliptic/curve":107,"./elliptic/curves":110,"./elliptic/ec":111,"./elliptic/eddsa":114,"./elliptic/hmac-drbg":117,"./elliptic/utils":119,"brorand":20}],105:[function(require,module,exports){
+},{"../package.json":126,"./elliptic/curve":113,"./elliptic/curves":116,"./elliptic/ec":117,"./elliptic/eddsa":120,"./elliptic/hmac-drbg":123,"./elliptic/utils":125,"brorand":20}],111:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -19067,7 +20767,7 @@ BasePoint.prototype.dblp = function dblp(k) {
   return r;
 };
 
-},{"../../elliptic":104,"bn.js":19}],106:[function(require,module,exports){
+},{"../../elliptic":110,"bn.js":19}],112:[function(require,module,exports){
 'use strict';
 
 var curve = require('../curve');
@@ -19502,7 +21202,7 @@ Point.prototype.eqXToP = function eqXToP(x) {
 Point.prototype.toP = Point.prototype.normalize;
 Point.prototype.mixedAdd = Point.prototype.add;
 
-},{"../../elliptic":104,"../curve":107,"bn.js":19,"inherits":131}],107:[function(require,module,exports){
+},{"../../elliptic":110,"../curve":113,"bn.js":19,"inherits":137}],113:[function(require,module,exports){
 'use strict';
 
 var curve = exports;
@@ -19512,7 +21212,7 @@ curve.short = require('./short');
 curve.mont = require('./mont');
 curve.edwards = require('./edwards');
 
-},{"./base":105,"./edwards":106,"./mont":108,"./short":109}],108:[function(require,module,exports){
+},{"./base":111,"./edwards":112,"./mont":114,"./short":115}],114:[function(require,module,exports){
 'use strict';
 
 var curve = require('../curve');
@@ -19694,7 +21394,7 @@ Point.prototype.getX = function getX() {
   return this.x.fromRed();
 };
 
-},{"../../elliptic":104,"../curve":107,"bn.js":19,"inherits":131}],109:[function(require,module,exports){
+},{"../../elliptic":110,"../curve":113,"bn.js":19,"inherits":137}],115:[function(require,module,exports){
 'use strict';
 
 var curve = require('../curve');
@@ -20634,7 +22334,7 @@ JPoint.prototype.isInfinity = function isInfinity() {
   return this.z.cmpn(0) === 0;
 };
 
-},{"../../elliptic":104,"../curve":107,"bn.js":19,"inherits":131}],110:[function(require,module,exports){
+},{"../../elliptic":110,"../curve":113,"bn.js":19,"inherits":137}],116:[function(require,module,exports){
 'use strict';
 
 var curves = exports;
@@ -20841,7 +22541,7 @@ defineCurve('secp256k1', {
   ]
 });
 
-},{"../elliptic":104,"./precomputed/secp256k1":118,"hash.js":123}],111:[function(require,module,exports){
+},{"../elliptic":110,"./precomputed/secp256k1":124,"hash.js":129}],117:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -21080,7 +22780,7 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
   throw new Error('Unable to find valid recovery factor');
 };
 
-},{"../../elliptic":104,"./key":112,"./signature":113,"bn.js":19}],112:[function(require,module,exports){
+},{"../../elliptic":110,"./key":118,"./signature":119,"bn.js":19}],118:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -21189,7 +22889,7 @@ KeyPair.prototype.inspect = function inspect() {
          ' pub: ' + (this.pub && this.pub.inspect()) + ' >';
 };
 
-},{"bn.js":19}],113:[function(require,module,exports){
+},{"bn.js":19}],119:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -21326,7 +23026,7 @@ Signature.prototype.toDER = function toDER(enc) {
   return utils.encode(res, enc);
 };
 
-},{"../../elliptic":104,"bn.js":19}],114:[function(require,module,exports){
+},{"../../elliptic":110,"bn.js":19}],120:[function(require,module,exports){
 'use strict';
 
 var hash = require('hash.js');
@@ -21446,7 +23146,7 @@ EDDSA.prototype.isPoint = function isPoint(val) {
   return val instanceof this.pointClass;
 };
 
-},{"../../elliptic":104,"./key":115,"./signature":116,"hash.js":123}],115:[function(require,module,exports){
+},{"../../elliptic":110,"./key":121,"./signature":122,"hash.js":129}],121:[function(require,module,exports){
 'use strict';
 
 var elliptic = require('../../elliptic');
@@ -21544,7 +23244,7 @@ KeyPair.prototype.getPublic = function getPublic(enc) {
 
 module.exports = KeyPair;
 
-},{"../../elliptic":104}],116:[function(require,module,exports){
+},{"../../elliptic":110}],122:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -21612,7 +23312,7 @@ Signature.prototype.toHex = function toHex() {
 
 module.exports = Signature;
 
-},{"../../elliptic":104,"bn.js":19}],117:[function(require,module,exports){
+},{"../../elliptic":110,"bn.js":19}],123:[function(require,module,exports){
 'use strict';
 
 var hash = require('hash.js');
@@ -21728,7 +23428,7 @@ HmacDRBG.prototype.generate = function generate(len, enc, add, addEnc) {
   return utils.encode(res, enc);
 };
 
-},{"../elliptic":104,"hash.js":123}],118:[function(require,module,exports){
+},{"../elliptic":110,"hash.js":129}],124:[function(require,module,exports){
 module.exports = {
   doubles: {
     step: 4,
@@ -22510,7 +24210,7 @@ module.exports = {
   }
 };
 
-},{}],119:[function(require,module,exports){
+},{}],125:[function(require,module,exports){
 'use strict';
 
 var utils = exports;
@@ -22684,7 +24384,7 @@ function intFromLE(bytes) {
 utils.intFromLE = intFromLE;
 
 
-},{"bn.js":19}],120:[function(require,module,exports){
+},{"bn.js":19}],126:[function(require,module,exports){
 module.exports={
   "_args": [
     [
@@ -22805,7 +24505,7 @@ module.exports={
   "version": "6.3.2"
 }
 
-},{}],121:[function(require,module,exports){
+},{}],127:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -23109,7 +24809,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],122:[function(require,module,exports){
+},{}],128:[function(require,module,exports){
 (function (Buffer){
 var md5 = require('create-hash/md5')
 module.exports = EVP_BytesToKey
@@ -23181,7 +24881,7 @@ function EVP_BytesToKey (password, salt, keyLen, ivLen) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":50,"create-hash/md5":57}],123:[function(require,module,exports){
+},{"buffer":50,"create-hash/md5":63}],129:[function(require,module,exports){
 var hash = exports;
 
 hash.utils = require('./hash/utils');
@@ -23198,7 +24898,7 @@ hash.sha384 = hash.sha.sha384;
 hash.sha512 = hash.sha.sha512;
 hash.ripemd160 = hash.ripemd.ripemd160;
 
-},{"./hash/common":124,"./hash/hmac":125,"./hash/ripemd":126,"./hash/sha":127,"./hash/utils":128}],124:[function(require,module,exports){
+},{"./hash/common":130,"./hash/hmac":131,"./hash/ripemd":132,"./hash/sha":133,"./hash/utils":134}],130:[function(require,module,exports){
 var hash = require('../hash');
 var utils = hash.utils;
 var assert = utils.assert;
@@ -23291,7 +24991,7 @@ BlockHash.prototype._pad = function pad() {
   return res;
 };
 
-},{"../hash":123}],125:[function(require,module,exports){
+},{"../hash":129}],131:[function(require,module,exports){
 var hmac = exports;
 
 var hash = require('../hash');
@@ -23341,7 +25041,7 @@ Hmac.prototype.digest = function digest(enc) {
   return this.outer.digest(enc);
 };
 
-},{"../hash":123}],126:[function(require,module,exports){
+},{"../hash":129}],132:[function(require,module,exports){
 var hash = require('../hash');
 var utils = hash.utils;
 
@@ -23487,7 +25187,7 @@ var sh = [
   8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11
 ];
 
-},{"../hash":123}],127:[function(require,module,exports){
+},{"../hash":129}],133:[function(require,module,exports){
 var hash = require('../hash');
 var utils = hash.utils;
 var assert = utils.assert;
@@ -24053,7 +25753,7 @@ function g1_512_lo(xh, xl) {
   return r;
 }
 
-},{"../hash":123}],128:[function(require,module,exports){
+},{"../hash":129}],134:[function(require,module,exports){
 var utils = exports;
 var inherits = require('inherits');
 
@@ -24312,7 +26012,7 @@ function shr64_lo(ah, al, num) {
 };
 exports.shr64_lo = shr64_lo;
 
-},{"inherits":131}],129:[function(require,module,exports){
+},{"inherits":137}],135:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -24398,7 +26098,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],130:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -24409,7 +26109,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],131:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -24434,11 +26134,10 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],132:[function(require,module,exports){
+},{}],138:[function(require,module,exports){
 'use strict';
 
-var XMLHttpRequest = require('w3c-xmlhttprequest').XMLHttpRequest;
-var add = require('./lib/add.js');
+var XMLHttpRequest = require('./lib/XMLHttpRequest');
 
 module.exports = IPFS;
 
@@ -24487,12 +26186,6 @@ IPFS.prototype.sendAsync = function sendAsync(opts, cb) {
   var options = opts || {};
   var callback = cb || function emptyCallback() {};
 
-  request.open('POST', '' + self.requestBase + opts.uri);
-
-  if (options.accept) {
-    request.setRequestHeader('accept', options.accept);
-  }
-
   request.onreadystatechange = function () {
     if (request.readyState === 4 && request.timeout !== 1) {
       if (request.status !== 200) {
@@ -24508,12 +26201,34 @@ IPFS.prototype.sendAsync = function sendAsync(opts, cb) {
   };
 
   if (options.payload) {
-    request.enctype = 'multipart/form-data';
+    request.open('POST', '' + self.requestBase + opts.uri);
+  } else {
+    request.open('GET', '' + self.requestBase + opts.uri);
+  }
+
+  if (options.accept) {
+    request.setRequestHeader('accept', options.accept);
+  }
+
+  if (options.payload && options.boundary) {
+    request.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + options.boundary);
     request.send(options.payload);
   } else {
     request.send();
   }
 };
+
+/**
+ * creates a boundary that isn't part of the payload
+ */
+function createBoundary(data) {
+  while (true) {
+    var boundary = '----IPFSMini' + Math.random() * 100000 + '.' + Math.random() * 100000;
+    if (data.indexOf(boundary) === -1) {
+      return boundary;
+    }
+  }
+}
 
 /**
  * Add an string or buffer to IPFS
@@ -24522,8 +26237,14 @@ IPFS.prototype.sendAsync = function sendAsync(opts, cb) {
  * @callback {String} `ipfsHash` returns an IPFS hash string
  */
 IPFS.prototype.add = function addData(input, callback) {
-  var self = this;
-  add(input, self, callback);
+  var data = typeof input === 'object' && input.isBuffer ? input.toString('binary') : input;
+  var boundary = createBoundary(data);
+  var payload = '--' + boundary + '\r\nContent-Disposition: form-data; name="path"\r\nContent-Type: application/octet-stream\r\n\r\n' + data + '\r\n--' + boundary + '--';
+
+  var addCallback = function addCallback(err, result) {
+    return callback(err, !err ? result.Hash : null);
+  };
+  this.sendAsync({ jsonParse: true, accept: 'application/json', uri: '/add', payload: payload, boundary: boundary }, addCallback);
 };
 
 /**
@@ -24580,27 +26301,13 @@ IPFS.prototype.catJSON = function cat(ipfsHash, callback) {
     }
   });
 };
-},{"./lib/add.js":133,"w3c-xmlhttprequest":178}],133:[function(require,module,exports){
+},{"./lib/XMLHttpRequest":139}],139:[function(require,module,exports){
 'use strict';
 
-/**
- * The add method for the IPFS api in the browser
- * @param {String|Buffer} `inputData` the data to be stored
- * @param {Object} `self` the ipfs instance
- * @param {Function} `callback` the callback
- * @callback {String} `ipfs` returns an IPFS hash string
- */
-module.exports = function add(input, self, callback) {
-  var payload = new FormData();
-  var data = typeof input === 'object' && input.isBuffer ? input.toString('binary') : input;
-  payload.append('file', new Blob([data], {}));
-  var addCallback = function addCallback(err, result) {
-    return callback(err, !err ? result.Hash : null);
-  };
+var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
-  self.sendAsync({ jsonParse: true, accept: 'application/json', uri: '/add', payload: payload }, addCallback);
-};
-},{}],134:[function(require,module,exports){
+module.exports = XMLHttpRequest;
+},{"xmlhttprequest":21}],140:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -24623,14 +26330,14 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],135:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],136:[function(require,module,exports){
+},{}],142:[function(require,module,exports){
 var bn = require('bn.js');
 var brorand = require('brorand');
 
@@ -24745,7 +26452,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
   return false;
 };
 
-},{"bn.js":19,"brorand":20}],137:[function(require,module,exports){
+},{"bn.js":19,"brorand":20}],143:[function(require,module,exports){
 module.exports = assert;
 
 function assert(val, msg) {
@@ -24758,7 +26465,7 @@ assert.equal = function assertEqual(l, r, msg) {
     throw new Error(msg || ('Assertion failed: ' + l + ' != ' + r));
 };
 
-},{}],138:[function(require,module,exports){
+},{}],144:[function(require,module,exports){
 module.exports={"2.16.840.1.101.3.4.1.1": "aes-128-ecb",
 "2.16.840.1.101.3.4.1.2": "aes-128-cbc",
 "2.16.840.1.101.3.4.1.3": "aes-128-ofb",
@@ -24772,7 +26479,7 @@ module.exports={"2.16.840.1.101.3.4.1.1": "aes-128-ecb",
 "2.16.840.1.101.3.4.1.43": "aes-256-ofb",
 "2.16.840.1.101.3.4.1.44": "aes-256-cfb"
 }
-},{}],139:[function(require,module,exports){
+},{}],145:[function(require,module,exports){
 // from https://github.com/indutny/self-signed/blob/gh-pages/lib/asn1.js
 // Fedor, you are amazing.
 
@@ -24891,7 +26598,7 @@ exports.signature = asn1.define('signature', function () {
   )
 })
 
-},{"asn1.js":3}],140:[function(require,module,exports){
+},{"asn1.js":3}],146:[function(require,module,exports){
 (function (Buffer){
 // adapted from https://github.com/apatil/pemstrip
 var findProc = /Proc-Type: 4,ENCRYPTED\r?\nDEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)\r?\n\r?\n([0-9A-z\n\r\+\/\=]+)\r?\n/m
@@ -24925,7 +26632,7 @@ module.exports = function (okey, password) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"browserify-aes":24,"buffer":50,"evp_bytestokey":122}],141:[function(require,module,exports){
+},{"browserify-aes":24,"buffer":50,"evp_bytestokey":128}],147:[function(require,module,exports){
 (function (Buffer){
 var asn1 = require('./asn1')
 var aesid = require('./aesid.json')
@@ -25030,7 +26737,7 @@ function decrypt (data, password) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./aesid.json":138,"./asn1":139,"./fixProc":140,"browserify-aes":24,"buffer":50,"pbkdf2":142}],142:[function(require,module,exports){
+},{"./aesid.json":144,"./asn1":145,"./fixProc":146,"browserify-aes":24,"buffer":50,"pbkdf2":148}],148:[function(require,module,exports){
 (function (process,Buffer){
 var createHmac = require('create-hmac')
 var checkParameters = require('./precondition')
@@ -25102,7 +26809,7 @@ exports.pbkdf2Sync = function (password, salt, iterations, keylen, digest) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./precondition":143,"_process":46,"buffer":50,"create-hmac":58}],143:[function(require,module,exports){
+},{"./precondition":149,"_process":46,"buffer":50,"create-hmac":64}],149:[function(require,module,exports){
 var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
 module.exports = function (iterations, keylen) {
   if (typeof iterations !== 'number') {
@@ -25122,7 +26829,7 @@ module.exports = function (iterations, keylen) {
   }
 }
 
-},{}],144:[function(require,module,exports){
+},{}],150:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25169,7 +26876,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 }
 
 }).call(this,require('_process'))
-},{"_process":46}],145:[function(require,module,exports){
+},{"_process":46}],151:[function(require,module,exports){
 exports.publicEncrypt = require('./publicEncrypt');
 exports.privateDecrypt = require('./privateDecrypt');
 
@@ -25180,7 +26887,7 @@ exports.privateEncrypt = function privateEncrypt(key, buf) {
 exports.publicDecrypt = function publicDecrypt(key, buf) {
   return exports.privateDecrypt(key, buf, true);
 };
-},{"./privateDecrypt":147,"./publicEncrypt":148}],146:[function(require,module,exports){
+},{"./privateDecrypt":153,"./publicEncrypt":154}],152:[function(require,module,exports){
 (function (Buffer){
 var createHash = require('create-hash');
 module.exports = function (seed, len) {
@@ -25199,7 +26906,7 @@ function i2ops(c) {
   return out;
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":50,"create-hash":55}],147:[function(require,module,exports){
+},{"buffer":50,"create-hash":61}],153:[function(require,module,exports){
 (function (Buffer){
 var parseKeys = require('parse-asn1');
 var mgf = require('./mgf');
@@ -25310,7 +27017,7 @@ function compare(a, b){
   return dif;
 }
 }).call(this,require("buffer").Buffer)
-},{"./mgf":146,"./withPublic":149,"./xor":150,"bn.js":19,"browserify-rsa":40,"buffer":50,"create-hash":55,"parse-asn1":141}],148:[function(require,module,exports){
+},{"./mgf":152,"./withPublic":155,"./xor":156,"bn.js":19,"browserify-rsa":40,"buffer":50,"create-hash":61,"parse-asn1":147}],154:[function(require,module,exports){
 (function (Buffer){
 var parseKeys = require('parse-asn1');
 var randomBytes = require('randombytes');
@@ -25408,7 +27115,7 @@ function nonZero(len, crypto) {
   return out;
 }
 }).call(this,require("buffer").Buffer)
-},{"./mgf":146,"./withPublic":149,"./xor":150,"bn.js":19,"browserify-rsa":40,"buffer":50,"create-hash":55,"parse-asn1":141,"randombytes":151}],149:[function(require,module,exports){
+},{"./mgf":152,"./withPublic":155,"./xor":156,"bn.js":19,"browserify-rsa":40,"buffer":50,"create-hash":61,"parse-asn1":147,"randombytes":157}],155:[function(require,module,exports){
 (function (Buffer){
 var bn = require('bn.js');
 function withPublic(paddedMsg, key) {
@@ -25421,7 +27128,7 @@ function withPublic(paddedMsg, key) {
 
 module.exports = withPublic;
 }).call(this,require("buffer").Buffer)
-},{"bn.js":19,"buffer":50}],150:[function(require,module,exports){
+},{"bn.js":19,"buffer":50}],156:[function(require,module,exports){
 module.exports = function xor(a, b) {
   var len = a.length;
   var i = -1;
@@ -25430,7 +27137,7 @@ module.exports = function xor(a, b) {
   }
   return a
 };
-},{}],151:[function(require,module,exports){
+},{}],157:[function(require,module,exports){
 (function (process,global,Buffer){
 'use strict'
 
@@ -25470,113 +27177,14 @@ function randomBytes (size, cb) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"_process":46,"buffer":50}],152:[function(require,module,exports){
+},{"_process":46,"buffer":50}],158:[function(require,module,exports){
 module.exports = require("./lib/_stream_duplex.js")
 
-},{"./lib/_stream_duplex.js":153}],153:[function(require,module,exports){
-// a duplex stream is just a stream that is both readable and writable.
-// Since JS doesn't have multiple prototypal inheritance, this class
-// prototypally inherits from Readable, and then parasitically from
-// Writable.
-
-'use strict';
-
-/*<replacement>*/
-
-var objectKeys = Object.keys || function (obj) {
-  var keys = [];
-  for (var key in obj) {
-    keys.push(key);
-  }return keys;
-};
-/*</replacement>*/
-
-module.exports = Duplex;
-
-/*<replacement>*/
-var processNextTick = require('process-nextick-args');
-/*</replacement>*/
-
-/*<replacement>*/
-var util = require('core-util-is');
-util.inherits = require('inherits');
-/*</replacement>*/
-
-var Readable = require('./_stream_readable');
-var Writable = require('./_stream_writable');
-
-util.inherits(Duplex, Readable);
-
-var keys = objectKeys(Writable.prototype);
-for (var v = 0; v < keys.length; v++) {
-  var method = keys[v];
-  if (!Duplex.prototype[method]) Duplex.prototype[method] = Writable.prototype[method];
-}
-
-function Duplex(options) {
-  if (!(this instanceof Duplex)) return new Duplex(options);
-
-  Readable.call(this, options);
-  Writable.call(this, options);
-
-  if (options && options.readable === false) this.readable = false;
-
-  if (options && options.writable === false) this.writable = false;
-
-  this.allowHalfOpen = true;
-  if (options && options.allowHalfOpen === false) this.allowHalfOpen = false;
-
-  this.once('end', onend);
-}
-
-// the no-half-open enforcer
-function onend() {
-  // if we allow half-open state, or if the writable side ended,
-  // then we're ok.
-  if (this.allowHalfOpen || this._writableState.ended) return;
-
-  // no more data can be written.
-  // But allow more writes to happen in this tick.
-  processNextTick(onEndNT, this);
-}
-
-function onEndNT(self) {
-  self.end();
-}
-
-function forEach(xs, f) {
-  for (var i = 0, l = xs.length; i < l; i++) {
-    f(xs[i], i);
-  }
-}
-},{"./_stream_readable":155,"./_stream_writable":157,"core-util-is":53,"inherits":131,"process-nextick-args":144}],154:[function(require,module,exports){
-// a passthrough stream.
-// basically just the most minimal sort of Transform stream.
-// Every written chunk gets output as-is.
-
-'use strict';
-
-module.exports = PassThrough;
-
-var Transform = require('./_stream_transform');
-
-/*<replacement>*/
-var util = require('core-util-is');
-util.inherits = require('inherits');
-/*</replacement>*/
-
-util.inherits(PassThrough, Transform);
-
-function PassThrough(options) {
-  if (!(this instanceof PassThrough)) return new PassThrough(options);
-
-  Transform.call(this, options);
-}
-
-PassThrough.prototype._transform = function (chunk, encoding, cb) {
-  cb(null, chunk);
-};
-},{"./_stream_transform":156,"core-util-is":53,"inherits":131}],155:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":159}],159:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"./_stream_readable":161,"./_stream_writable":163,"core-util-is":59,"dup":53,"inherits":137,"process-nextick-args":150}],160:[function(require,module,exports){
+arguments[4][54][0].apply(exports,arguments)
+},{"./_stream_transform":162,"core-util-is":59,"dup":54,"inherits":137}],161:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26520,7 +28128,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":153,"./internal/streams/BufferList":158,"_process":46,"buffer":50,"buffer-shims":48,"core-util-is":53,"events":121,"inherits":131,"isarray":135,"process-nextick-args":144,"string_decoder/":173,"util":21}],156:[function(require,module,exports){
+},{"./_stream_duplex":159,"./internal/streams/BufferList":164,"_process":46,"buffer":50,"buffer-shims":48,"core-util-is":59,"events":127,"inherits":137,"isarray":141,"process-nextick-args":150,"string_decoder/":179,"util":21}],162:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -26703,7 +28311,7 @@ function done(stream, er, data) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":153,"core-util-is":53,"inherits":131}],157:[function(require,module,exports){
+},{"./_stream_duplex":159,"core-util-is":59,"inherits":137}],163:[function(require,module,exports){
 (function (process){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, encoding, cb), and it'll handle all
@@ -27260,7 +28868,7 @@ function CorkedRequest(state) {
   };
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":153,"_process":46,"buffer":50,"buffer-shims":48,"core-util-is":53,"events":121,"inherits":131,"process-nextick-args":144,"util-deprecate":176}],158:[function(require,module,exports){
+},{"./_stream_duplex":159,"_process":46,"buffer":50,"buffer-shims":48,"core-util-is":59,"events":127,"inherits":137,"process-nextick-args":150,"util-deprecate":182}],164:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('buffer').Buffer;
@@ -27325,10 +28933,10 @@ BufferList.prototype.concat = function (n) {
   }
   return ret;
 };
-},{"buffer":50,"buffer-shims":48}],159:[function(require,module,exports){
+},{"buffer":50,"buffer-shims":48}],165:[function(require,module,exports){
 module.exports = require("./lib/_stream_passthrough.js")
 
-},{"./lib/_stream_passthrough.js":154}],160:[function(require,module,exports){
+},{"./lib/_stream_passthrough.js":160}],166:[function(require,module,exports){
 (function (process){
 var Stream = (function (){
   try {
@@ -27348,13 +28956,13 @@ if (!process.browser && process.env.READABLE_STREAM === 'disable' && Stream) {
 }
 
 }).call(this,require('_process'))
-},{"./lib/_stream_duplex.js":153,"./lib/_stream_passthrough.js":154,"./lib/_stream_readable.js":155,"./lib/_stream_transform.js":156,"./lib/_stream_writable.js":157,"_process":46}],161:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":159,"./lib/_stream_passthrough.js":160,"./lib/_stream_readable.js":161,"./lib/_stream_transform.js":162,"./lib/_stream_writable.js":163,"_process":46}],167:[function(require,module,exports){
 module.exports = require("./lib/_stream_transform.js")
 
-},{"./lib/_stream_transform.js":156}],162:[function(require,module,exports){
+},{"./lib/_stream_transform.js":162}],168:[function(require,module,exports){
 module.exports = require("./lib/_stream_writable.js")
 
-},{"./lib/_stream_writable.js":157}],163:[function(require,module,exports){
+},{"./lib/_stream_writable.js":163}],169:[function(require,module,exports){
 (function (Buffer){
 /*
 CryptoJS v3.1.2
@@ -27568,7 +29176,7 @@ function ripemd160 (message) {
 module.exports = ripemd160
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":50}],164:[function(require,module,exports){
+},{"buffer":50}],170:[function(require,module,exports){
 (function (Buffer){
 // prototype class for hash functions
 function Hash (blockSize, finalSize) {
@@ -27641,7 +29249,7 @@ Hash.prototype._update = function () {
 module.exports = Hash
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":50}],165:[function(require,module,exports){
+},{"buffer":50}],171:[function(require,module,exports){
 var exports = module.exports = function SHA (algorithm) {
   algorithm = algorithm.toLowerCase()
 
@@ -27658,7 +29266,7 @@ exports.sha256 = require('./sha256')
 exports.sha384 = require('./sha384')
 exports.sha512 = require('./sha512')
 
-},{"./sha":166,"./sha1":167,"./sha224":168,"./sha256":169,"./sha384":170,"./sha512":171}],166:[function(require,module,exports){
+},{"./sha":172,"./sha1":173,"./sha224":174,"./sha256":175,"./sha384":176,"./sha512":177}],172:[function(require,module,exports){
 (function (Buffer){
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-0, as defined
@@ -27755,7 +29363,7 @@ Sha.prototype._hash = function () {
 module.exports = Sha
 
 }).call(this,require("buffer").Buffer)
-},{"./hash":164,"buffer":50,"inherits":131}],167:[function(require,module,exports){
+},{"./hash":170,"buffer":50,"inherits":137}],173:[function(require,module,exports){
 (function (Buffer){
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined
@@ -27857,7 +29465,7 @@ Sha1.prototype._hash = function () {
 module.exports = Sha1
 
 }).call(this,require("buffer").Buffer)
-},{"./hash":164,"buffer":50,"inherits":131}],168:[function(require,module,exports){
+},{"./hash":170,"buffer":50,"inherits":137}],174:[function(require,module,exports){
 (function (Buffer){
 /**
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
@@ -27913,7 +29521,7 @@ Sha224.prototype._hash = function () {
 module.exports = Sha224
 
 }).call(this,require("buffer").Buffer)
-},{"./hash":164,"./sha256":169,"buffer":50,"inherits":131}],169:[function(require,module,exports){
+},{"./hash":170,"./sha256":175,"buffer":50,"inherits":137}],175:[function(require,module,exports){
 (function (Buffer){
 /**
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
@@ -28051,7 +29659,7 @@ Sha256.prototype._hash = function () {
 module.exports = Sha256
 
 }).call(this,require("buffer").Buffer)
-},{"./hash":164,"buffer":50,"inherits":131}],170:[function(require,module,exports){
+},{"./hash":170,"buffer":50,"inherits":137}],176:[function(require,module,exports){
 (function (Buffer){
 var inherits = require('inherits')
 var SHA512 = require('./sha512')
@@ -28111,7 +29719,7 @@ Sha384.prototype._hash = function () {
 module.exports = Sha384
 
 }).call(this,require("buffer").Buffer)
-},{"./hash":164,"./sha512":171,"buffer":50,"inherits":131}],171:[function(require,module,exports){
+},{"./hash":170,"./sha512":177,"buffer":50,"inherits":137}],177:[function(require,module,exports){
 (function (Buffer){
 var inherits = require('inherits')
 var Hash = require('./hash')
@@ -28374,7 +29982,7 @@ Sha512.prototype._hash = function () {
 module.exports = Sha512
 
 }).call(this,require("buffer").Buffer)
-},{"./hash":164,"buffer":50,"inherits":131}],172:[function(require,module,exports){
+},{"./hash":170,"buffer":50,"inherits":137}],178:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -28503,7 +30111,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":121,"inherits":131,"readable-stream/duplex.js":152,"readable-stream/passthrough.js":159,"readable-stream/readable.js":160,"readable-stream/transform.js":161,"readable-stream/writable.js":162}],173:[function(require,module,exports){
+},{"events":127,"inherits":137,"readable-stream/duplex.js":158,"readable-stream/passthrough.js":165,"readable-stream/readable.js":166,"readable-stream/transform.js":167,"readable-stream/writable.js":168}],179:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -28726,7 +30334,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":50}],174:[function(require,module,exports){
+},{"buffer":50}],180:[function(require,module,exports){
 var undefined = (void 0); // Paranoia
 
 // Beyond this value, index getters/setters (i.e. array[0], array[1]) are so slow to
@@ -29358,7 +30966,7 @@ function packF32(v) { return packIEEE754(v, 8, 23); }
 
 }());
 
-},{}],175:[function(require,module,exports){
+},{}],181:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/utf8js v2.1.2 by @mathias */
 ;(function(root) {
@@ -29606,7 +31214,7 @@ function packF32(v) { return packIEEE754(v, 8, 23); }
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],176:[function(require,module,exports){
+},{}],182:[function(require,module,exports){
 (function (global){
 
 /**
@@ -29677,7 +31285,7 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],177:[function(require,module,exports){
+},{}],183:[function(require,module,exports){
 var indexOf = require('indexof');
 
 var Object_keys = function (obj) {
@@ -29817,41 +31425,7 @@ exports.createContext = Script.createContext = function (context) {
     return copy;
 };
 
-},{"indexof":130}],178:[function(require,module,exports){
-/**
- * The MIT License (MIT)
- *
- * Copyright (c) 2016 Yamagishi Kazutoshi
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-'use strict';
-
-/* global window */
-module.exports = {
-  XMLHttpRequest: window.XMLHttpRequest,
-  XMLHttpRequestUpload: window.XMLHttpRequestUpload,
-  FormData: window.FormData
-};
-
-},{}],179:[function(require,module,exports){
+},{"indexof":136}],184:[function(require,module,exports){
 var Web3 = require('./lib/web3');
 
 // dont override global variable
@@ -29861,7 +31435,7 @@ if (typeof window !== 'undefined' && typeof window.Web3 === 'undefined') {
 
 module.exports = Web3;
 
-},{"./lib/web3":201}],180:[function(require,module,exports){
+},{"./lib/web3":206}],185:[function(require,module,exports){
 module.exports=[
   {
     "constant": true,
@@ -30117,7 +31691,7 @@ module.exports=[
   }
 ]
 
-},{}],181:[function(require,module,exports){
+},{}],186:[function(require,module,exports){
 module.exports=[
   {
     "constant": true,
@@ -30227,7 +31801,7 @@ module.exports=[
   }
 ]
 
-},{}],182:[function(require,module,exports){
+},{}],187:[function(require,module,exports){
 module.exports=[
   {
     "constant": false,
@@ -30283,7 +31857,6 @@ module.exports=[
     ],
     "name": "deposit",
     "outputs": [],
-    "payable": true,
     "type": "function"
   },
   {
@@ -30376,7 +31949,7 @@ module.exports=[
   }
 ]
 
-},{}],183:[function(require,module,exports){
+},{}],188:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -30402,9 +31975,14 @@ SolidityTypeAddress.prototype.isType = function (name) {
     return !!name.match(/address(\[([0-9]*)\])?/);
 };
 
+SolidityTypeAddress.prototype.staticPartLength = function (name) {
+    return 32 * this.staticArrayLength(name);
+};
+
 module.exports = SolidityTypeAddress;
 
-},{"./formatters":188,"./type":193}],184:[function(require,module,exports){
+
+},{"./formatters":193,"./type":198}],189:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -30430,14 +32008,18 @@ SolidityTypeBool.prototype.isType = function (name) {
     return !!name.match(/^bool(\[([0-9]*)\])*$/);
 };
 
+SolidityTypeBool.prototype.staticPartLength = function (name) {
+    return 32 * this.staticArrayLength(name);
+};
+
 module.exports = SolidityTypeBool;
 
-},{"./formatters":188,"./type":193}],185:[function(require,module,exports){
+},{"./formatters":193,"./type":198}],190:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
 /**
- * SolidityTypeBytes is a prototype that represents the bytes type.
+ * SolidityTypeBytes is a prootype that represents bytes type
  * It matches:
  * bytes
  * bytes[]
@@ -30446,8 +32028,11 @@ var SolidityType = require('./type');
  * bytes[3][]
  * bytes[][6][], ...
  * bytes32
+ * bytes64[]
  * bytes8[4]
+ * bytes256[][]
  * bytes[3][]
+ * bytes64[][6][], ...
  */
 var SolidityTypeBytes = function () {
     this._inputFormatter = f.formatInputBytes;
@@ -30461,9 +32046,15 @@ SolidityTypeBytes.prototype.isType = function (name) {
     return !!name.match(/^bytes([0-9]{1,})(\[([0-9]*)\])*$/);
 };
 
+SolidityTypeBytes.prototype.staticPartLength = function (name) {
+    var matches = name.match(/^bytes([0-9]*)/);
+    var size = parseInt(matches[1]);
+    return size * this.staticArrayLength(name);
+};
+
 module.exports = SolidityTypeBytes;
 
-},{"./formatters":188,"./type":193}],186:[function(require,module,exports){
+},{"./formatters":193,"./type":198}],191:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -30480,7 +32071,7 @@ module.exports = SolidityTypeBytes;
     You should have received a copy of the GNU Lesser General Public License
     along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
 */
-/**
+/** 
  * @file coder.js
  * @author Marek Kotewicz <marek@ethdev.com>
  * @date 2015
@@ -30498,11 +32089,6 @@ var SolidityTypeReal = require('./real');
 var SolidityTypeUReal = require('./ureal');
 var SolidityTypeBytes = require('./bytes');
 
-var isDynamic = function (solidityType, type) {
-   return solidityType.isDynamicType(type) ||
-          solidityType.isDynamicArray(type);
-};
-
 /**
  * SolidityCoder prototype should be used to encode/decode solidity params of any type
  */
@@ -30515,7 +32101,7 @@ var SolidityCoder = function (types) {
  *
  * @method _requireType
  * @param {String} type
- * @returns {SolidityType}
+ * @returns {SolidityType} 
  * @throws {Error} throws if no matching type is found
  */
 SolidityCoder.prototype._requireType = function (type) {
@@ -30560,13 +32146,10 @@ SolidityCoder.prototype.encodeParams = function (types, params) {
     var dynamicOffset = solidityTypes.reduce(function (acc, solidityType, index) {
         var staticPartLength = solidityType.staticPartLength(types[index]);
         var roundedStaticPartLength = Math.floor((staticPartLength + 31) / 32) * 32;
-
-        return acc + (isDynamic(solidityTypes[index], types[index]) ?
-            32 :
-            roundedStaticPartLength);
+        return acc + roundedStaticPartLength;
     }, 0);
 
-    var result = this.encodeMultiWithOffset(types, solidityTypes, encodeds, dynamicOffset);
+    var result = this.encodeMultiWithOffset(types, solidityTypes, encodeds, dynamicOffset); 
 
     return result;
 };
@@ -30575,8 +32158,12 @@ SolidityCoder.prototype.encodeMultiWithOffset = function (types, solidityTypes, 
     var result = "";
     var self = this;
 
+    var isDynamic = function (i) {
+       return solidityTypes[i].isDynamicArray(types[i]) || solidityTypes[i].isDynamicType(types[i]);
+    };
+
     types.forEach(function (type, i) {
-        if (isDynamic(solidityTypes[i], types[i])) {
+        if (isDynamic(i)) {
             result += f.formatInputInt(dynamicOffset).encode();
             var e = self.encodeWithOffset(types[i], solidityTypes[i], encodeds[i], dynamicOffset);
             dynamicOffset += e.length / 2;
@@ -30587,9 +32174,9 @@ SolidityCoder.prototype.encodeMultiWithOffset = function (types, solidityTypes, 
 
         // TODO: figure out nested arrays
     });
-
+    
     types.forEach(function (type, i) {
-        if (isDynamic(solidityTypes[i], types[i])) {
+        if (isDynamic(i)) {
             var e = self.encodeWithOffset(types[i], solidityTypes[i], encodeds[i], dynamicOffset);
             dynamicOffset += e.length / 2;
             result += e;
@@ -30607,7 +32194,7 @@ SolidityCoder.prototype.encodeWithOffset = function (type, solidityType, encoded
             var nestedName = solidityType.nestedName(type);
             var nestedStaticPartLength = solidityType.staticPartLength(nestedName);
             var result = encoded[0];
-
+            
             (function () {
                 var previousLength = 2; // in int
                 if (solidityType.isDynamicArray(nestedName)) {
@@ -30617,7 +32204,7 @@ SolidityCoder.prototype.encodeWithOffset = function (type, solidityType, encoded
                     }
                 }
             })();
-
+            
             // first element is length, skip it
             (function () {
                 for (var i = 0; i < encoded.length - 1; i++) {
@@ -30628,7 +32215,7 @@ SolidityCoder.prototype.encodeWithOffset = function (type, solidityType, encoded
 
             return result;
         })();
-
+       
     } else if (solidityType.isStaticArray(type)) {
         return (function () {
             var nestedName = solidityType.nestedName(type);
@@ -30641,7 +32228,7 @@ SolidityCoder.prototype.encodeWithOffset = function (type, solidityType, encoded
                     var previousLength = 0; // in int
                     for (var i = 0; i < encoded.length; i++) {
                         // calculate length of previous item
-                        previousLength += +(encoded[i - 1] || [])[0] || 0;
+                        previousLength += +(encoded[i - 1] || [])[0] || 0; 
                         result += f.formatInputInt(offset + i * nestedStaticPartLength + previousLength * 32).encode();
                     }
                 })();
@@ -30684,7 +32271,7 @@ SolidityCoder.prototype.decodeParam = function (type, bytes) {
 SolidityCoder.prototype.decodeParams = function (types, bytes) {
     var solidityTypes = this.getSolidityTypes(types);
     var offsets = this.getOffsets(types, solidityTypes);
-
+        
     return solidityTypes.map(function (solidityType, index) {
         return solidityType.decode(bytes, offsets[index],  types[index], index);
     });
@@ -30694,16 +32281,16 @@ SolidityCoder.prototype.getOffsets = function (types, solidityTypes) {
     var lengths =  solidityTypes.map(function (solidityType, index) {
         return solidityType.staticPartLength(types[index]);
     });
-
+    
     for (var i = 1; i < lengths.length; i++) {
          // sum with length of previous element
-        lengths[i] += lengths[i - 1];
+        lengths[i] += lengths[i - 1]; 
     }
 
     return lengths.map(function (length, index) {
         // remove the current length, so the length is sum of previous elements
         var staticPartLength = solidityTypes[index].staticPartLength(types[index]);
-        return length - staticPartLength;
+        return length - staticPartLength; 
     });
 };
 
@@ -30728,7 +32315,8 @@ var coder = new SolidityCoder([
 
 module.exports = coder;
 
-},{"./address":183,"./bool":184,"./bytes":185,"./dynamicbytes":187,"./formatters":188,"./int":189,"./real":191,"./string":192,"./uint":194,"./ureal":195}],187:[function(require,module,exports){
+
+},{"./address":188,"./bool":189,"./bytes":190,"./dynamicbytes":192,"./formatters":193,"./int":194,"./real":196,"./string":197,"./uint":199,"./ureal":200}],192:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -30744,13 +32332,18 @@ SolidityTypeDynamicBytes.prototype.isType = function (name) {
     return !!name.match(/^bytes(\[([0-9]*)\])*$/);
 };
 
+SolidityTypeDynamicBytes.prototype.staticPartLength = function (name) {
+    return 32 * this.staticArrayLength(name);
+};
+
 SolidityTypeDynamicBytes.prototype.isDynamicType = function () {
     return true;
 };
 
 module.exports = SolidityTypeDynamicBytes;
 
-},{"./formatters":188,"./type":193}],188:[function(require,module,exports){
+
+},{"./formatters":193,"./type":198}],193:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -30767,7 +32360,7 @@ module.exports = SolidityTypeDynamicBytes;
     You should have received a copy of the GNU Lesser General Public License
     along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
 */
-/**
+/** 
  * @file formatters.js
  * @author Marek Kotewicz <marek@ethdev.com>
  * @date 2015
@@ -30790,7 +32383,7 @@ var SolidityParam = require('./param');
  */
 var formatInputInt = function (value) {
     BigNumber.config(c.ETH_BIGNUMBER_ROUNDING_MODE);
-    var result = utils.padLeft(utils.toTwosComplement(value).toString(16), 64);
+    var result = utils.padLeft(utils.toTwosComplement(value).round().toString(16), 64);
     return new SolidityParam(result);
 };
 
@@ -30911,7 +32504,7 @@ var formatOutputUInt = function (param) {
  * @returns {BigNumber} input bytes formatted to real
  */
 var formatOutputReal = function (param) {
-    return formatOutputInt(param).dividedBy(new BigNumber(2).pow(128));
+    return formatOutputInt(param).dividedBy(new BigNumber(2).pow(128)); 
 };
 
 /**
@@ -30922,7 +32515,7 @@ var formatOutputReal = function (param) {
  * @returns {BigNumber} input bytes formatted to ureal
  */
 var formatOutputUReal = function (param) {
-    return formatOutputUInt(param).dividedBy(new BigNumber(2).pow(128));
+    return formatOutputUInt(param).dividedBy(new BigNumber(2).pow(128)); 
 };
 
 /**
@@ -30941,13 +32534,10 @@ var formatOutputBool = function (param) {
  *
  * @method formatOutputBytes
  * @param {SolidityParam} left-aligned hex representation of string
- * @param {String} name type name
  * @returns {String} hex string
  */
-var formatOutputBytes = function (param, name) {
-    var matches = name.match(/^bytes([0-9]*)/);
-    var size = parseInt(matches[1]);
-    return '0x' + param.staticPart().slice(0, 2 * size);
+var formatOutputBytes = function (param) {
+    return '0x' + param.staticPart();
 };
 
 /**
@@ -31004,7 +32594,8 @@ module.exports = {
     formatOutputAddress: formatOutputAddress
 };
 
-},{"../utils/config":197,"../utils/utils":199,"./param":190,"bignumber.js":229}],189:[function(require,module,exports){
+
+},{"../utils/config":202,"../utils/utils":204,"./param":195,"bignumber.js":233}],194:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -31036,9 +32627,13 @@ SolidityTypeInt.prototype.isType = function (name) {
     return !!name.match(/^int([0-9]*)?(\[([0-9]*)\])*$/);
 };
 
+SolidityTypeInt.prototype.staticPartLength = function (name) {
+    return 32 * this.staticArrayLength(name);
+};
+
 module.exports = SolidityTypeInt;
 
-},{"./formatters":188,"./type":193}],190:[function(require,module,exports){
+},{"./formatters":193,"./type":198}],195:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -31192,7 +32787,7 @@ SolidityParam.encodeList = function (params) {
 module.exports = SolidityParam;
 
 
-},{"../utils/utils":199}],191:[function(require,module,exports){
+},{"../utils/utils":204}],196:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -31224,9 +32819,13 @@ SolidityTypeReal.prototype.isType = function (name) {
     return !!name.match(/real([0-9]*)?(\[([0-9]*)\])?/);
 };
 
+SolidityTypeReal.prototype.staticPartLength = function (name) {
+    return 32 * this.staticArrayLength(name);
+};
+
 module.exports = SolidityTypeReal;
 
-},{"./formatters":188,"./type":193}],192:[function(require,module,exports){
+},{"./formatters":193,"./type":198}],197:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -31242,13 +32841,18 @@ SolidityTypeString.prototype.isType = function (name) {
     return !!name.match(/^string(\[([0-9]*)\])*$/);
 };
 
+SolidityTypeString.prototype.staticPartLength = function (name) {
+    return 32 * this.staticArrayLength(name);
+};
+
 SolidityTypeString.prototype.isDynamicType = function () {
     return true;
 };
 
 module.exports = SolidityTypeString;
 
-},{"./formatters":188,"./type":193}],193:[function(require,module,exports){
+
+},{"./formatters":193,"./type":198}],198:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityParam = require('./param');
 
@@ -31279,27 +32883,18 @@ SolidityType.prototype.isType = function (name) {
  * @return {Number} length of static part in bytes
  */
 SolidityType.prototype.staticPartLength = function (name) {
-    // If name isn't an array then treat it like a single element array.
-    return (this.nestedTypes(name) || ['[1]'])
-        .map(function (type) {
-            // the length of the nested array
-            return parseInt(type.slice(1, -1), 10) || 1;
-        })
-        .reduce(function (previous, current) {
-            return previous * current;
-        // all basic types are 32 bytes long
-        }, 32);
+    throw "this method should be overrwritten for type: " + name;
 };
 
 /**
  * Should be used to determine if type is dynamic array
- * eg:
+ * eg: 
  * "type[]" => true
  * "type[4]" => false
  *
  * @method isDynamicArray
  * @param {String} name
- * @return {Bool} true if the type is dynamic array
+ * @return {Bool} true if the type is dynamic array 
  */
 SolidityType.prototype.isDynamicArray = function (name) {
     var nestedTypes = this.nestedTypes(name);
@@ -31308,13 +32903,13 @@ SolidityType.prototype.isDynamicArray = function (name) {
 
 /**
  * Should be used to determine if type is static array
- * eg:
+ * eg: 
  * "type[]" => false
  * "type[4]" => true
  *
  * @method isStaticArray
  * @param {String} name
- * @return {Bool} true if the type is static array
+ * @return {Bool} true if the type is static array 
  */
 SolidityType.prototype.isStaticArray = function (name) {
     var nestedTypes = this.nestedTypes(name);
@@ -31323,7 +32918,7 @@ SolidityType.prototype.isStaticArray = function (name) {
 
 /**
  * Should return length of static array
- * eg.
+ * eg. 
  * "int[32]" => 32
  * "int256[14]" => 14
  * "int[2][3]" => 3
@@ -31398,7 +32993,7 @@ SolidityType.prototype.nestedTypes = function (name) {
  * Should be used to encode the value
  *
  * @method encode
- * @param {Object} value
+ * @param {Object} value 
  * @param {String} name
  * @return {String} encoded value
  */
@@ -31412,7 +33007,7 @@ SolidityType.prototype.encode = function (value, name) {
 
             var result = [];
             result.push(f.formatInputInt(length).encode());
-
+            
             value.forEach(function (v) {
                 result.push(self.encode(v, nestedName));
             });
@@ -31488,24 +33083,23 @@ SolidityType.prototype.decode = function (bytes, offset, name) {
             return result;
         })();
     } else if (this.isDynamicType(name)) {
-
+        
         return (function () {
             var dynamicOffset = parseInt('0x' + bytes.substr(offset * 2, 64));      // in bytes
             var length = parseInt('0x' + bytes.substr(dynamicOffset * 2, 64));      // in bytes
             var roundedLength = Math.floor((length + 31) / 32);                     // in int
-            var param = new SolidityParam(bytes.substr(dynamicOffset * 2, ( 1 + roundedLength) * 64), 0);
-            return self._outputFormatter(param, name);
+        
+            return self._outputFormatter(new SolidityParam(bytes.substr(dynamicOffset * 2, ( 1 + roundedLength) * 64), 0));
         })();
     }
 
     var length = this.staticPartLength(name);
-    var param = new SolidityParam(bytes.substr(offset * 2, length * 2));
-    return this._outputFormatter(param, name);
+    return this._outputFormatter(new SolidityParam(bytes.substr(offset * 2, length * 2)));
 };
 
 module.exports = SolidityType;
 
-},{"./formatters":188,"./param":190}],194:[function(require,module,exports){
+},{"./formatters":193,"./param":195}],199:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -31537,9 +33131,13 @@ SolidityTypeUInt.prototype.isType = function (name) {
     return !!name.match(/^uint([0-9]*)?(\[([0-9]*)\])*$/);
 };
 
+SolidityTypeUInt.prototype.staticPartLength = function (name) {
+    return 32 * this.staticArrayLength(name);
+};
+
 module.exports = SolidityTypeUInt;
 
-},{"./formatters":188,"./type":193}],195:[function(require,module,exports){
+},{"./formatters":193,"./type":198}],200:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -31571,9 +33169,13 @@ SolidityTypeUReal.prototype.isType = function (name) {
     return !!name.match(/^ureal([0-9]*)?(\[([0-9]*)\])*$/);
 };
 
+SolidityTypeUReal.prototype.staticPartLength = function (name) {
+    return 32 * this.staticArrayLength(name);
+};
+
 module.exports = SolidityTypeUReal;
 
-},{"./formatters":188,"./type":193}],196:[function(require,module,exports){
+},{"./formatters":193,"./type":198}],201:[function(require,module,exports){
 'use strict';
 
 // go env doesn't have and need XMLHttpRequest
@@ -31584,7 +33186,7 @@ if (typeof XMLHttpRequest === 'undefined') {
 }
 
 
-},{}],197:[function(require,module,exports){
+},{}],202:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -31665,7 +33267,7 @@ module.exports = {
 };
 
 
-},{"bignumber.js":229}],198:[function(require,module,exports){
+},{"bignumber.js":233}],203:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -31705,7 +33307,7 @@ module.exports = function (value, options) {
 };
 
 
-},{"crypto-js":68,"crypto-js/sha3":89}],199:[function(require,module,exports){
+},{"crypto-js":74,"crypto-js/sha3":95}],204:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -32083,7 +33685,7 @@ var toBigNumber = function(number) {
  * @return {BigNumber}
  */
 var toTwosComplement = function (number) {
-    var bigNumber = toBigNumber(number).round();
+    var bigNumber = toBigNumber(number);
     if (bigNumber.lessThan(0)) {
         return new BigNumber("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 16).plus(bigNumber).plus(1);
     }
@@ -32304,12 +33906,12 @@ module.exports = {
     isJson: isJson
 };
 
-},{"./sha3.js":198,"bignumber.js":229,"utf8":175}],200:[function(require,module,exports){
+},{"./sha3.js":203,"bignumber.js":233,"utf8":181}],205:[function(require,module,exports){
 module.exports={
-    "version": "0.18.2"
+    "version": "0.16.0"
 }
 
-},{}],201:[function(require,module,exports){
+},{}],206:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -32344,7 +33946,6 @@ var DB = require('./web3/methods/db');
 var Shh = require('./web3/methods/shh');
 var Net = require('./web3/methods/net');
 var Personal = require('./web3/methods/personal');
-var Swarm = require('./web3/methods/swarm');
 var Settings = require('./web3/settings');
 var version = require('./version.json');
 var utils = require('./utils/utils');
@@ -32354,7 +33955,6 @@ var Batch = require('./web3/batch');
 var Property = require('./web3/property');
 var HttpProvider = require('./web3/httpprovider');
 var IpcProvider = require('./web3/ipcprovider');
-var BigNumber = require('bignumber.js');
 
 
 
@@ -32366,7 +33966,6 @@ function Web3 (provider) {
     this.shh = new Shh(this);
     this.net = new Net(this);
     this.personal = new Personal(this);
-    this.bzz = new Swarm(this);
     this.settings = new Settings();
     this.version = {
         api: version.version
@@ -32397,7 +33996,6 @@ Web3.prototype.reset = function (keepIsSyncing) {
     this.settings = new Settings();
 };
 
-Web3.prototype.BigNumber = BigNumber;
 Web3.prototype.toHex = utils.toHex;
 Web3.prototype.toAscii = utils.toAscii;
 Web3.prototype.toUtf8 = utils.toUtf8;
@@ -32461,7 +34059,7 @@ Web3.prototype.createBatch = function () {
 module.exports = Web3;
 
 
-},{"./utils/sha3":198,"./utils/utils":199,"./version.json":200,"./web3/batch":203,"./web3/extend":207,"./web3/httpprovider":211,"./web3/iban":212,"./web3/ipcprovider":213,"./web3/methods/db":216,"./web3/methods/eth":217,"./web3/methods/net":218,"./web3/methods/personal":219,"./web3/methods/shh":220,"./web3/methods/swarm":221,"./web3/property":224,"./web3/requestmanager":225,"./web3/settings":226,"bignumber.js":229}],202:[function(require,module,exports){
+},{"./utils/sha3":203,"./utils/utils":204,"./version.json":205,"./web3/batch":208,"./web3/extend":212,"./web3/httpprovider":216,"./web3/iban":217,"./web3/ipcprovider":218,"./web3/methods/db":221,"./web3/methods/eth":222,"./web3/methods/net":223,"./web3/methods/personal":224,"./web3/methods/shh":225,"./web3/property":228,"./web3/requestmanager":229,"./web3/settings":230}],207:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -32551,7 +34149,7 @@ AllSolidityEvents.prototype.attachToContract = function (contract) {
 module.exports = AllSolidityEvents;
 
 
-},{"../utils/sha3":198,"../utils/utils":199,"./event":206,"./filter":208,"./formatters":209,"./methods/watches":222}],203:[function(require,module,exports){
+},{"../utils/sha3":203,"../utils/utils":204,"./event":211,"./filter":213,"./formatters":214,"./methods/watches":226}],208:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -32606,7 +34204,7 @@ Batch.prototype.execute = function () {
         }).forEach(function (result, index) {
             if (requests[index].callback) {
 
-                if (!Jsonrpc.isValidResponse(result)) {
+                if (!Jsonrpc.getInstance().isValidResponse(result)) {
                     return requests[index].callback(errors.InvalidResponse(result));
                 }
 
@@ -32619,7 +34217,7 @@ Batch.prototype.execute = function () {
 module.exports = Batch;
 
 
-},{"./errors":205,"./jsonrpc":214}],204:[function(require,module,exports){
+},{"./errors":210,"./jsonrpc":219}],209:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -32727,7 +34325,7 @@ var checkForContractAddress = function(contract, callback){
             // stop watching after 50 blocks (timeout)
             if (count > 50) {
 
-                filter.stopWatching(function() {});
+                filter.stopWatching();
                 callbackFired = true;
 
                 if (callback)
@@ -32747,10 +34345,10 @@ var checkForContractAddress = function(contract, callback){
                             if(callbackFired || !code)
                                 return;
 
-                            filter.stopWatching(function() {});
+                            filter.stopWatching();
                             callbackFired = true;
 
-                            if(code.length > 3) {
+                            if(code.length > 2) {
 
                                 // console.log('Contract code deployed!');
 
@@ -32799,8 +34397,6 @@ var ContractFactory = function (eth, abi) {
      * @returns {Contract} returns contract instance
      */
     this.new = function () {
-        /*jshint maxcomplexity: 7 */
-        
         var contract = new Contract(this.eth, this.abi);
 
         // parse arguments
@@ -32815,16 +34411,6 @@ var ContractFactory = function (eth, abi) {
         var last = args[args.length - 1];
         if (utils.isObject(last) && !utils.isArray(last)) {
             options = args.pop();
-        }
-
-        if (options.value > 0) {
-            var constructorAbi = abi.filter(function (json) {
-                return json.type === 'constructor' && json.inputs.length === args.length;
-            })[0] || {};
-
-            if (!constructorAbi.payable) {
-                throw new Error('Cannot send value to non-payable constructor');
-            }
         }
 
         var bytes = encodeConstructorParams(this.abi, args);
@@ -32931,7 +34517,7 @@ var Contract = function (eth, abi, address) {
 
 module.exports = ContractFactory;
 
-},{"../solidity/coder":186,"../utils/utils":199,"./allevents":202,"./event":206,"./function":210}],205:[function(require,module,exports){
+},{"../solidity/coder":191,"../utils/utils":204,"./allevents":207,"./event":211,"./function":215}],210:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -32967,13 +34553,11 @@ module.exports = {
     InvalidResponse: function (result){
         var message = !!result && !!result.error && !!result.error.message ? result.error.message : 'Invalid JSON RPC response: ' + JSON.stringify(result);
         return new Error(message);
-    },
-    ConnectionTimeout: function (ms){
-        return new Error('CONNECTION TIMEOUT: timeout of ' + ms + ' ms achived');
     }
 };
 
-},{}],206:[function(require,module,exports){
+
+},{}],211:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -33183,7 +34767,7 @@ SolidityEvent.prototype.attachToContract = function (contract) {
 module.exports = SolidityEvent;
 
 
-},{"../solidity/coder":186,"../utils/sha3":198,"../utils/utils":199,"./filter":208,"./formatters":209,"./methods/watches":222}],207:[function(require,module,exports){
+},{"../solidity/coder":191,"../utils/sha3":203,"../utils/utils":204,"./filter":213,"./formatters":214,"./methods/watches":226}],212:[function(require,module,exports){
 var formatters = require('./formatters');
 var utils = require('./../utils/utils');
 var Method = require('./method');
@@ -33233,7 +34817,7 @@ var extend = function (web3) {
 module.exports = extend;
 
 
-},{"./../utils/utils":199,"./formatters":209,"./method":215,"./property":224}],208:[function(require,module,exports){
+},{"./../utils/utils":204,"./formatters":214,"./method":220,"./property":228}],213:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -33366,7 +34950,7 @@ var pollFilter = function(self) {
 
 };
 
-var Filter = function (requestManager, options, methods, formatter, callback, filterCreationErrorCallback) {
+var Filter = function (requestManager, options, methods, formatter, callback) {
     var self = this;
     var implementation = {};
     methods.forEach(function (method) {
@@ -33386,7 +34970,6 @@ var Filter = function (requestManager, options, methods, formatter, callback, fi
             self.callbacks.forEach(function(cb){
                 cb(error);
             });
-            filterCreationErrorCallback(error);
         } else {
             self.filterId = id;
 
@@ -33425,15 +35008,11 @@ Filter.prototype.watch = function (callback) {
     return this;
 };
 
-Filter.prototype.stopWatching = function (callback) {
+Filter.prototype.stopWatching = function () {
     this.requestManager.stopPolling(this.filterId);
-    this.callbacks = [];
     // remove filter async
-    if (callback) {
-        this.implementation.uninstallFilter(this.filterId, callback);
-    } else {
-        return this.implementation.uninstallFilter(this.filterId);
-    }
+    this.implementation.uninstallFilter(this.filterId, function(){});
+    this.callbacks = [];
 };
 
 Filter.prototype.get = function (callback) {
@@ -33470,7 +35049,7 @@ Filter.prototype.get = function (callback) {
 module.exports = Filter;
 
 
-},{"../utils/utils":199,"./formatters":209}],209:[function(require,module,exports){
+},{"../utils/utils":204,"./formatters":214}],214:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -33487,7 +35066,7 @@ module.exports = Filter;
     You should have received a copy of the GNU Lesser General Public License
     along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
 */
-/**
+/** 
  * @file formatters.js
  * @author Marek Kotewicz <marek@ethdev.com>
  * @author Fabian Vogelsteller <fabian@ethdev.com>
@@ -33554,7 +35133,7 @@ var inputCallFormatter = function (options){
         options[key] = utils.fromDecimal(options[key]);
     });
 
-    return options;
+    return options; 
 };
 
 /**
@@ -33579,12 +35158,12 @@ var inputTransactionFormatter = function (options){
         options[key] = utils.fromDecimal(options[key]);
     });
 
-    return options;
+    return options; 
 };
 
 /**
  * Formats the output of a transaction to its proper values
- *
+ * 
  * @method outputTransactionFormatter
  * @param {Object} tx
  * @returns {Object}
@@ -33603,7 +35182,7 @@ var outputTransactionFormatter = function (tx){
 
 /**
  * Formats the output of a transaction receipt to its proper values
- *
+ * 
  * @method outputTransactionReceiptFormatter
  * @param {Object} receipt
  * @returns {Object}
@@ -33629,7 +35208,7 @@ var outputTransactionReceiptFormatter = function (receipt){
  * Formats the output of a block to its proper values
  *
  * @method outputBlockFormatter
- * @param {Object} block
+ * @param {Object} block 
  * @returns {Object}
 */
 var outputBlockFormatter = function(block) {
@@ -33657,7 +35236,7 @@ var outputBlockFormatter = function(block) {
 
 /**
  * Formats the output of a log
- *
+ * 
  * @method outputLogFormatter
  * @param {Object} log object
  * @returns {Object} log
@@ -33698,7 +35277,7 @@ var inputPostFormatter = function(post) {
         return (topic.indexOf('0x') === 0) ? topic : utils.fromUtf8(topic);
     });
 
-    return post;
+    return post; 
 };
 
 /**
@@ -33750,10 +35329,6 @@ var outputSyncingFormatter = function(result) {
     result.startingBlock = utils.toDecimal(result.startingBlock);
     result.currentBlock = utils.toDecimal(result.currentBlock);
     result.highestBlock = utils.toDecimal(result.highestBlock);
-    if (result.knownStates) {
-        result.knownStates = utils.toDecimal(result.knownStates);
-        result.pulledStates = utils.toDecimal(result.pulledStates);
-    }
 
     return result;
 };
@@ -33775,7 +35350,7 @@ module.exports = {
 };
 
 
-},{"../utils/config":197,"../utils/utils":199,"./iban":212}],210:[function(require,module,exports){
+},{"../utils/config":202,"../utils/utils":204,"./iban":217}],215:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -33815,7 +35390,6 @@ var SolidityFunction = function (eth, json, address) {
         return i.type;
     });
     this._constant = json.constant;
-    this._payable = json.payable;
     this._name = utils.transformToFullName(json);
     this._address = address;
 };
@@ -33890,21 +35464,11 @@ SolidityFunction.prototype.call = function () {
     if (!callback) {
         var output = this._eth.call(payload, defaultBlock);
         return this.unpackOutput(output);
-    }
-
+    } 
+        
     var self = this;
     this._eth.call(payload, defaultBlock, function (error, output) {
-        if (error) return callback(error, null);
-
-        var unpacked = null;
-        try {
-            unpacked = self.unpackOutput(output);
-        }
-        catch (e) {
-            error = e;
-        }
-
-        callback(error, unpacked);
+        callback(error, self.unpackOutput(output));
     });
 };
 
@@ -33917,10 +35481,6 @@ SolidityFunction.prototype.sendTransaction = function () {
     var args = Array.prototype.slice.call(arguments).filter(function (a) {return a !== undefined; });
     var callback = this.extractCallback(args);
     var payload = this.toPayload(args);
-
-    if (payload.value > 0 && !this._payable) {
-        throw new Error('Cannot send value to non-payable function');
-    }
 
     if (!callback) {
         return this._eth.sendTransaction(payload);
@@ -33990,11 +35550,11 @@ SolidityFunction.prototype.request = function () {
     var callback = this.extractCallback(args);
     var payload = this.toPayload(args);
     var format = this.unpackOutput.bind(this);
-
+    
     return {
         method: this._constant ? 'eth_call' : 'eth_sendTransaction',
         callback: callback,
-        params: [payload],
+        params: [payload], 
         format: format
     };
 };
@@ -34039,7 +35599,7 @@ SolidityFunction.prototype.attachToContract = function (contract) {
 module.exports = SolidityFunction;
 
 
-},{"../solidity/coder":186,"../utils/sha3":198,"../utils/utils":199,"./formatters":209}],211:[function(require,module,exports){
+},{"../solidity/coder":191,"../utils/sha3":203,"../utils/utils":204,"./formatters":214}],216:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -34064,27 +35624,31 @@ module.exports = SolidityFunction;
  * @date 2015
  */
 
+"use strict";
 
 var errors = require('./errors');
 
 // workaround to use httpprovider in different envs
+var XMLHttpRequest; // jshint ignore: line
+
+// meteor server environment
+if (typeof Meteor !== 'undefined' && Meteor.isServer) { // jshint ignore: line
+    XMLHttpRequest = Npm.require('xmlhttprequest').XMLHttpRequest; // jshint ignore: line
 
 // browser
-if (typeof window !== 'undefined' && window.XMLHttpRequest) {
+} else if (typeof window !== 'undefined' && window.XMLHttpRequest) {
     XMLHttpRequest = window.XMLHttpRequest; // jshint ignore: line
+
 // node
 } else {
     XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest; // jshint ignore: line
 }
 
-var XHR2 = require('xhr2'); // jshint ignore: line
-
 /**
  * HttpProvider should be used to send rpc calls over http
  */
-var HttpProvider = function (host, timeout) {
+var HttpProvider = function (host) {
     this.host = host || 'http://localhost:8545';
-    this.timeout = timeout || 0;
 };
 
 /**
@@ -34095,15 +35659,7 @@ var HttpProvider = function (host, timeout) {
  * @return {XMLHttpRequest} object
  */
 HttpProvider.prototype.prepareRequest = function (async) {
-    var request;
-
-    if (async) {
-      request = new XHR2();
-      request.timeout = this.timeout;
-    }else {
-      request = new XMLHttpRequest();
-    }
-
+    var request = new XMLHttpRequest();
     request.open('POST', this.host, async);
     request.setRequestHeader('Content-Type','application/json');
     return request;
@@ -34130,7 +35686,7 @@ HttpProvider.prototype.send = function (payload) {
     try {
         result = JSON.parse(result);
     } catch(e) {
-        throw errors.InvalidResponse(request.responseText);
+        throw errors.InvalidResponse(request.responseText);                
     }
 
     return result;
@@ -34144,27 +35700,23 @@ HttpProvider.prototype.send = function (payload) {
  * @param {Function} callback triggered on end with (err, result)
  */
 HttpProvider.prototype.sendAsync = function (payload, callback) {
-    var request = this.prepareRequest(true);
+    var request = this.prepareRequest(true); 
 
     request.onreadystatechange = function() {
-        if (request.readyState === 4 && request.timeout !== 1) {
+        if (request.readyState === 4) {
             var result = request.responseText;
             var error = null;
 
             try {
                 result = JSON.parse(result);
             } catch(e) {
-                error = errors.InvalidResponse(request.responseText);
+                error = errors.InvalidResponse(request.responseText);                
             }
 
             callback(error, result);
         }
     };
-
-    request.ontimeout = function() {
-      callback(errors.ConnectionTimeout(this.timeout));
-    };
-
+    
     try {
         request.send(JSON.stringify(payload));
     } catch(error) {
@@ -34194,7 +35746,8 @@ HttpProvider.prototype.isConnected = function() {
 
 module.exports = HttpProvider;
 
-},{"./errors":205,"xhr2":230,"xmlhttprequest":196}],212:[function(require,module,exports){
+
+},{"./errors":210,"xmlhttprequest":201}],217:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -34222,7 +35775,7 @@ var BigNumber = require('bignumber.js');
 var padLeft = function (string, bytes) {
     var result = string;
     while (result.length < bytes * 2) {
-        result = '0' + result;
+        result = '00' + result;
     }
     return result;
 };
@@ -34423,7 +35976,7 @@ Iban.prototype.toString = function () {
 module.exports = Iban;
 
 
-},{"bignumber.js":229}],213:[function(require,module,exports){
+},{"bignumber.js":233}],218:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -34632,7 +36185,7 @@ IpcProvider.prototype.sendAsync = function (payload, callback) {
 module.exports = IpcProvider;
 
 
-},{"../utils/utils":199,"./errors":205}],214:[function(require,module,exports){
+},{"../utils/utils":204,"./errors":210}],219:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -34652,13 +36205,25 @@ module.exports = IpcProvider;
 /** @file jsonrpc.js
  * @authors:
  *   Marek Kotewicz <marek@ethdev.com>
- *   Aaron Kumavis <aaron@kumavis.me>
  * @date 2015
  */
 
-// Initialize Jsonrpc as a simple object with utility functions.
-var Jsonrpc = {
-    messageId: 0
+var Jsonrpc = function () {
+    // singleton pattern
+    if (arguments.callee._singletonInstance) {
+        return arguments.callee._singletonInstance;
+    }
+    arguments.callee._singletonInstance = this;
+
+    this.messageId = 1;
+};
+
+/**
+ * @return {Jsonrpc} singleton
+ */
+Jsonrpc.getInstance = function () {
+    var instance = new Jsonrpc();
+    return instance;
 };
 
 /**
@@ -34669,18 +36234,15 @@ var Jsonrpc = {
  * @param {Array} params, an array of method params, optional
  * @returns {Object} valid jsonrpc payload object
  */
-Jsonrpc.toPayload = function (method, params) {
+Jsonrpc.prototype.toPayload = function (method, params) {
     if (!method)
         console.error('jsonrpc method should be specified!');
 
-    // advance message ID
-    Jsonrpc.messageId++;
-
     return {
         jsonrpc: '2.0',
-        id: Jsonrpc.messageId,
         method: method,
-        params: params || []
+        params: params || [],
+        id: this.messageId++
     };
 };
 
@@ -34691,16 +36253,12 @@ Jsonrpc.toPayload = function (method, params) {
  * @param {Object}
  * @returns {Boolean} true if response is valid, otherwise false
  */
-Jsonrpc.isValidResponse = function (response) {
-    return Array.isArray(response) ? response.every(validateSingleMessage) : validateSingleMessage(response);
-
-    function validateSingleMessage(message){
-      return !!message &&
-        !message.error &&
-        message.jsonrpc === '2.0' &&
-        typeof message.id === 'number' &&
-        message.result !== undefined; // only undefined is not valid json object
-    }
+Jsonrpc.prototype.isValidResponse = function (response) {
+    return !!response &&
+        !response.error &&
+        response.jsonrpc === '2.0' &&
+        typeof response.id === 'number' &&
+        response.result !== undefined; // only undefined is not valid json object
 };
 
 /**
@@ -34710,16 +36268,17 @@ Jsonrpc.isValidResponse = function (response) {
  * @param {Array} messages, an array of objects with method (required) and params (optional) fields
  * @returns {Array} batch payload
  */
-Jsonrpc.toBatchPayload = function (messages) {
+Jsonrpc.prototype.toBatchPayload = function (messages) {
+    var self = this;
     return messages.map(function (message) {
-        return Jsonrpc.toPayload(message.method, message.params);
+        return self.toPayload(message.method, message.params);
     });
 };
 
 module.exports = Jsonrpc;
 
 
-},{}],215:[function(require,module,exports){
+},{}],220:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -34886,7 +36445,7 @@ Method.prototype.request = function () {
 module.exports = Method;
 
 
-},{"../utils/utils":199,"./errors":205}],216:[function(require,module,exports){
+},{"../utils/utils":204,"./errors":210}],221:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -34954,7 +36513,7 @@ var methods = function () {
 
 module.exports = DB;
 
-},{"../method":215}],217:[function(require,module,exports){
+},{"../method":220}],222:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -35271,10 +36830,6 @@ var properties = function () {
             name: 'blockNumber',
             getter: 'eth_blockNumber',
             outputFormatter: utils.toDecimal
-        }),
-        new Property({
-            name: 'protocolVersion',
-            getter: 'eth_protocolVersion'
         })
     ];
 };
@@ -35303,7 +36858,7 @@ Eth.prototype.isSyncing = function (callback) {
 module.exports = Eth;
 
 
-},{"../../utils/config":197,"../../utils/utils":199,"../contract":204,"../filter":208,"../formatters":209,"../iban":212,"../method":215,"../namereg":223,"../property":224,"../syncing":227,"../transfer":228,"./watches":222}],218:[function(require,module,exports){
+},{"../../utils/config":202,"../../utils/utils":204,"../contract":209,"../filter":213,"../formatters":214,"../iban":217,"../method":220,"../namereg":227,"../property":228,"../syncing":231,"../transfer":232,"./watches":226}],223:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -35357,7 +36912,7 @@ var properties = function () {
 
 module.exports = Net;
 
-},{"../../utils/utils":199,"../property":224}],219:[function(require,module,exports){
+},{"../../utils/utils":204,"../property":228}],224:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -35418,13 +36973,6 @@ var methods = function () {
         inputFormatter: [formatters.inputAddressFormatter, null, null]
     });
 
-    var sendTransaction = new Method({
-        name: 'sendTransaction',
-        call: 'personal_sendTransaction',
-        params: 2,
-        inputFormatter: [formatters.inputTransactionFormatter, null]
-    });
-
     var lockAccount = new Method({
         name: 'lockAccount',
         call: 'personal_lockAccount',
@@ -35435,7 +36983,6 @@ var methods = function () {
     return [
         newAccount,
         unlockAccount,
-        sendTransaction,
         lockAccount
     ];
 };
@@ -35452,7 +36999,7 @@ var properties = function () {
 
 module.exports = Personal;
 
-},{"../formatters":209,"../method":215,"../property":224}],220:[function(require,module,exports){
+},{"../formatters":214,"../method":220,"../property":228}],225:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -35540,154 +37087,7 @@ var methods = function () {
 module.exports = Shh;
 
 
-},{"../filter":208,"../formatters":209,"../method":215,"./watches":222}],221:[function(require,module,exports){
-/*
-    This file is part of web3.js.
-
-    web3.js is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Lesser General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    web3.js is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public License
-    along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
-*/
-/**
- * @file bzz.js
- * @author Alex Beregszaszi <alex@rtfs.hu>
- * @date 2016
- *
- * Reference: https://github.com/ethereum/go-ethereum/blob/swarm/internal/web3ext/web3ext.go#L33
- */
-
-"use strict";
-
-var Method = require('../method');
-var Property = require('../property');
-
-function Swarm(web3) {
-    this._requestManager = web3._requestManager;
-
-    var self = this;
-
-    methods().forEach(function(method) {
-        method.attachToObject(self);
-        method.setRequestManager(self._requestManager);
-    });
-
-    properties().forEach(function(p) {
-        p.attachToObject(self);
-        p.setRequestManager(self._requestManager);
-    });
-}
-
-var methods = function () {
-    var blockNetworkRead = new Method({
-        name: 'blockNetworkRead',
-        call: 'bzz_blockNetworkRead',
-        params: 1,
-        inputFormatter: [null]
-    });
-
-    var syncEnabled = new Method({
-        name: 'syncEnabled',
-        call: 'bzz_syncEnabled',
-        params: 1,
-        inputFormatter: [null]
-    });
-
-    var swapEnabled = new Method({
-        name: 'swapEnabled',
-        call: 'bzz_swapEnabled',
-        params: 1,
-        inputFormatter: [null]
-    });
-
-    var download = new Method({
-        name: 'download',
-        call: 'bzz_download',
-        params: 2,
-        inputFormatter: [null, null]
-    });
-
-    var upload = new Method({
-        name: 'upload',
-        call: 'bzz_upload',
-        params: 2,
-        inputFormatter: [null, null]
-    });
-
-    var retrieve = new Method({
-        name: 'retrieve',
-        call: 'bzz_retrieve',
-        params: 1,
-        inputFormatter: [null]
-    });
-
-    var store = new Method({
-        name: 'store',
-        call: 'bzz_store',
-        params: 2,
-        inputFormatter: [null, null]
-    });
-
-    var get = new Method({
-        name: 'get',
-        call: 'bzz_get',
-        params: 1,
-        inputFormatter: [null]
-    });
-
-    var put = new Method({
-        name: 'put',
-        call: 'bzz_put',
-        params: 2,
-        inputFormatter: [null, null]
-    });
-
-    var modify = new Method({
-        name: 'modify',
-        call: 'bzz_modify',
-        params: 4,
-        inputFormatter: [null, null, null, null]
-    });
-
-    return [
-        blockNetworkRead,
-        syncEnabled,
-        swapEnabled,
-        download,
-        upload,
-        retrieve,
-        store,
-        get,
-        put,
-        modify
-    ];
-};
-
-var properties = function () {
-    return [
-        new Property({
-            name: 'hive',
-            getter: 'bzz_hive'
-        }),
-        new Property({
-            name: 'info',
-            getter: 'bzz_info'
-        })
-    ];
-};
-
-
-module.exports = Swarm;
-
-},{"../method":215,"../property":224}],222:[function(require,module,exports){
+},{"../filter":213,"../formatters":214,"../method":220,"./watches":226}],226:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -35803,7 +37203,7 @@ module.exports = {
 };
 
 
-},{"../method":215}],223:[function(require,module,exports){
+},{"../method":220}],227:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -35844,7 +37244,7 @@ module.exports = {
 };
 
 
-},{"../contracts/GlobalRegistrar.json":180,"../contracts/ICAPRegistrar.json":181}],224:[function(require,module,exports){
+},{"../contracts/GlobalRegistrar.json":185,"../contracts/ICAPRegistrar.json":186}],228:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -35885,7 +37285,7 @@ Property.prototype.setRequestManager = function (rm) {
 
 /**
  * Should be called to format input args of method
- *
+ * 
  * @method formatInput
  * @param {Array}
  * @return {Array}
@@ -35902,7 +37302,7 @@ Property.prototype.formatInput = function (arg) {
  * @return {Object}
  */
 Property.prototype.formatOutput = function (result) {
-    return this.outputFormatter && result !== null && result !== undefined ? this.outputFormatter(result) : result;
+    return this.outputFormatter && result !== null ? this.outputFormatter(result) : result;
 };
 
 /**
@@ -35921,7 +37321,7 @@ Property.prototype.extractCallback = function (args) {
 
 /**
  * Should attach function to method
- *
+ * 
  * @method attachToObject
  * @param {Object}
  * @param {Function}
@@ -35929,7 +37329,7 @@ Property.prototype.extractCallback = function (args) {
 Property.prototype.attachToObject = function (obj) {
     var proto = {
         get: this.buildGet(),
-        enumerable: true
+        enumerable: true 
     };
 
     var names = this.name.split('.');
@@ -35953,7 +37353,7 @@ Property.prototype.buildGet = function () {
     return function get() {
         return property.formatOutput(property.requestManager.send({
             method: property.getter
-        }));
+        })); 
     };
 };
 
@@ -35990,7 +37390,7 @@ Property.prototype.request = function () {
 module.exports = Property;
 
 
-},{"../utils/utils":199}],225:[function(require,module,exports){
+},{"../utils/utils":204}],229:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -36047,10 +37447,10 @@ RequestManager.prototype.send = function (data) {
         return null;
     }
 
-    var payload = Jsonrpc.toPayload(data.method, data.params);
+    var payload = Jsonrpc.getInstance().toPayload(data.method, data.params);
     var result = this.provider.send(payload);
 
-    if (!Jsonrpc.isValidResponse(result)) {
+    if (!Jsonrpc.getInstance().isValidResponse(result)) {
         throw errors.InvalidResponse(result);
     }
 
@@ -36069,13 +37469,13 @@ RequestManager.prototype.sendAsync = function (data, callback) {
         return callback(errors.InvalidProvider());
     }
 
-    var payload = Jsonrpc.toPayload(data.method, data.params);
+    var payload = Jsonrpc.getInstance().toPayload(data.method, data.params);
     this.provider.sendAsync(payload, function (err, result) {
         if (err) {
             return callback(err);
         }
         
-        if (!Jsonrpc.isValidResponse(result)) {
+        if (!Jsonrpc.getInstance().isValidResponse(result)) {
             return callback(errors.InvalidResponse(result));
         }
 
@@ -36095,7 +37495,7 @@ RequestManager.prototype.sendBatch = function (data, callback) {
         return callback(errors.InvalidProvider());
     }
 
-    var payload = Jsonrpc.toBatchPayload(data);
+    var payload = Jsonrpc.getInstance().toBatchPayload(data);
 
     this.provider.sendAsync(payload, function (err, results) {
         if (err) {
@@ -36210,7 +37610,7 @@ RequestManager.prototype.poll = function () {
         return;
     }
 
-    var payload = Jsonrpc.toBatchPayload(pollsData);
+    var payload = Jsonrpc.getInstance().toBatchPayload(pollsData);
     
     // map the request id to they poll id
     var pollsIdMap = {};
@@ -36243,7 +37643,7 @@ RequestManager.prototype.poll = function () {
         }).filter(function (result) {
             return !!result; 
         }).filter(function (result) {
-            var valid = Jsonrpc.isValidResponse(result);
+            var valid = Jsonrpc.getInstance().isValidResponse(result);
             if (!valid) {
                 result.callback(errors.InvalidResponse(result));
             }
@@ -36257,7 +37657,7 @@ RequestManager.prototype.poll = function () {
 module.exports = RequestManager;
 
 
-},{"../utils/config":197,"../utils/utils":199,"./errors":205,"./jsonrpc":214}],226:[function(require,module,exports){
+},{"../utils/config":202,"../utils/utils":204,"./errors":210,"./jsonrpc":219}],230:[function(require,module,exports){
 
 
 var Settings = function () {
@@ -36268,7 +37668,7 @@ var Settings = function () {
 module.exports = Settings;
 
 
-},{}],227:[function(require,module,exports){
+},{}],231:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -36363,7 +37763,7 @@ IsSyncing.prototype.stopWatching = function () {
 module.exports = IsSyncing;
 
 
-},{"../utils/utils":199,"./formatters":209}],228:[function(require,module,exports){
+},{"../utils/utils":204,"./formatters":214}],232:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -36457,7 +37857,7 @@ var deposit = function (eth, from, to, value, client, callback) {
 module.exports = transfer;
 
 
-},{"../contracts/SmartExchange.json":182,"./iban":212}],229:[function(require,module,exports){
+},{"../contracts/SmartExchange.json":187,"./iban":217}],233:[function(require,module,exports){
 /*! bignumber.js v2.0.7 https://github.com/MikeMcl/bignumber.js/LICENCE */
 
 ;(function (global) {
@@ -39142,8 +40542,5 @@ module.exports = transfer;
     }
 })(this);
 
-},{"crypto":59}],230:[function(require,module,exports){
-module.exports = XMLHttpRequest;
-
-},{}]},{},[2])(2)
+},{"crypto":65}]},{},[2])(2)
 });

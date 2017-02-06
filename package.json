@@ -1,6 +1,6 @@
 {
   "name": "uport-registry",
-  "version": "4.0.1",
+  "version": "3.0.2",
   "description": "uPort Registry contracts and JS middleware",
   "main": "lib/uportregistry.js",
   "repository": {
@@ -37,7 +37,7 @@
     "bs58": "^4.0.0",
     "ether-pudding": "^3.2.0",
     "ipfs-mini": "^1.0.1",
-    "web3": "^0.18.2"
+    "web3": "^0.16.0"
   },
   "contributors": [
     {
