@@ -1,28 +1,30 @@
 pragma solidity 0.4.8;
 
-contract UportRegistry{
+contract UportRegistry {
   uint public version;
   address public previousPublishedVersion;
-  mapping(bytes32 => mapping(address => mapping(address => bytes32))) public registry;
+  mapping(address => mapping(bytes32 => mapping(bytes32 => bytes32))) public registry;
 
   function UportRegistry(address _previousPublishedVersion) {
     version = 3;
     previousPublishedVersion = _previousPublishedVersion;
   }
 
-  event Set(
-    bytes32 indexed registrationIdentifier,
-    address indexed issuer,
-    address indexed subject,
-    uint updatedAt);
+  event Set (
+    address indexed from,
+    address indexed to,
+    bytes32 indexed key,
+    bytes32         value,
+    uint256         updatedAt
+  );
 
   //create or update
-  function set(bytes32 registrationIdentifier, address subject, bytes32 value){
-      Set(registrationIdentifier, msg.sender, subject, now);
-      registry[registrationIdentifier][msg.sender][subject] = value;
+  function set(address to, bytes32 key, bytes32 value) {
+      Set(msg.sender, to, key, value, now);
+      registry[msg.sender][to][key] = value;
   }
 
-  function get(bytes32 registrationIdentifier, address issuer, address subject) constant returns(bytes32){
-      return registry[registrationIdentifier][issuer][subject];
+  function get(address from, address to, bytes32 key) constant returns(bytes32) {
+      return registry[from][to][key];
   }
 }
