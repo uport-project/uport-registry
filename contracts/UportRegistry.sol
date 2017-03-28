@@ -3,7 +3,7 @@ pragma solidity 0.4.8;
 contract UportRegistry {
   uint public version;
   address public previousPublishedVersion;
-  mapping(address => mapping(bytes32 => mapping(bytes32 => bytes32))) public registry;
+  mapping(address => mapping(address => mapping(bytes32 => bytes32))) public registry;
 
   function UportRegistry(address _previousPublishedVersion) {
     version = 3;
