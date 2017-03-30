@@ -1,9 +1,11 @@
 const assert          = require('chai').assert;
 const Web3            = require('web3');
+const Contract        = require('truffle-contract')
 const startProviders  = require('./providerUtil')
-const UportRegistry   = require('../build/contracts/UportRegistry.sol.js')
+const RegistryContractData = require('../build/contracts/UportRegistry.json')
 
 const web3 = new Web3()
+const UportRegistry = Contract(RegistryContractData)
 
 describe('UportRegistry contract', function () {
   console.log("warning: when these assert statements fail, they 'hang' instead of displaying an error")

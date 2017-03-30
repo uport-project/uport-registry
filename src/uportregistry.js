@@ -2,11 +2,13 @@
 import IPFS from 'ipfs-mini'
 import bs58 from 'bs58'
 import Web3 from 'web3'
-import RegistryContract from "../build/contracts/UportRegistry.sol.js"
+import Contract from 'truffle-contract'
+import RegistryContractData from "../build/contracts/UportRegistry.json"
 // People using one of the low level api's are likely going to be node users
 import concat from 'concat-stream'
 
 const DEFAULT_REGISTRY_ADDRESS = '0x41566e3a081f5032bdcad470adb797635ddfe1f0';
+const RegistryContract = Contract(RegistryContractData)
 
 const wrapLowLevelAPI = (provider) => {
   return {

@@ -20,22 +20,23 @@
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "browserify": "^13.1.1",
+    "bs58": "^4.0.0",
     "chai": "*",
     "ethereumjs-testrpc": "^3.0.3",
     "ipfsd-ctl": "^0.14.0",
     "mocha": "^2.4.5",
-    "bs58": "^4.0.0",
-    "truffle": "^2.1.1"
+    "truffle": "^3.2.1"
   },
   "scripts": {
     "build:es5": "./node_modules/.bin/babel src -d lib",
     "build": "node_modules/.bin/browserify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
-    "build-contract": "./node_modules/truffle/cli.js build",
+    "compile-contract": "./node_modules/.bin/truffle compile",
     "test": "node_modules/.bin/mocha --reporter spec test/*.js",
     "allofthethings": "npm run build-contract ; npm run build:es5 ; npm run test ; npm run build"
   },
   "dependencies": {
     "ipfs-mini": "^1.0.1",
+    "truffle-contract": "^2.0.0",
     "web3": "^0.16.0"
   },
   "contributors": [

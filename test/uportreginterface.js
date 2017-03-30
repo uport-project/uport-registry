@@ -1,12 +1,14 @@
 const assert          = require('chai').assert;
 const Web3            = require('web3');
+const Contract        = require('truffle-contract')
 const UportRegistry        = require('../lib/uportregistry.js')
 const startProviders  = require('./providerUtil')
-const RegistryContract   = require('../build/contracts/UportRegistry.sol.js')
+const RegistryContractData = require('../build/contracts/UportRegistry.json')
 const personaInfo     = require('./persona_example.json')
 const appData     = require('./app_data.json')
 
 const web3 = new Web3()
+const RegistryContract = Contract(RegistryContractData)
 
 describe('Higher-level uportReg APIs', function () {
   this.timeout(30000)

@@ -1,6 +1,6 @@
 # uPort Registry
 
-##Warning:
+## Warning:
 
 Our mobile uport app and supporting infrastructure does not use this registry yet. If you need to integrate with the mobile app or our servers, lock your package.json to [version 2.0.6](https://github.com/ConsenSys/uport-registry/tree/v2.0.6) for the time being: `"uport-registry": "2.0.6"`.
 
@@ -41,13 +41,13 @@ The uPort Registry Library allows you to set attributes of and/or view attribute
 ### Running tests
 
 ```
-npm run test
+yarn test
 ```
 Note: The tests currently timeout instead of throwing exceptions
 
 ### Development of this code base
 
-After making changes to `contracts/` use `npm run build-contract` to create `.sol.js` js abstraction objects. After making changes to `src/`, build with `npm run build:es5` (this puts them in `lib/`)
+After making changes to `contracts/` use `yarn compile-contract` to create the json file with the contract data that can be used with `truffle-contract`. After making changes to `src/`, build with `npm run build:es5` (this puts them in `lib/`)
 
 Only *then* run tests.
 
