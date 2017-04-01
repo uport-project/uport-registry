@@ -10,7 +10,8 @@ Our mobile uport app and supporting infrastructure does not use this registry ye
 The registry has been deployed at the following locations:
 
 - Ropsten Testnet: `0x41566e3a081f5032bdcad470adb797635ddfe1f0`
-- Mainnet: `0xab5c8051b9a1df1aab0149f8b0630848b7ecabf6`
+- Kovan:           `0xea8ac9cf5c3d02cfc30f65c04ed921d713062745`
+- Mainnet:         `0xab5c8051b9a1df1aab0149f8b0630848b7ecabf6`
 
 ## About
 
