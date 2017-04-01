@@ -19,6 +19,7 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
+    "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "bs58": "^4.0.0",
     "chai": "*",
@@ -29,12 +30,10 @@
     "truffle": "^3.2.1"
   },
   "scripts": {
-    "build:es5": "./node_modules/.bin/babel src -d lib",
-    "build": "node_modules/.bin/browserify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
+    "build": "node_modules/.bin/browserify -t babelify src/uportregistry.js -s uportRegistry -o dist/uportregistry.js",
     "compile-contract": "./node_modules/.bin/truffle compile",
     "lint": "./node_modules/.bin/standard",
-    "test": "node_modules/.bin/mocha --reporter spec test/*.js",
-    "allofthethings": "npm run build-contract ; npm run build:es5 ; npm run test ; npm run build"
+    "test": "node_modules/.bin/mocha --compilers js:babel-core/register --reporter spec"
   },
   "dependencies": {
     "ipfs-mini": "^1.0.1",
@@ -64,14 +63,14 @@
     }
   ],
   "standard": {
-      "ignore": [
-          "dist/**",
-          "lib/**"
-      ],
-      "globals": [
-          "describe",
-          "it",
-          "before"
-      ]
+    "ignore": [
+      "dist/**",
+      "lib/**"
+    ],
+    "globals": [
+      "describe",
+      "it",
+      "before"
+    ]
   }
 }

@@ -47,11 +47,7 @@ Note: The tests currently timeout instead of throwing exceptions
 
 ### Development of this code base
 
-After making changes to `contracts/` use `yarn compile-contract` to create the json file with the contract data that can be used with `truffle-contract`. After making changes to `src/`, build with `npm run build:es5` (this puts them in `lib/`)
-
-Only *then* run tests.
-
-Finally use `npm run build` to create the `dist/uportregistry.js` file
+After making changes to `contracts/` use `yarn compile-contract` to create the json file with the contract data that can be used with `truffle-contract`. After making changes to `src/`, build with `npm run build` to create the `dist/uportregistry.js` file.
 
 ### Usage
 
