@@ -1,5 +1,5 @@
-const TestRPC     = require('ethereumjs-testrpc')
-const ipfsd       = require('ipfsd-ctl')
+const TestRPC = require('ethereumjs-testrpc')
+const ipfsd = require('ipfsd-ctl')
 
 let web3Provider, ipfsProvider
 

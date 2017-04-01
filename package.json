@@ -25,12 +25,14 @@
     "ethereumjs-testrpc": "^3.0.3",
     "ipfsd-ctl": "^0.14.0",
     "mocha": "^2.4.5",
+    "standard": "^9.0.2",
     "truffle": "^3.2.1"
   },
   "scripts": {
     "build:es5": "./node_modules/.bin/babel src -d lib",
     "build": "node_modules/.bin/browserify lib/uportregistry.js --s uportRegistry --o dist/uportregistry.js",
     "compile-contract": "./node_modules/.bin/truffle compile",
+    "lint": "./node_modules/.bin/standard",
     "test": "node_modules/.bin/mocha --reporter spec test/*.js",
     "allofthethings": "npm run build-contract ; npm run build:es5 ; npm run test ; npm run build"
   },
@@ -60,5 +62,16 @@
       "email": "zac.mitton@consensys.net",
       "url": "http://zacmitton.com/"
     }
-  ]
+  ],
+  "standard": {
+      "ignore": [
+          "dist/**",
+          "lib/**"
+      ],
+      "globals": [
+          "describe",
+          "it",
+          "before"
+      ]
+  }
 }

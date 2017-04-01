@@ -8,39 +8,38 @@
 //   of PersonaRegistry
 
 // Node modules
-var Persona     = require('./lib/uportregistry.js');
-var Web3        = require('web3');
-var Promise     = require('bluebird');
-var fs          = require('fs');
+var Web3 = require('web3')
+var fs = require('fs')
 
 // Data / Registries / Contracts
-var config = require('./config.json');
-console.log( config )
+var config = require('./config.json')
+console.log(config)
 
 // Web3 Instance
-var web3        = new Web3();
+var web3 = new Web3()
 
 // CLI Args
-var prevRegistryAddr = process.argv[2];
-var host     = config[config['selection']].web3Host;
+var prevRegistryAddr = process.argv[2]
+var host = config[config['selection']].web3Host
 var web3port = 8545
 console.log(host)
 
 // Set Defaults
-if (host     === undefined) { host     = 'localhost'; }
-if (web3port === undefined) { web3port = '8545';      }
+if (host === undefined) { host = 'localhost' }
+if (web3port === undefined) { web3port = '8545' }
 
 // Make Providers
-var web3prov = new web3.providers.HttpProvider('http://' + host + ':' + web3port);
+var web3prov = new web3.providers.HttpProvider('http://' + host + ':' + web3port)
 
-const UportRegistry   = require('./build/contracts/UportRegistry.sol.js')
+const UportRegistry = require('./build/contracts/UportRegistry.sol.js')
 
 // Set Providers
-web3.setProvider(web3prov);
+web3.setProvider(web3prov)
 UportRegistry.setProvider(web3prov)
 
 // Create new Persona Registry
-web3.eth.getAccounts(function(err, acct) {
+web3.eth.getAccounts(function (err, acct) {
+  if (err) throw new Error(err)
 
   console.log('prev reg: ' + prevRegistryAddr)
   if (prevRegistryAddr === undefined) {
@@ -48,11 +47,10 @@ web3.eth.getAccounts(function(err, acct) {
   }
 
   UportRegistry.new(prevRegistryAddr, {from: acct[0], gas: 500000, gasPrice: 100000000000000})
-    .then(function(uportReg) {
-
-      config[config['selection']].uportRegistry = uportReg.address;
-      var output = JSON.stringify(config, null, 2) + '\n';
-      fs.writeFile('./config.json', output);
-      console.log('UportRegistry: ' + uportReg.address);
+    .then(function (uportReg) {
+      config[config['selection']].uportRegistry = uportReg.address
+      var output = JSON.stringify(config, null, 2) + '\n'
+      fs.writeFile('./config.json', output)
+      console.log('UportRegistry: ' + uportReg.address)
     })
-});
+})
