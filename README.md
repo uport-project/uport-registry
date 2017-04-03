@@ -54,53 +54,22 @@ After making changes to `contracts/` use `yarn compile-contract` to create the j
 To use the library, first include it in your project:
 
 ```javascript
-var UportRegistry = require("uport-registry");
-var registry = new UportRegistry()
+let UportRegistry = require("uport-registry");
+let registry = new UportRegistry()
 ```
 
-#### IPFS Setup
+#### Custom options
 
-It defaults to the Infura IPFS server but you can easily set it to a local server or use another client library using setIpfsProvider
-
-You can change the ipfs connection details by passing a configuration object containing a 
-
+If you don't want to default to the Infura servers for ipfs and web3 provider you can specify this in the opts object of the Registry constructor. You can also specify another deployed version of the Registry.
 ```javascript
-var registry = new UportRegistry({
-  ipfs: { host: '127.0.0.1', port: 5001 }
-});
+let registry = new UportRegistry(opts);
+let opts = {}
+
+opts.ipfs = { host: '127.0.0.1', port: 5001 } // you can also plug in a working ipfs object.
+opts.web3prov = new Web3.providers.HttpProvider('https://localhost:8545')
+opts.registryAddress = '0xADD4E55'
 ```
-
-We also support a full [ipfs-js-api](https://github.com/ipfs/js-ipfs-api) compliant client:
-
-```javascript
-const ipfsApi = require('ipfs-api');
-var registry = new UportRegistry({
-  ipfs: ipfsAPI('localhost', '5001', {protocol: 'http'})
-});
-```
-
-#### Customize Web3 Provider
-
-By default it connects to Infura's ropsten network. But you can change it by passing in your own web3 provider.
-
-```javascript
-var Web3    = require('web3');
-var registry = new UportRegistry({
-  web3prov: new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry')
-});
-```
-
-### Change uport registry address
-
-By default it uses the ropsten uport registry at `0x41566e3a081f5032bdcad470adb797635ddfe1f0`. You can change this using the registryAddress setting.
-
-```javascript
-var Web3    = require('web3');
-var registry = new UportRegistry({
-  web3prov: new Web3.providers.HttpProvider('https://mainnet.infura.io/uport-registry'),
-  registryAddress: '0xab5c8051b9a1df1aab0149f8b0630848b7ecabf6'
-});
-```
+for now the default registryAddress is the one deployed on ropsten at `0x41566e3a081f5032bdcad470adb797635ddfe1f0`.
 
 ### Setting uportRegistry Attributes
 
