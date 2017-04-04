@@ -1,9 +1,5 @@
 # uPort Registry
-
-## Warning:
-
-Our mobile uport app and supporting infrastructure does not use this registry yet. If you need to integrate with the mobile app or our servers, lock your package.json to [version 2.0.6](https://github.com/ConsenSys/uport-registry/tree/v2.0.6) for the time being: `"uport-registry": "2.0.6"`.
-
+The uport registry is a contract which is used in the uport system to link attributes to identities. This repo contains the contract code as well as a library for interacting with the registry.
 
 ## Deployed Contracts
 
@@ -54,7 +50,7 @@ After making changes to `contracts/` use `yarn compile-contract` to create the j
 To use the library, first include it in your project:
 
 ```javascript
-let UportRegistry = require("uport-registry");
+const UportRegistry = require("uport-registry");
 let registry = new UportRegistry()
 ```
 
@@ -62,14 +58,14 @@ let registry = new UportRegistry()
 
 If you don't want to default to the Infura servers for ipfs and web3 provider you can specify this in the opts object of the Registry constructor. You can also specify another deployed version of the Registry.
 ```javascript
-let registry = new UportRegistry(opts);
 let opts = {}
-
 opts.ipfs = { host: '127.0.0.1', port: 5001 } // you can also plug in a working ipfs object.
 opts.web3prov = new Web3.providers.HttpProvider('https://localhost:8545')
 opts.registryAddress = '0xADD4E55'
+
+let registry = new UportRegistry(opts);
 ```
-for now the default registryAddress is the one deployed on ropsten at `0x41566e3a081f5032bdcad470adb797635ddfe1f0`.
+For now the default registryAddress is the one deployed on ropsten at `0x41566e3a081f5032bdcad470adb797635ddfe1f0`.
 
 ### Setting uportRegistry Attributes
 
@@ -101,4 +97,13 @@ var uportId = '0xdb24b49d8f7e47d30498ee2a846375c3ba771d3e'
 
 registry.getAttributes(uportId).then(function (attributes)
                             {console.log(attributes)})
+```
+
+### Using the contract directly
+If you only want access to the registry contract without the library you can require the contract json and use truffle-contract.
+```javascript
+const regContractData = require('uport-contracts/build/contracts/UportRegistry.json')
+const Contract = require('truffle-contract')
+const RegistryContract = Contract(regContractData)
+RegistryContract.setProvider(web3prov)
 ```
