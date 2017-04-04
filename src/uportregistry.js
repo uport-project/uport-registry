@@ -1,11 +1,11 @@
 // Required Modules
-import IPFS from 'ipfs-mini'
-import bs58 from 'bs58'
-import Web3 from 'web3'
-import Contract from 'truffle-contract'
-import RegistryContractData from '../build/contracts/UportRegistry.json'
+const IPFS = require('ipfs-mini')
+const bs58 = require('bs58')
+const Web3 = require('web3')
+const Contract = require('truffle-contract')
+const RegistryContractData = require('../build/contracts/UportRegistry.json')
 // People using one of the low level api's are likely going to be node users
-import concat from 'concat-stream'
+const concat = require('concat-stream')
 
 const DEFAULT_REGISTRY_ADDRESS = '0x41566e3a081f5032bdcad470adb797635ddfe1f0'
 const RegistryContract = Contract(RegistryContractData)
