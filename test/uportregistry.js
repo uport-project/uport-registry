@@ -16,8 +16,6 @@ describe('UportRegistry contract', function () {
 
   let ipfsHash = '0x00000000000000000000000000001220aaabbbcccdddeeefff00011122233344'
   let ipfsHash2 = '0x0000000000000000000000000000000000000000000000000000000000001220'
-  // let ipfsHash1 =  'QmT78zSuBmuS4z925WZfrqQ1qHaJ56DQaTfyMUF7F8ff5o' // hello world\n
-  // let ipfsHash2 = 'QmNrEidQrAbxx3FzxNt9E6qjEDZrtvzxUVh47BXm55Zuen' // {"hello": "world"}\n
 
   before((done) => {
     startProviders((err, provs) => {
