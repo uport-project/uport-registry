@@ -1,9 +1,5 @@
 # uPort Registry
-
-##Warning:
-
-Our mobile uport app and supporting infrastructure does not use this registry yet. If you need to integrate with the mobile app or our servers, lock your package.json to [version 2.0.6](https://github.com/ConsenSys/uport-registry/tree/v2.0.6) for the time being: `"uport-registry": "2.0.6"`.
-
+The uport registry is a contract which is used in the uport system to link attributes to identities. This repo contains the contract code as well as a library for interacting with the registry.
 
 ## Deployed Contracts
 
@@ -38,73 +34,27 @@ and an IPFS hash of this structure is stored in the contract as a `bytes` struct
 
 The uPort Registry Library allows you to set attributes of and/or view attributes of uPort identities in your Dapp. 
 
-### Running tests
-
-```
-npm run test
-```
-Note: The tests currently timeout instead of throwing exceptions
-
-### Development of this code base
-
-After making changes to `contracts/` use `npm run build-contract` to create `.sol.js` js abstraction objects. After making changes to `src/`, build with `npm run build:es5` (this puts them in `lib/`)
-
-Only *then* run tests.
-
-Finally use `npm run build` to create the `dist/uportregistry.js` file
-
 ### Usage
 
 To use the library, first include it in your project:
 
 ```javascript
-var UportRegistry = require("uport-registry");
-var registry = new UportRegistry()
+const UportRegistry = require("uport-registry");
+let registry = new UportRegistry()
 ```
 
-#### IPFS Setup
+#### Custom options
 
-It defaults to the Infura IPFS server but you can easily set it to a local server or use another client library using setIpfsProvider
-
-You can change the ipfs connection details by passing a configuration object containing a 
-
+If you don't want to default to the Infura servers for ipfs and web3 provider you can specify this in the opts object of the Registry constructor. You can also specify another deployed version of the Registry.
 ```javascript
-var registry = new UportRegistry({
-  ipfs: { host: '127.0.0.1', port: 5001 }
-});
+let opts = {}
+opts.ipfs = { host: '127.0.0.1', port: 5001 } // you can also plug in a working ipfs object.
+opts.web3prov = new Web3.providers.HttpProvider('https://localhost:8545')
+opts.registryAddress = '0xADD4E55'
+
+let registry = new UportRegistry(opts);
 ```
-
-We also support a full [ipfs-js-api](https://github.com/ipfs/js-ipfs-api) compliant client:
-
-```javascript
-const ipfsApi = require('ipfs-api');
-var registry = new UportRegistry({
-  ipfs: ipfsAPI('localhost', '5001', {protocol: 'http'})
-});
-```
-
-#### Customize Web3 Provider
-
-By default it connects to Infura's ropsten network. But you can change it by passing in your own web3 provider.
-
-```javascript
-var Web3    = require('web3');
-var registry = new UportRegistry({
-  web3prov: new Web3.providers.HttpProvider('https://ropsten.infura.io/uport-registry')
-});
-```
-
-### Change uport registry address
-
-By default it uses the ropsten uport registry at `0x41566e3a081f5032bdcad470adb797635ddfe1f0`. You can change this using the registryAddress setting.
-
-```javascript
-var Web3    = require('web3');
-var registry = new UportRegistry({
-  web3prov: new Web3.providers.HttpProvider('https://mainnet.infura.io/uport-registry'),
-  registryAddress: '0xab5c8051b9a1df1aab0149f8b0630848b7ecabf6'
-});
-```
+For now the default registryAddress is the one deployed on ropsten at `0x41566e3a081f5032bdcad470adb797635ddfe1f0`.
 
 ### Setting uportRegistry Attributes
 
@@ -137,3 +87,33 @@ var uportId = '0xdb24b49d8f7e47d30498ee2a846375c3ba771d3e'
 registry.getAttributes(uportId).then(function (attributes)
                             {console.log(attributes)})
 ```
+
+### Using the contract directly
+If you only want access to the registry contract without the library you can require the contract json and use truffle-contract.
+```javascript
+const regContractData = require('uport-contracts/build/contracts/UportRegistry.json')
+const Contract = require('truffle-contract')
+const RegistryContract = Contract(regContractData)
+RegistryContract.setProvider(web3prov)
+```
+
+### Development of this code base
+
+Clone the repo and install `yarn` on your system.
+run `yarn install` to install all node_modules.
+
+After making changes to `contracts/` use `yarn compile-contract` to create the json file with the contract data that can be used with `truffle-contract`. After making changes to `src/`, build with `npm run build` to create the `dist/uportregistry.js` file.
+
+### Running tests
+
+```
+yarn test
+```
+Note: The tests currently timeout instead of throwing exceptions
+
+### Deployment
+To deploy the registry we used truffle, but our deploy script has a special option in order to specify the previous version of the registry. So to deploy do the following:
+```
+truffle migrate --network <name of eth network> --prevAddr <address of previous registry version>
+```
+
