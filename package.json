@@ -69,6 +69,7 @@
       "lib/**"
     ],
     "globals": [
+      "artifacts",
       "describe",
       "it",
       "before"

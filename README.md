@@ -107,3 +107,10 @@ const Contract = require('truffle-contract')
 const RegistryContract = Contract(regContractData)
 RegistryContract.setProvider(web3prov)
 ```
+
+### Deployment
+To deploy the registry we use truffle, but our deploy script has a special option in order to specify the previous version of the registry. So to deploy do the following:
+```
+truffle migrate --network <name of eth network> --prevAddr <address of previous registry version>
+```
+
