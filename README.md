@@ -9,7 +9,7 @@ The registry has been deployed at the following locations:
 - Mainnet: `0xab5c8051b9a1df1aab0149f8b0630848b7ecabf6`
 
 
-### Using the contract
+## Using the contract
 By installing this library you get access to a truffle-contract compatible json file. You can import this into your project to use the uport registry on any network it is deployed on, truffle-contract will automatically detect which network you are on.
 Use the following code to get the deployed uport registry:
 ```javascript
@@ -20,14 +20,42 @@ Registry.setProvider(web3prov)
 let registry = Registry.deployed()
 ```
 
-### Development of this code base
+The contract has two functions `set` and `get`.
+
+### Set
+Setting a value can be done in the following way:
+```javascript
+let key = 'myKey'     // a string (bytes32) value used for namespacing
+let subject = 0x123.. // an address, if you want to register something to
+                      // your own identity you should use your own address.
+let value = 'myValue' // a string (bytes32), the data you want to register.
+                      // Could be an ipfs hash for example.
+registry.set(key, subject, value)
+```
+Note that when you register something the account you send the transaction from gets set as the `issuer` of the registered data.
+
+### Get
+To get data out of the registry you can do the following:
+```javascript
+let key = 'myKey'     // a string (bytes32) value used for namespacing
+let issuer = 0x123... // an address, the account that registered the data
+let subject = 0x123.. // an address, the account that the data is registered to
+
+registry.get(key, issuer, subject).then((value) => {
+  // value is the registered data.
+})
+```
+Note that if you are looking for self issued data `issuer` and `subject` will be the same address
+
+
+## Development of this code base
 Clone the repo and install `yarn` on your system.
 run `yarn install` to install all node_modules.
 
+### Compiling
 After making changes to the contract use `yarn compile-contract` to create the json file with the contract data that can be used with `truffle-contract`.
 
 ### Running tests
-
 ```
 yarn test
 ```
