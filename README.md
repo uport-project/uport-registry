@@ -41,7 +41,7 @@ let key = 'myKey'     // a string (bytes32) value used for namespacing
 let issuer = 0x123... // an address, the account that registered the data
 let subject = 0x123.. // an address, the account that the data is registered to
 
-registry.get(key, issuer, subject).then((value) => {
+registry.get.call(key, issuer, subject).then((value) => {
   // value is the registered data.
 })
 ```
