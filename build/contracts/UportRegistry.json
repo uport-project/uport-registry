@@ -207,6 +207,40 @@
       },
       "address": "0x41566e3a081f5032bdcad470adb797635ddfe1f0",
       "updated_at": 1487622652023
+    },
+    "42": {
+      "links": {},
+      "events": {
+        "0xeaf626c2c2ec7b7bd4328ffad20cd8bf2e631858020a5a4a0b4ea02276af3e91": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "registrationIdentifier",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "issuer",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "subject",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "updatedAt",
+              "type": "uint256"
+            }
+          ],
+          "name": "Set",
+          "type": "event"
+        }
+      },
+      "address": "0xea8ac9cf5c3d02cfc30f65c04ed921d713062745",
+      "updated_at": 1487622652023
     }
   },
   "schema_version": "0.0.5",

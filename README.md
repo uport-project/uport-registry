@@ -34,17 +34,6 @@ and an IPFS hash of this structure is stored in the contract as a `bytes` struct
 
 The uPort Registry Library allows you to set attributes of and/or view attributes of uPort identities in your Dapp. 
 
-### Running tests
-
-```
-yarn test
-```
-Note: The tests currently timeout instead of throwing exceptions
-
-### Development of this code base
-
-After making changes to `contracts/` use `yarn compile-contract` to create the json file with the contract data that can be used with `truffle-contract`. After making changes to `src/`, build with `npm run build` to create the `dist/uportregistry.js` file.
-
 ### Usage
 
 To use the library, first include it in your project:
@@ -108,8 +97,22 @@ const RegistryContract = Contract(regContractData)
 RegistryContract.setProvider(web3prov)
 ```
 
+### Development of this code base
+
+Clone the repo and install `yarn` on your system.
+run `yarn install` to install all node_modules.
+
+After making changes to `contracts/` use `yarn compile-contract` to create the json file with the contract data that can be used with `truffle-contract`. After making changes to `src/`, build with `npm run build` to create the `dist/uportregistry.js` file.
+
+### Running tests
+
+```
+yarn test
+```
+Note: The tests currently timeout instead of throwing exceptions
+
 ### Deployment
-To deploy the registry we use truffle, but our deploy script has a special option in order to specify the previous version of the registry. So to deploy do the following:
+To deploy the registry we used truffle, but our deploy script has a special option in order to specify the previous version of the registry. So to deploy do the following:
 ```
 truffle migrate --network <name of eth network> --prevAddr <address of previous registry version>
 ```
