@@ -2,7 +2,7 @@
   "name": "uport-registry",
   "version": "4.0.2",
   "description": "uPort Registry contracts and JS middleware",
-  "main": "src/uportregistry.js",
+  "main": "build/contracts/UportRegistry.json",
   "repository": {
     "type": "git",
     "url": "https://github.com/ConsenSys/uport-registry.git"
@@ -17,16 +17,12 @@
   "author": "ConsenSys",
   "license": "Apache-2",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.21.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
-    "chai": "*",
     "ethereumjs-testrpc": "^3.0.3",
-    "ipfsd-ctl": "^0.14.0",
     "mocha": "^2.4.5",
     "standard": "^9.0.2",
-    "truffle": "^3.2.1"
+    "truffle": "^3.2.1",
+    "truffle-contract": "^2.0.0",
+    "web3": "^0.16.0"
   },
   "scripts": {
     "build": "node_modules/.bin/browserify -t babelify src/uportregistry.js -s uportRegistry -o dist/uportregistry.js",
@@ -35,11 +31,6 @@
     "test": "node_modules/.bin/mocha --compilers js:babel-core/register --reporter spec"
   },
   "dependencies": {
-    "bs58": "^4.0.0",
-    "concat-stream": "^1.6.0",
-    "ipfs-mini": "^1.0.1",
-    "truffle-contract": "^2.0.0",
-    "web3": "^0.16.0"
   },
   "contributors": [
     {
