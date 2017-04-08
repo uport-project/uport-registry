@@ -1,6 +1,6 @@
 const TestRPC = require('ethereumjs-testrpc')
 
-let web3Provider, ipfsProvider
+let web3Provider
 
 module.exports = (cb) => {
   if (!web3Provider) {

@@ -1,5 +1,9 @@
 # Release Notes #
 
+## Version 5.0.0 - 2017-04-08
+
+* Removed the javascript library. This repo now only provides the contract itself and a truffle artifact with ABI + network information
+
 ## Version 4.0.1 - 2017-02-03
 
 * Added warnings in the readme that our mobile uport app and infrastructure will not support this registry yet. added a tag to the commit that does work with out mobile app. console log from the constructor of the same. we will depricate the npm package so npm installers using it get a message.

@@ -9,14 +9,18 @@ The registry has been deployed at the following locations:
 - Kovan:           `0xea8ac9cf5c3d02cfc30f65c04ed921d713062745`
 - Mainnet:         `0xab5c8051b9a1df1aab0149f8b0630848b7ecabf6`
 
+## Installation
+```
+$ npm i --save uport-registry
+```
 
 ## Using the contract
 By installing this library you get access to a truffle-contract compatible json file. You can import this into your project to use the uport registry on any network it is deployed on, truffle-contract will automatically detect which network you are on.
-Use the following code to get the deployed uport registry:
+Use the following code to get the deployed instance of the registry:
 ```javascript
-const regsitryContract = require('uport-registry')
+const regsitryArtifact = require('uport-registry')
 const Contract = require('truffle-contract')
-const Registry = Contract(regsitryContract)
+const Registry = Contract(regsitryArtifact)
 Registry.setProvider(web3prov)
 let registry = Registry.deployed()
 ```
@@ -54,7 +58,7 @@ Clone the repo and install `yarn` on your system.
 run `yarn install` to install all node_modules.
 
 ### Compiling
-After making changes to the contract use `yarn compile-contract` to create the json file with the contract data that can be used with `truffle-contract`.
+After making changes to the contract use `yarn compile-contract` to create the json artifact.
 
 ### Running tests
 ```
@@ -63,7 +67,7 @@ yarn test
 Note: The tests currently timeout instead of throwing exceptions
 
 ### Deployment
-To deploy the registry we used truffle, but our deploy script has a special option in order to specify the previous version of the registry. So to deploy do the following:
+To deploy the registry we used truffle, but our deploy script has a special option in order to specify the previous version of the registry. So to deploy a new version of the registry, do the following:
 ```
 truffle migrate --network <name of eth network> --prevAddr <address of previous registry version>
 ```
