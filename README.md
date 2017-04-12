@@ -6,7 +6,7 @@ The uport registry is a contract which is used in the uport system to link attri
 The registry has been deployed at the following locations:
 
 - Ropsten Testnet: `0x41566e3a081f5032bdcad470adb797635ddfe1f0`
-- Kovan:           `0x432472827c271b795402cd385df9f425d0bf1cfe`
+- Kovan:           `0x5f8e9351dc2d238fb878b6ae43aa740d62fc9758`
 - Mainnet:         `0xab5c8051b9a1df1aab0149f8b0630848b7ecabf6`
 
 ## Installation
