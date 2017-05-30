@@ -7,6 +7,7 @@ const appName = 'AppDataTutorial'
 const connect = new Connect(appName)
 const web3 = connect.getWeb3()
 const UportRegistry = window.uportregistry.contractData
+const mnid = uportregistry.mnid
 console.log(UportRegistry)
 const appId = '0xe2fef711a5988fbe84b806d4817197f033dde050'
 
@@ -18,7 +19,14 @@ const reg = Registry.at(UportRegistry.networks['3'].address)
 const uportConnect = () => {
   connect.requestCredentials().then((credentials) => {
     console.log(credentials)
-    globalState.uportId = credentials.address
+    
+    if (mnid.isMNID(credentials.address)) {
+      globalState.uportId = mnid.decode(credentials.address).address
+    }
+    else {
+      globalState.uportId = credentials.address
+    }
+
     globalState.name = credentials.name
     reg.get("myAppData", globalState.uportId, appId, function(err, data) {
       globalState.appDataRead = data

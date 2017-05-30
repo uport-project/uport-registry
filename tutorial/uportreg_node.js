@@ -1,2 +1,3 @@
 var contractData = require("../build/contracts/UportRegistry.json")
-module.exports = {contractData : contractData}
+var mnid = require('../node_modules/mnid/lib/index.js')
+module.exports = {contractData : contractData, mnid: mnid}
