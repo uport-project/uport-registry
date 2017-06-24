@@ -208,6 +208,40 @@
       "address": "0x41566e3a081f5032bdcad470adb797635ddfe1f0",
       "updated_at": 1487622652023
     },
+    "4": {
+      "links": {},
+      "events": {
+        "0xeaf626c2c2ec7b7bd4328ffad20cd8bf2e631858020a5a4a0b4ea02276af3e91": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "registrationIdentifier",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "issuer",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "subject",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "updatedAt",
+              "type": "uint256"
+            }
+          ],
+          "name": "Set",
+          "type": "event"
+        }
+      },
+      "address": "0x2cc31912b2b0f3075a87b3640923d45a26cef3ee",
+      "updated_at": 1498319686024
+    },
     "42": {
       "links": {},
       "events": {

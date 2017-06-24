@@ -1,5 +1,8 @@
 # Release Notes #
 
+## Version 5.1.0 - 2017-06-24
+* Deployed the registry to the Rinkeby testnet.
+
 ## Version 5.0.0 - 2017-04-08
 
 * Removed the javascript library. This repo now only provides the contract itself and a truffle artifact with ABI + network information
