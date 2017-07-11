@@ -1,5 +1,6 @@
 pragma solidity 0.4.8;
 
+
 contract UportRegistry{
   uint public version;
   address public previousPublishedVersion;
