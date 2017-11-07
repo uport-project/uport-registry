@@ -19,9 +19,9 @@ $ npm i --save uport-registry
 By installing this library you get access to a truffle-contract compatible json file. You can import this into your project to use the uport registry on any network it is deployed on, truffle-contract will automatically detect which network you are on.
 Use the following code to get the deployed instance of the registry:
 ```javascript
-const regsitryArtifact = require('uport-registry')
+const registryArtifact = require('uport-registry')
 const Contract = require('truffle-contract')
-const Registry = Contract(regsitryArtifact)
+const Registry = Contract(registryArtifact)
 Registry.setProvider(web3prov)
 let registry = Registry.deployed()
 ```
