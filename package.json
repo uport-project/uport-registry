@@ -17,16 +17,19 @@
   "author": "ConsenSys",
   "license": "Apache-2",
   "devDependencies": {
+    "bluebird": "^3.5.0",
     "ethereumjs-testrpc": "^3.0.3",
+    "mnid" : "^0.1.1",
     "mocha": "^2.4.5",
     "solium": "^0.5.3",
     "standard": "^9.0.2",
     "truffle": "^3.2.1",
     "truffle-contract": "^2.0.0",
+    "uport-connect": "^0.6.0",
     "web3": "^0.16.0"
   },
   "scripts": {
-    "build": "node_modules/.bin/browserify -t babelify src/uportregistry.js -s uportRegistry -o dist/uportregistry.js",
+    "build-tutorial": "node_modules/.bin/browserify -t babelify tutorial/uportreg_node.js -s uportregistry -o tutorial/uportregistry.js",
     "compile-contract": "./node_modules/.bin/truffle compile",
     "lint": "./node_modules/.bin/solium -d contracts",
     "test": "node_modules/.bin/mocha --compilers js:babel-core/register --reporter spec"
